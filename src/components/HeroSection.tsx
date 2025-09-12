@@ -83,14 +83,14 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Hero Section with Background Image */}
-      <div className="relative w-full min-h-[90vh] md:min-h-[90vh]" 
-           style={{ 
-             backgroundImage: 'url(/hero-background.png)',
-             backgroundSize: '100% 100%',
-             backgroundPosition: 'center center',
-             backgroundRepeat: 'no-repeat',
-             minHeight: '90vh'
-           }}>
+                  <div className="relative w-full min-h-[90vh] md:min-h-[90vh]" 
+                       style={{ 
+                         backgroundImage: 'url(/hero-background.png)',
+                         backgroundSize: 'cover',
+                         backgroundPosition: 'center center',
+                         backgroundRepeat: 'no-repeat',
+                         minHeight: '90vh'
+                       }}>
       
       {/* First Row - Header */}
       <div className="relative z-10">
