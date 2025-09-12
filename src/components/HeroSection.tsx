@@ -82,15 +82,15 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section with Background Image */}
-      <div className="relative w-full min-h-[50vh] md:min-h-[60vh]" 
-           style={{ 
-             backgroundImage: 'url(/hero-background.png)',
-             backgroundSize: '100% 100%',
-             backgroundPosition: 'center top',
-             backgroundRepeat: 'no-repeat',
-             minHeight: '50vh'
-           }}>
+       {/* Hero Section with Background Image */}
+       <div className="relative w-full min-h-[50vh] md:min-h-[60vh]" 
+            style={{ 
+              backgroundImage: 'url(/hero-background.png)',
+              backgroundSize: '100% 100%',
+              backgroundPosition: 'center top',
+              backgroundRepeat: 'no-repeat',
+              minHeight: '50vh'
+            }}>
       
       {/* First Row - Header */}
       <div className="relative z-10">
@@ -255,13 +255,13 @@ const HeroSection: React.FC = () => {
             {/* Right Column - Phone Image at Bottom */}
             <div className="flex-1 flex justify-center lg:justify-end items-end mt-8 lg:mt-0">
               <div className="relative">
-                <Image
-                  src="/hero-phone.png"
-                  alt="Broken Phone"
-                  width={300}
-                  height={450}
-                  className="w-full max-w-[250px] md:max-w-[300px] lg:max-w-[350px] h-auto"
-                />
+                 <Image
+                   src="/hero-phone.png"
+                   alt="Broken Phone"
+                   width={300}
+                   height={450}
+                   className="w-full max-w-[250px] md:max-w-[300px] lg:max-w-[350px] h-auto"
+                 />
               </div>
             </div>
           </div>
