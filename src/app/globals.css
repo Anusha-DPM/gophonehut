@@ -4,3 +4,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles */
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.font-raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+.font-sansation {
+  font-family: 'Sansation', sans-serif;
+}
+
+/* Ensure proper styling for all elements */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+}
+
+/* Custom utility classes */
+.text-custom-blue {
+  color: #007dd9;
+}
+
+.text-custom-green {
+  color: #71af43;
+}
+
+.bg-custom-gray {
+  background-color: #f2f2f2;
+}
+
+.text-nav-blue {
+  color: #0e72d2;
+}
+
+.text-hover-gray {
+  color: #6d6e71;
+}
+
+.hover\:text-custom-green:hover {
+  color: #71af43;
+}
+
+.hover\:text-hover-gray:hover {
+  color: #6d6e71;
+}
