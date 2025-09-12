@@ -10,29 +10,29 @@ const RepairSection: React.FC = () => {
     {
       id: 'phone',
       label: 'Phone',
-      image: '/what-are-you-need -phone1.png',
-      hoverImage: '/what-are-you-need -phone-hover.png',
+      image: '/what-are-you-need-phone1.png',
+      hoverImage: '/what-are-you-need-phone-hover.png',
       href: '#'
     },
     {
       id: 'tablet',
       label: 'Tablet',
-      image: '/what-are-you-need -tab.png',
-      hoverImage: '/what-are-you-need -tab-hover.png',
+      image: '/what-are-you-need-tab.png',
+      hoverImage: '/what-are-you-need-tab-hover.png',
       href: '#'
     },
     {
       id: 'smartwatch',
       label: 'Smartwatch',
-      image: '/what-are-you-need -watch.png',
-      hoverImage: '/what-are-you-need -watch-hover.png',
+      image: '/what-are-you-need-watch.png',
+      hoverImage: '/what-are-you-need-watch-hover.png',
       href: '#'
     },
     {
       id: 'computer',
       label: 'Computer',
-      image: '/what-are-you-need -laptop.png',
-      hoverImage: '/what-are-you-need -laptop-hover.png',
+      image: '/what-are-you-need-laptop.png',
+      hoverImage: '/what-are-you-need-laptop-hover.png',
       href: '#'
     }
   ]
