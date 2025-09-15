@@ -64,6 +64,93 @@ const TopHeader: React.FC = () => {
           >
             Track Order
           </a>
+          
+          {/* Repairs Dropdown */}
+          <div className="relative group">
+            <a 
+              href="/repairs" 
+              className="capitalize hover:text-custom-green transition-colors duration-200"
+            >
+              Repairs
+            </a>
+            <div className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="py-2">
+                <a
+                  href="/product-category/phone"
+                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    color: '#0e72d2',
+                    fontWeight: 'bold',
+                    fontSize: '15px',
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                >
+                  Phone
+                </a>
+                <a
+                  href="/product-category/c-tablet"
+                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    color: '#0e72d2',
+                    fontWeight: 'bold',
+                    fontSize: '15px',
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                >
+                  Tablet
+                </a>
+                <a
+                  href="/product-category/smartwatch"
+                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    color: '#0e72d2',
+                    fontWeight: 'bold',
+                    fontSize: '15px',
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                >
+                  Smartwatch
+                </a>
+                <a
+                  href="/product-category/computer"
+                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    color: '#0e72d2',
+                    fontWeight: 'bold',
+                    fontSize: '15px',
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                >
+                  Computer
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <a 
+            href="/why" 
+            className="capitalize hover:text-custom-green transition-colors duration-200"
+          >
+            Why Us
+          </a>
+          <a 
+            href="/contact-us" 
+            className="capitalize hover:text-custom-green transition-colors duration-200"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
     </div>

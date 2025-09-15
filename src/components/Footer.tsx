@@ -177,7 +177,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/why"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -187,6 +187,20 @@ const Footer: React.FC = () => {
                   }}
                 >
                   Why use us?
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact-us"
+                  className="hover:text-gray-600 transition-colors duration-200"
+                  style={{
+                    fontSize: '14px',
+                    lineHeight: '20px',
+                    fontFamily: 'lato',
+                    color: '#333'
+                  }}
+                >
+                  Contact Us
                 </a>
               </li>
               <li>
@@ -211,13 +225,15 @@ const Footer: React.FC = () => {
             {/* Logo */}
             <div className="mb-6">
               <div>
-                <Image
-                  src="/website-logo.png"
-                  alt="Phone Hut Logo"
-                  width={200}
-                  height={80}
-                  className="h-16 w-auto"
-                />
+                <a href="/" className="block">
+                  <Image
+                    src="/website-logo.png"
+                    alt="Phone Hut Logo"
+                    width={200}
+                    height={80}
+                    className="h-16 w-auto"
+                  />
+                </a>
               </div>
             </div>
 
@@ -332,7 +348,7 @@ const Footer: React.FC = () => {
                 className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-200"
               >
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7h2v-2h-2v2zm0-4h2V6h-2v5z"/>
                 </svg>
               </a>
             </div>

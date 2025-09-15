@@ -93,11 +93,13 @@ export default function HowItWorksPage() {
           <div className="flex flex-row justify-between items-center gap-2 md:gap-4">
             {/* Left side - Logo */}
             <div className="flex items-center gap-2">
-              <img
-                src="/website-logo.png"
-                alt="PhoneHut Logo"
-                className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto"
-              />
+              <a href="/" className="block">
+                <img
+                  src="/website-logo.png"
+                  alt="PhoneHut Logo"
+                  className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto"
+                />
+              </a>
             </div>
 
             {/* Right side - Navigation */}

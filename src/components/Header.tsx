@@ -35,30 +35,98 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Image
-                src="/website-logo.png"
-                alt="Phone Hut Logo"
-                width={120}
-                height={40}
-                className="h-8 md:h-10 w-auto"
-              />
+              <a href="/" className="block">
+                <Image
+                  src="/website-logo.png"
+                  alt="Phone Hut Logo"
+                  width={120}
+                  height={40}
+                  className="h-8 md:h-10 w-auto"
+                />
+              </a>
             </div>
 
 
             {/* Desktop Main Menu */}
             <nav className="hidden lg:flex items-center space-x-8">
-              <a
-                href="/repairs"
-                className="hover:text-gray-600 transition-colors duration-200"
-                style={{
-                  fontSize: '16px',
-                  fontFamily: 'lato',
-                  color: '#333',
-                  fontWeight: '600'
-                }}
-              >
-                Repairs
-              </a>
+              <div className="relative group">
+                <a
+                  href="/repairs"
+                  className="hover:text-gray-600 transition-colors duration-200"
+                  style={{
+                    fontSize: '16px',
+                    fontFamily: 'lato',
+                    color: '#333',
+                    fontWeight: '600'
+                  }}
+                >
+                  Repairs
+                </a>
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200">
+                  <div className="py-2">
+                    <a
+                      href="/product-category/phone"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Phone
+                    </a>
+                    <a
+                      href="/product-category/c-tablet"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Tablet
+                    </a>
+                    <a
+                      href="/product-category/smartwatch"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Smartwatch
+                    </a>
+                    <a
+                      href="/product-category/computer"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Computer
+                    </a>
+                  </div>
+                </div>
+              </div>
               
               <a
                 href="/services"
@@ -85,7 +153,7 @@ const Header: React.FC = () => {
                 How it works
               </a>
               <a
-                href="#"
+                href="/why"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
                   fontSize: '16px',
@@ -97,7 +165,7 @@ const Header: React.FC = () => {
                 Why Us
               </a>
               <a
-                href="#"
+                href="/contact-us"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
                   fontSize: '16px',
@@ -132,7 +200,7 @@ const Header: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <a
-                    href="#"
+                    href="/repairs"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
                     style={{
                       fontFamily: 'lato',
@@ -142,6 +210,60 @@ const Header: React.FC = () => {
                   >
                     Repairs
                   </a>
+                  <div className="ml-4 space-y-2">
+                    <a
+                      href="/product-category/phone"
+                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '14px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      Phone
+                    </a>
+                    <a
+                      href="/product-category/c-tablet"
+                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '14px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      Tablet
+                    </a>
+                    <a
+                      href="/product-category/smartwatch"
+                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '14px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      Smartwatch
+                    </a>
+                    <a
+                      href="/product-category/computer"
+                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '14px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      Computer
+                    </a>
+                  </div>
                   <a
                     href="#"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
@@ -154,7 +276,7 @@ const Header: React.FC = () => {
                     Services
                   </a>
                   <a
-                    href="#"
+                    href="/how-it-works"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
                     style={{
                       fontFamily: 'lato',
@@ -165,7 +287,7 @@ const Header: React.FC = () => {
                     How it works
                   </a>
                   <a
-                    href="#"
+                    href="/why"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
                     style={{
                       fontFamily: 'lato',
@@ -176,7 +298,7 @@ const Header: React.FC = () => {
                     Why Us
                   </a>
                   <a
-                    href="#"
+                    href="/contact-us"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
                     style={{
                       fontFamily: 'lato',
