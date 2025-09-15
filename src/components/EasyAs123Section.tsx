@@ -93,6 +93,9 @@ const EasyAs123Section: React.FC = () => {
                       width={40}
                       height={40}
                       className="w-10 h-10 md:w-12 md:h-12 transition-all duration-300"
+                      style={{
+                        filter: hoveredFeature === feature.id ? 'brightness(0) invert(1)' : 'none'
+                      }}
                       onLoad={() => {
                         console.log('Image loaded successfully:', hoveredFeature === feature.id ? feature.hoverIcon : feature.icon);
                       }}

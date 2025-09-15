@@ -2,6 +2,7 @@ import HeroSection from '@/components/HeroSection'
 import RepairSection from '@/components/RepairSection'
 import WhyChooseUsSection from '@/components/WhyChooseUsSection'
 import EasyAs123Section from '@/components/EasyAs123Section'
+import ReviewsSection from '@/components/ReviewsSection'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <RepairSection />
       <WhyChooseUsSection />
       <EasyAs123Section />
+      <ReviewsSection />
     </main>
   )
 }
