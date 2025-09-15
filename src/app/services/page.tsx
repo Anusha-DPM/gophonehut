@@ -83,19 +83,85 @@ export default function ServicesPage() {
             {/* Right side - Navigation */}
             <div className="flex items-center gap-8">
               <nav className="hidden md:flex items-center gap-8">
-                <a href="/repairs" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
-                  Repairs
-                </a>
+                <div className="relative group">
+                  <a href="/repairs" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                    Repairs
+                  </a>
+                  <div className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200">
+                    <div className="py-2">
+                      <a
+                        href="/product-category/phone"
+                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: '#0e72d2',
+                          fontWeight: 'bold',
+                          fontSize: '15px',
+                          letterSpacing: '1px',
+                          textTransform: 'uppercase'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                      >
+                        Phone
+                      </a>
+                      <a
+                        href="/product-category/c-tablet"
+                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: '#0e72d2',
+                          fontWeight: 'bold',
+                          fontSize: '15px',
+                          letterSpacing: '1px',
+                          textTransform: 'uppercase'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                      >
+                        Tablet
+                      </a>
+                      <a
+                        href="/product-category/smartwatch"
+                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: '#0e72d2',
+                          fontWeight: 'bold',
+                          fontSize: '15px',
+                          letterSpacing: '1px',
+                          textTransform: 'uppercase'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                      >
+                        Smartwatch
+                      </a>
+                      <a
+                        href="/product-category/computer"
+                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: '#0e72d2',
+                          fontWeight: 'bold',
+                          fontSize: '15px',
+                          letterSpacing: '1px',
+                          textTransform: 'uppercase'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                      >
+                        Computer
+                      </a>
+                    </div>
+                  </div>
+                </div>
                 <a href="/services" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
                   Services
                 </a>
                 <a href="/how-it-works" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
                   How It Works
                 </a>
-                <a href="#" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                <a href="/why" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
                   Why Us
                 </a>
-                <a href="#" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                <a href="/contact-us" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
                   Contact
                 </a>
               </nav>
