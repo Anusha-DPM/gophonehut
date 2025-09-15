@@ -1,155 +1,213 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 const Header: React.FC = () => {
+  const [isSticky, setIsSticky] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsSticky(scrollTop > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
-      {/* Top Header Section */}
-      <div className="bg-custom-gray w-full py-3 px-4 md:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
-          {/* Left side - Contact Information */}
-          <div className="flex items-center gap-2 text-sm font-lato font-normal text-black">
-            <div className="flex items-center gap-1">
-              {/* Phone Icon */}
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="currentColor"
-                className="text-black"
-              >
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-              </svg>
-              <span>408-224-2869</span>
-            </div>
-            
-            <span className="text-black">|</span>
-            
-            <div className="flex items-center gap-1">
-              {/* Clock Icon */}
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-black"
-              >
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12,6 12,12 16,14"/>
-              </svg>
-              <span>Hours Vary By Location</span>
-            </div>
-          </div>
-
-          {/* Right side - Navigation Links */}
-          <div className="flex items-center gap-6 text-sm font-lato font-medium text-custom-blue">
-            <a 
-              href="#" 
-              className="capitalize hover:text-custom-green transition-colors duration-200"
-            >
-              Quick Repair
-            </a>
-            <a 
-              href="#" 
-              className="capitalize hover:text-custom-green transition-colors duration-200"
-            >
-              Locations
-            </a>
-            <a 
-              href="#" 
-              className="capitalize hover:text-custom-green transition-colors duration-200"
-            >
-              Track Order
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Header Section */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-            {/* Left side - Logo */}
-            <div className="flex items-center gap-2">
+      {/* Main Header - Only visible when sticky */}
+      <header
+        className={`w-full transition-all duration-300 ${
+          isSticky 
+            ? 'fixed top-0 z-50 shadow-lg' 
+            : 'hidden'
+        }`}
+        style={{ 
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)'
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <div className="flex-shrink-0">
               <Image
                 src="/website-logo.png"
-                alt="PhoneHut Logo"
-                width={200}
-                height={60}
-                className="h-12 w-auto"
+                alt="Phone Hut Logo"
+                width={120}
+                height={40}
+                className="h-8 md:h-10 w-auto"
               />
             </div>
 
-            {/* Right side - Navigation */}
-            <div className="flex items-center gap-8">
-              <nav className="hidden md:flex items-center gap-8">
-                <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-                  Repairs
-                </a>
-                <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-                  Services
-                </a>
-                <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-                  How it works
-                </a>
-                <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-                  Why Us
-                </a>
-                <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-                  Contact
-                </a>
-              </nav>
-              
-              {/* Search Icon */}
-              <div className="ml-4">
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-nav-blue hover:text-hover-gray transition-colors duration-200 cursor-pointer"
+
+            {/* Desktop Main Menu */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <div className="relative group">
+                <button
+                  className="flex items-center space-x-1 hover:text-gray-600 transition-colors duration-200"
+                  style={{
+                    fontSize: '16px',
+                    fontFamily: 'lato',
+                    color: '#333',
+                    fontWeight: '600'
+                  }}
                 >
-                  <circle cx="11" cy="11" r="8"/>
-                  <path d="m21 21-4.35-4.35"/>
-                </svg>
+                  <span>Repairs</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="py-2">
+                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Phone</a>
+                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Tablet</a>
+                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Smartwatch</a>
+                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Computer</a>
+                  </div>
+                </div>
+              </div>
+              
+              <a
+                href="#"
+                className="hover:text-gray-600 transition-colors duration-200"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'lato',
+                  color: '#333',
+                  fontWeight: '600'
+                }}
+              >
+                Services
+              </a>
+              <a
+                href="#"
+                className="hover:text-gray-600 transition-colors duration-200"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'lato',
+                  color: '#333',
+                  fontWeight: '600'
+                }}
+              >
+                How it works
+              </a>
+              <a
+                href="#"
+                className="hover:text-gray-600 transition-colors duration-200"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'lato',
+                  color: '#333',
+                  fontWeight: '600'
+                }}
+              >
+                Why Us
+              </a>
+              <a
+                href="#"
+                className="hover:text-gray-600 transition-colors duration-200"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'lato',
+                  color: '#333',
+                  fontWeight: '600'
+                }}
+              >
+                Contact
+              </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden border-t border-gray-200 py-4">
+              <div className="space-y-4">
+                <div>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    Repairs
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    Services
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    How it works
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    Why Us
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    Contact
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Navigation */}
-      <div className="md:hidden bg-white border-t border-gray-200">
-        <div className="px-4 py-3">
-          <nav className="flex items-center justify-center gap-6">
-            <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-              Repairs
-            </a>
-            <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-              Services
-            </a>
-            <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-              How it works
-            </a>
-            <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-              Why Us
-            </a>
-            <a href="#" className="text-nav-blue font-raleway font-bold uppercase hover:text-hover-gray transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px' }}>
-              Contact
-            </a>
-          </nav>
-        </div>
-      </div>
+      {/* Spacer for sticky header */}
+      {isSticky && <div className="h-16 md:h-20" />}
     </>
   )
 }
