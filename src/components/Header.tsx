@@ -47,34 +47,21 @@ const Header: React.FC = () => {
 
             {/* Desktop Main Menu */}
             <nav className="hidden lg:flex items-center space-x-8">
-              <div className="relative group">
-                <button
-                  className="flex items-center space-x-1 hover:text-gray-600 transition-colors duration-200"
-                  style={{
-                    fontSize: '16px',
-                    fontFamily: 'lato',
-                    color: '#333',
-                    fontWeight: '600'
-                  }}
-                >
-                  <span>Repairs</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {/* Dropdown Menu */}
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="py-2">
-                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Phone</a>
-                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Tablet</a>
-                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Smartwatch</a>
-                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200">Computer</a>
-                  </div>
-                </div>
-              </div>
+              <a
+                href="/repairs"
+                className="hover:text-gray-600 transition-colors duration-200"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'lato',
+                  color: '#333',
+                  fontWeight: '600'
+                }}
+              >
+                Repairs
+              </a>
               
               <a
-                href="#"
+                href="/services"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
                   fontSize: '16px',
@@ -86,7 +73,7 @@ const Header: React.FC = () => {
                 Services
               </a>
               <a
-                href="#"
+                href="/how-it-works"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
                   fontSize: '16px',

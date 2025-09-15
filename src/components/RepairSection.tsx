@@ -3,7 +3,12 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 
-const RepairSection: React.FC = () => {
+interface RepairSectionProps {
+  heading?: string
+  showSearchBar?: boolean
+}
+
+const RepairSection: React.FC<RepairSectionProps> = ({ heading = "What are you needing repaired?", showSearchBar = true }) => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
 
   const repairCategories = [
@@ -41,7 +46,7 @@ const RepairSection: React.FC = () => {
     <section className="py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Title */}
-        <div className="text-center mb-4">
+        <div className={`text-center ${showSearchBar ? 'mb-4' : 'mb-12 md:mb-16'}`}>
           <h2 
             className="font-raleway font-bold uppercase"
             style={{ 
@@ -52,24 +57,26 @@ const RepairSection: React.FC = () => {
               letterSpacing: '1px'
             }}
           >
-            What are you needing repaired?
+            {heading}
           </h2>
         </div>
 
         {/* Search Bar */}
-        <div className="max-w-xs mx-auto mb-12 md:mb-16">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search for your device here"
-              className="w-full px-0 py-3 border-0 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-lg bg-transparent text-center"
-              style={{ 
-                fontFamily: "'Raleway', sans-serif",
-                letterSpacing: '1.1px'
-              }}
-            />
+        {showSearchBar && (
+          <div className="max-w-xs mx-auto mb-12 md:mb-16">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search for your device here"
+                className="w-full px-0 py-3 border-0 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-lg bg-transparent text-center"
+                style={{ 
+                  fontFamily: "'Raleway', sans-serif",
+                  letterSpacing: '1.1px'
+                }}
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Repair Categories Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">

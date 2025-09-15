@@ -2,24 +2,12 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ServicesSection from '@/components/ServicesSection'
 
-export default function SmartwatchPage() {
-  const brands = [
-    {
-      id: 'apple',
-      name: '',
-      logo: '/apple.png'
-    },
-    {
-      id: 'samsung',
-      name: '',
-      logo: '/samsung.png'
-    }
-  ]
-
+export default function ServicesPage() {
   return (
     <main className="min-h-screen">
-      {/* Top Header Section */}
+      {/* Top Header Section - Copied from phone page */}
       <div className="w-full" style={{ backgroundColor: '#f2f2f2' }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-2">
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
@@ -77,7 +65,7 @@ export default function SmartwatchPage() {
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* Main Header - Copied from phone page */}
       <div className="w-full bg-white" style={{ boxShadow: '0px 10px 15px rgba(0, 0, 0, 0.05)' }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-6">
           <div className="flex flex-row justify-between items-center gap-4">
@@ -135,111 +123,27 @@ export default function SmartwatchPage() {
 
       <Header />
 
-      {/* Brand Selection Section */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
-          {/* Section Heading */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2
-              className="font-raleway font-bold uppercase text-xl sm:text-2xl md:text-3xl"
+      {/* Services Banner Section */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#007DD2' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="text-center">
+            <h1
+              className="font-raleway font-semibold text-white"
               style={{
-                color: '#233d63',
                 fontFamily: "'Raleway', sans-serif",
-                letterSpacing: '1px',
-                fontWeight: '700'
+                fontWeight: '600',
+                fontSize: '36px',
+                color: 'white'
               }}
             >
-              Select your brand
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-2xl mx-auto">
-            {brands.map((brand) => (
-              <div
-                key={brand.id}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 md:p-8 text-center cursor-pointer border border-gray-200 group relative"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'white'
-                }}
-              >
-                {/* Tick Icon - Top Right Corner */}
-                <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                  </svg>
-                </div>
-
-                {/* Brand Logo */}
-                <div className="mb-4 md:mb-6">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto flex items-center justify-center">
-                    <img
-                      src={brand.logo}
-                      alt={`${brand.name} Logo`}
-                      className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
-                    />
-                  </div>
-                </div>
-
-                {/* Brand Name */}
-                <h3
-                  className="text-lg sm:text-xl md:text-2xl font-bold text-[#233d63] group-hover:text-white transition-colors duration-300"
-                  style={{
-                    fontFamily: "'Raleway', sans-serif"
-                  }}
-                >
-                  {brand.name}
-                </h3>
-              </div>
-            ))}
+              Services
+            </h1>
           </div>
         </div>
       </section>
 
-      {/* Can't Find Your Device Section */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center">
-          <h2
-            className="text-3xl md:text-4xl font-bold mb-6"
-            style={{
-              fontFamily: "'Raleway', sans-serif",
-              color: '#233d63'
-            }}
-          >
-            Can&apos;t find a model you&apos;re looking for?
-          </h2>
-          
-          <p
-            className="text-lg mb-8"
-            style={{
-              fontFamily: 'lato',
-              color: '#666',
-              lineHeight: '1.6'
-            }}
-          >
-            Get in touch for a free estimate and see how we can help with your smartwatch repair.
-          </p>
-
-          <button
-            className="py-4 px-8 rounded-lg font-semibold text-lg transition-colors duration-200"
-            style={{
-              backgroundColor: '#6d6e71',
-              color: 'white',
-              fontFamily: 'lato'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0056b3'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#6d6e71'
-            }}
-          >
-            Quote Request
-          </button>
-        </div>
-      </section>
+      {/* Services Section - Without heading */}
+      <ServicesSection />
 
       <Footer />
     </main>

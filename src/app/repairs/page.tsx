@@ -2,8 +2,9 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import RepairSection from '@/components/RepairSection'
 
-export default function SmartwatchPage() {
+export default function RepairsPage() {
   const brands = [
     {
       id: 'apple',
@@ -14,12 +15,17 @@ export default function SmartwatchPage() {
       id: 'samsung',
       name: '',
       logo: '/samsung.png'
+    },
+    {
+      id: 'google',
+      name: '',
+      logo: '/goolge.png'
     }
   ]
 
   return (
     <main className="min-h-screen">
-      {/* Top Header Section */}
+      {/* Top Header Section - Copied from phone page */}
       <div className="w-full" style={{ backgroundColor: '#f2f2f2' }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-2">
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
@@ -77,7 +83,7 @@ export default function SmartwatchPage() {
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* Main Header - Copied from phone page */}
       <div className="w-full bg-white" style={{ boxShadow: '0px 10px 15px rgba(0, 0, 0, 0.05)' }}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-6">
           <div className="flex flex-row justify-between items-center gap-4">
@@ -135,7 +141,40 @@ export default function SmartwatchPage() {
 
       <Header />
 
-      {/* Brand Selection Section */}
+      {/* Repair My Device Section */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#007DD2' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="text-center">
+            <h1
+              className="font-raleway font-bold uppercase mb-6 text-2xl md:text-4xl"
+              style={{
+                fontFamily: "'Raleway', sans-serif",
+                color: 'white',
+                letterSpacing: '1px',
+                fontWeight: '700'
+              }}
+            >
+              Repair My Device
+            </h1>
+            
+            <p
+              className="text-lg md:text-xl max-w-4xl mx-auto mb-8"
+              style={{
+                fontFamily: "'Lato', sans-serif",
+                color: 'white',
+                lineHeight: '1.5'
+              }}
+            >
+              Simply navigate through the menu and select the correct device and repair service needed. You can also select your repair by brand.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Repair by Category Section */}
+      <RepairSection heading="REPAIR BY CATEGORY" showSearchBar={false} />
+
+      {/* Brand Selection Section - Copied from phone page */}
       <section className="py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Section Heading */}
@@ -153,7 +192,7 @@ export default function SmartwatchPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             {brands.map((brand) => (
               <div
                 key={brand.id}
@@ -198,48 +237,6 @@ export default function SmartwatchPage() {
         </div>
       </section>
 
-      {/* Can't Find Your Device Section */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center">
-          <h2
-            className="text-3xl md:text-4xl font-bold mb-6"
-            style={{
-              fontFamily: "'Raleway', sans-serif",
-              color: '#233d63'
-            }}
-          >
-            Can&apos;t find a model you&apos;re looking for?
-          </h2>
-          
-          <p
-            className="text-lg mb-8"
-            style={{
-              fontFamily: 'lato',
-              color: '#666',
-              lineHeight: '1.6'
-            }}
-          >
-            Get in touch for a free estimate and see how we can help with your smartwatch repair.
-          </p>
-
-          <button
-            className="py-4 px-8 rounded-lg font-semibold text-lg transition-colors duration-200"
-            style={{
-              backgroundColor: '#6d6e71',
-              color: 'white',
-              fontFamily: 'lato'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0056b3'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#6d6e71'
-            }}
-          >
-            Quote Request
-          </button>
-        </div>
-      </section>
 
       <Footer />
     </main>
