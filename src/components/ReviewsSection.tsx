@@ -85,7 +85,7 @@ const ReviewsSection: React.FC = () => {
                         color: '#555'
                       }}
                     >
-                      "{review.description}"
+                      &ldquo;{review.description}&rdquo;
                     </p>
 
                     {/* User Name */}
