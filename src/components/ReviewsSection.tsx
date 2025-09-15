@@ -43,7 +43,7 @@ const ReviewsSection: React.FC = () => {
             style={{ 
               fontSize: '26px', 
               color: '#233D63',
-              fontFamily: "'Raleway', sans-serif",
+              fontFamily: '&quot;Raleway&quot;, sans-serif',
               letterSpacing: '1px',
               fontWeight: '700'
             }}
@@ -79,7 +79,7 @@ const ReviewsSection: React.FC = () => {
                       style={{
                         fontSize: '17px',
                         fontWeight: 'bold',
-                        fontFamily: "'Crete Round', serif",
+                        fontFamily: '&quot;Crete Round&quot;, serif',
                         fontStyle: 'italic',
                         lineHeight: '1.3',
                         color: '#555'
