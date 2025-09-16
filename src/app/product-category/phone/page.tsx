@@ -15,7 +15,7 @@ export default function PhonePage() {
       id: 'samsung',
       name: 'Samsung',
       logo: '/samsung.png',
-      link: '#'
+      link: '/product-category/phone/samsung'
     },
     {
       id: 'google',

@@ -3,63 +3,9 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 import TopHeader from '@/components/TopHeader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-
-// Apple iPhone models data - matching GoPhoneHut reference
-const applePhones = [
-  { id: 1, name: 'iPhone 14 Pro Max', slug: 'iphone-14-pro-max', image: '/phone/1.png' },
-  { id: 2, name: 'iPhone 14 Pro', slug: 'iphone-14-pro', image: '/phone/2.png' },
-  { id: 3, name: 'iPhone 14 Plus', slug: 'iphone-14-plus', image: '/phone/3.png' },
-  { id: 4, name: 'iPhone 14', slug: 'iphone-14', image: '/phone/4.png' },
-  { id: 5, name: 'iPhone 13 Pro Max', slug: 'iphone-13-pro-max', image: '/phone/5.png' },
-  { id: 6, name: 'iPhone 13 Pro', slug: 'iphone-13-pro', image: '/phone/6.png' },
-  { id: 7, name: 'iPhone 13', slug: 'iphone-13', image: '/phone/7.png' },
-  { id: 8, name: 'iPhone 13 Mini', slug: 'iphone-13-mini', image: '/phone/8.png' },
-  { id: 9, name: 'iPhone 12 Pro Max', slug: 'iphone-12-pro-max', image: '/phone/9.png' },
-  { id: 10, name: 'iPhone 12 Pro', slug: 'iphone-12-pro', image: '/phone/10.png' },
-  { id: 11, name: 'iPhone 12', slug: 'iphone-12', image: '/phone/11.png' },
-  { id: 12, name: 'iPhone 12 Mini', slug: 'iphone-12-mini', image: '/phone/12.png' },
-  { id: 13, name: 'iPhone 11 Pro Max', slug: 'iphone-11-pro-max', image: '/phone/13.png' },
-  { id: 14, name: 'iPhone 11 Pro', slug: 'iphone-11-pro', image: '/phone/14.png' },
-  { id: 15, name: 'iPhone 11', slug: 'iphone-11', image: '/phone/15.png' },
-  { id: 16, name: 'iPhone XS Max', slug: 'iphone-xs-max', image: '/phone/16.png' },
-  { id: 17, name: 'iPhone XS', slug: 'iphone-xs', image: '/phone/17.png' },
-  { id: 18, name: 'iPhone XR', slug: 'iphone-xr', image: '/phone/18.png' },
-  { id: 19, name: 'iPhone X', slug: 'iphone-x', image: '/phone/19.png' },
-  { id: 20, name: 'iPhone SE (2020)', slug: 'iphone-se-2020', image: '/phone/20.png' },
-  { id: 21, name: 'iPhone 8 Plus', slug: 'iphone-8-plus', image: '/phone/21.png' },
-  { id: 22, name: 'iPhone 8', slug: 'iphone-8', image: '/phone/22.png' },
-  { id: 23, name: 'iPhone 7 Plus', slug: 'iphone-7-plus', image: '/phone/23.png' },
-  { id: 24, name: 'iPhone 7', slug: 'iphone-7', image: '/phone/24.png' },
-  { id: 25, name: 'iPhone 6S Plus', slug: 'iphone-6s-plus', image: '/phone/25.png' },
-  { id: 26, name: 'iPhone 6S', slug: 'iphone-6s', image: '/phone/26.png' },
-  { id: 27, name: 'iPhone 6 Plus', slug: 'iphone-6-plus', image: '/phone/27.png' },
-  { id: 28, name: 'iPhone SE (2016)', slug: 'iphone-se-2016', image: '/phone/28.png' },
-  { id: 29, name: 'iPhone 6', slug: 'iphone-6', image: '/phone/29.png' },
-  { id: 30, name: 'iPhone 5S', slug: 'iphone-5s', image: '/phone/30.png' },
-  { id: 31, name: 'iPhone 5C', slug: 'iphone-5c', image: '/phone/31.png' },
-  { id: 32, name: 'iPhone 5', slug: 'iphone-5', image: '/phone/32.png' },
-  { id: 33, name: 'iPhone 4S', slug: 'iphone-4s', image: '/phone/33.png' },
-  { id: 34, name: 'iPhone 2G', slug: 'iphone-2g', image: '/phone/34.png' }
-]
-
-// Google Pixel models data
-const googlePhones = [
-  { id: 1, name: 'Pixel 4 XL', slug: 'pixel-4-xl', image: '/google/g1.png' },
-  { id: 2, name: 'pixel 4', slug: 'pixel-4', image: '/google/g2.png' },
-  { id: 3, name: 'pixel 3 xl', slug: 'pixel-3-xl', image: '/google/g3.png' },
-  { id: 4, name: 'pixel 4a', slug: 'pixel-4a', image: '/google/g4.png' },
-  { id: 5, name: 'pixel 3', slug: 'pixel-3', image: '/google/g5.png' },
-  { id: 6, name: 'pixel 3a xl', slug: 'pixel-3a-xl', image: '/google/g6.png' },
-  { id: 7, name: 'pixel 3a', slug: 'pixel-3a', image: '/google/g7.png' },
-  { id: 8, name: 'pixel 2 xl', slug: 'pixel-2-xl', image: '/google/g8.png' },
-  { id: 9, name: 'pixel 2', slug: 'pixel-2', image: '/google/g9.png' },
-  { id: 10, name: 'pixel xl', slug: 'pixel-xl', image: '/google/g10.png' },
-  { id: 11, name: 'pixel', slug: 'pixel', image: '/google/g11.png' }
-]
 
 // Samsung Galaxy models data - 234 models
 const samsungPhones = [
@@ -299,38 +245,18 @@ const samsungPhones = [
   { id: 234, name: 'GH T249', slug: 'gh-t249', image: '/samsung/gh-t249.png' }
 ]
 
-// Combine all phones
-const allPhones = [...applePhones, ...googlePhones, ...samsungPhones]
 
-const deviceIssues = [
-  { id: 1, name: 'HEADPHONES PLUG', image: '/phone/innerpage/b1.png' },
-  { id: 2, name: 'CHARGING PORT', image: '/phone/innerpage/b2.png' },
-  { id: 3, name: 'SIDE BUTTON', image: '/phone/innerpage/b3.png' },
-  { id: 4, name: 'ISIGHT CAMERA', image: '/phone/innerpage/b4.png' },
-  { id: 5, name: 'POWER BUTTON', image: '/phone/innerpage/b5.png' },
-  { id: 6, name: 'SCREEN', image: '/phone/innerpage/b6.png' },
-  { id: 7, name: 'BATTERY', image: '/phone/innerpage/b7.png' },
-  { id: 8, name: 'SOMETHING ELSE', image: '/phone/innerpage/b8.png' }
-]
+export default function SamsungPhonePage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filteredPhones, setFilteredPhones] = useState(samsungPhones)
 
-interface RepairPageProps {
-  params: {
-    slug: string
-  }
-}
-
-
-export default function RepairPage({ params }: RepairPageProps) {
-  // Find the phone by slug
-  const phone = allPhones.find(p => p.slug === params.slug)
-  const [selectedIssue, setSelectedIssue] = useState<string | null>(null)
-  
-  // Check if it's a Google phone
-  const isGooglePhone = googlePhones.some(p => p.slug === params.slug)
-  
-  // If phone not found, return 404
-  if (!phone) {
-    notFound()
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const term = e.target.value.toLowerCase()
+    setSearchTerm(term)
+    const filtered = samsungPhones.filter(phone => 
+      phone.name.toLowerCase().includes(term)
+    )
+    setFilteredPhones(filtered)
   }
 
   return (
@@ -455,260 +381,164 @@ export default function RepairPage({ params }: RepairPageProps) {
 
       <Header />
 
-      {/* Product Detail Section */}
+      {/* Product Selection Section */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <div className="mb-8">
-            <nav className="flex" aria-label="Breadcrumb">
-              <ol className="inline-flex items-center space-x-1 md:space-x-3">
-                <li className="inline-flex items-center">
-                  <Link href="/" className="text-gray-700 hover:text-blue-600">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                    </svg>
-                    <Link href="/product-category/phone" className="ml-1 text-gray-700 hover:text-blue-600 md:ml-2">
-                      Phone
-                    </Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                    </svg>
-                    <Link 
-                      href={applePhones.some(p => p.slug === params.slug) ? "/product-category/phone/apple" : "/product-category/phone/google"} 
-                      className="ml-1 text-gray-700 hover:text-blue-600 md:ml-2"
-                    >
-                      {applePhones.some(p => p.slug === params.slug) ? "Apple" : "Google"}
-                    </Link>
-                  </div>
-                </li>
-                <li aria-current="page">
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                    </svg>
-                    <span className="ml-1 text-gray-500 md:ml-2">{phone.name}</span>
-                  </div>
-                </li>
-              </ol>
-            </nav>
+          {/* Section Heading */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2
+              className="font-raleway font-bold uppercase mb-4"
+              style={{
+                fontSize: '36px',
+                color: 'black',
+                fontFamily: "'Raleway', sans-serif",
+                letterSpacing: '1px',
+                fontWeight: '700'
+              }}
+            >
+              Select your model
+            </h2>
+            <p
+              className="font-lato"
+              style={{
+                fontSize: '20px',
+                lineHeight: '1.5',
+                color: 'black',
+                fontFamily: "'Lato', sans-serif"
+              }}
+            >
+              Please select your model to repair
+            </p>
           </div>
 
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-16">
-            {/* Left Section - Phone Image, Name, Change Model */}
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center mb-0 flex flex-col justify-center">
-              {/* iPhone Model Image */}
-              <div className="mb-2">
-                <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto flex items-center justify-center">
-                  <Image
-                    src={phone.image}
-                    alt={phone.name}
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-
-              <h1
-                className="font-bold mb-2"
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search for your device here"
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full px-6 py-4 pr-12 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233d63',
-                  fontSize: '18px'
+                  fontSize: '16px',
+                  fontFamily: "'Lato', sans-serif"
+                }}
+              />
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-400"
+                >
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.35-4.35"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Product Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+            {filteredPhones.map((phone) => (
+              <Link
+                key={phone.id}
+                href={`/repair/${phone.slug}`}
+                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 md:p-6 text-center cursor-pointer border border-gray-200 group relative"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#6d6e71'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = 'white'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'white'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = '#233D63'
+                  }
                 }}
               >
-                {phone.name}
-              </h1>
-              
-              <div className="mb-0">
-                <button
-                  className="text-blue-600 hover:text-blue-800 underline font-medium"
-                  style={{
-                    fontFamily: "'Lato', sans-serif"
-                  }}
-                >
-                  Change Model?
-                </button>
-              </div>
-            </div>
-
-            {/* Right Section - Device Issues */}
-            <div className="lg:col-span-2">
-                 <h2
-                   className="text-2xl md:text-3xl font-bold mb-8 text-center lg:text-left"
-                   style={{
-                     fontFamily: "'Raleway', sans-serif",
-                     color: '#233d63',
-                     textTransform: 'uppercase'
-                   }}
-                 >
-                   please choose fault
-                 </h2>
-
-              {/* Selected Issue Display */}
-              {selectedIssue && (
-                <div className="mb-6">
-                  <div className="bg-white rounded-lg border border-gray-300 p-4">
-                     <h3
-                       className="text-lg font-bold mb-2"
-                       style={{
-                         fontFamily: "'Raleway', sans-serif",
-                         color: '#233d63',
-                         textTransform: 'uppercase'
-                       }}
-                     >
-                       PLEASE CHOOSE FAULT:
-                     </h3>
-                    <p 
-                      className="text-base"
-                      style={{
-                        fontFamily: "'Raleway', sans-serif",
-                        color: '#233d63',
-                        textTransform: 'capitalize'
-                      }}
-                    >
-                      {selectedIssue}
-                    </p>
+                {/* Product Image */}
+                <div className="mb-4 md:mb-6">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto flex items-center justify-center">
+                    <Image
+                      src={phone.image}
+                      alt={phone.name}
+                      width={112}
+                      height={112}
+                      className="w-full h-full object-contain transition-all duration-300"
+                    />
                   </div>
                 </div>
-              )}
 
-              {/* Device Issues Grid */}
-              <div className="mb-8">
-                {/* First Row - 4 Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6">
-                  {deviceIssues.slice(0, 4).map((issue) => (
-                    <div
-                      key={issue.id}
-                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${isGooglePhone ? 'p-4 lg:p-12' : 'p-4'}`}
-                      onClick={() => setSelectedIssue(issue.name)}
-                    >
-                      {/* Issue Image - Only show for non-Google phones */}
-                      {!isGooglePhone && (
-                        <div className="mb-4">
-                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
-                            <Image
-                              src={issue.image}
-                              alt={issue.name}
-                              width={64}
-                              height={64}
-                              className="w-full h-full object-contain transition-all duration-300"
-                            />
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Issue Name */}
-                      <h3
-                        className="transition-colors duration-300"
-                        style={{
-                          fontFamily: "'Raleway', sans-serif",
-                          fontSize: '13px',
-                          color: '#232222',
-                          textTransform: 'none',
-                          letterSpacing: '1px',
-                          fontWeight: '500'
-                        }}
-                      >
-                        {issue.name}
-                      </h3>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Second Row - 4 Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
-                  {deviceIssues.slice(4, 8).map((issue) => (
-                    <div
-                      key={issue.id}
-                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${isGooglePhone ? 'p-4 lg:p-12' : 'p-4'}`}
-                      onClick={() => setSelectedIssue(issue.name)}
-                    >
-                      {/* Issue Image - Only show for non-Google phones */}
-                      {!isGooglePhone && (
-                        <div className="mb-4">
-                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
-                            <Image
-                              src={issue.image}
-                              alt={issue.name}
-                              width={64}
-                              height={64}
-                              className="w-full h-full object-contain transition-all duration-300"
-                            />
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Issue Name */}
-                      <h3
-                        className="transition-colors duration-300"
-                        style={{
-                          fontFamily: "'Raleway', sans-serif",
-                          fontSize: '13px',
-                          color: '#232222',
-                          textTransform: 'none',
-                          letterSpacing: '1px',
-                          fontWeight: '500'
-                        }}
-                      >
-                        {issue.name}
-                      </h3>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-
-              {/* Next Button */}
-              <div className="flex justify-end">
-                <Link href={`/repair/appointment?issue=${encodeURIComponent(selectedIssue || '')}&device=${encodeURIComponent(phone.name)}`}>
-                  <button
-                    className="rounded-full font-lato font-bold text-white uppercase transition-all duration-300 flex items-center gap-2"
-                    style={{
-                      backgroundColor: '#6d6e71',
-                      fontWeight: '700',
-                      textTransform: 'uppercase',
-                      letterSpacing: '1px',
-                      fontFamily: "'Lato', sans-serif",
-                      borderRadius: '50px',
-                      padding: '5px 15px 5px 20px'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#0056b3'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#6d6e71'
-                    }}
-                  >
-                    Next
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 24 24" 
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14m-7-7 7 7-7 7"/>
-                    </svg>
-                  </button>
-                </Link>
-              </div>
-            </div>
+                {/* Product Name */}
+                <h3
+                  className="transition-colors duration-300"
+                  style={{
+                    fontFamily: "'Raleway', sans-serif",
+                    fontSize: '18px',
+                    color: '#233D63',
+                    textTransform: 'capitalize',
+                    fontWeight: '700'
+                  }}
+                >
+                  {phone.name}
+                </h3>
+              </Link>
+            ))}
           </div>
+        </div>
+      </section>
 
+
+      {/* Can't Find Your Device Section */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
+        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+          <h2
+            className="text-3xl md:text-4xl font-bold mb-6"
+            style={{
+              fontFamily: "'Raleway', sans-serif",
+              color: '#233d63'
+            }}
+          >
+            Can&apos;t find a model you&apos;re looking for?
+          </h2>
+          
+          <p
+            className="text-lg mb-8"
+            style={{
+              fontFamily: 'lato',
+              color: '#666',
+              lineHeight: '1.6'
+            }}
+          >
+            Get in touch for a free estimate and see how we can help.
+          </p>
+
+          <button
+            className="py-4 px-8 rounded-lg font-semibold text-lg transition-colors duration-200"
+            style={{
+              backgroundColor: '#6d6e71',
+              color: 'white',
+              fontFamily: 'lato'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#0056b3'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#6d6e71'
+            }}
+          >
+            Quote Request
+          </button>
         </div>
       </section>
 
