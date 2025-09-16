@@ -1,8 +1,15 @@
 'use client'
 
 import React from 'react'
+import { usePathname } from 'next/navigation'
 
-const TopHeader: React.FC = () => {
+interface TopHeaderProps {
+  showAllLinks?: boolean
+}
+
+const TopHeader: React.FC<TopHeaderProps> = ({ showAllLinks = true }) => {
+  const pathname = usePathname()
+  const isLocationsPage = pathname === '/locations'
   return (
     <div className="bg-custom-gray w-full py-3 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
@@ -53,104 +60,109 @@ const TopHeader: React.FC = () => {
             Quick Repair
           </a>
           <a 
-            href="#" 
+            href="/locations" 
             className="capitalize hover:text-custom-green transition-colors duration-200"
           >
             Locations
           </a>
           <a 
-            href="#" 
+            href="/order-track" 
             className="capitalize hover:text-custom-green transition-colors duration-200"
           >
             Track Order
           </a>
           
-          {/* Repairs Dropdown */}
-          <div className="relative group">
-            <a 
-              href="/repairs" 
-              className="capitalize hover:text-custom-green transition-colors duration-200"
-            >
-              Repairs
-            </a>
-            <div className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div className="py-2">
-                <a
-                  href="/product-category/phone"
-                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
-                  style={{
-                    color: '#0e72d2',
-                    fontWeight: 'bold',
-                    fontSize: '15px',
-                    letterSpacing: '1px',
-                    textTransform: 'uppercase'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+          {/* Only show these links if not on locations page */}
+          {!isLocationsPage && (
+            <>
+              {/* Repairs Dropdown */}
+              <div className="relative group">
+                <a 
+                  href="/repairs" 
+                  className="capitalize hover:text-custom-green transition-colors duration-200"
                 >
-                  Phone
+                  Repairs
                 </a>
-                <a
-                  href="/product-category/c-tablet"
-                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
-                  style={{
-                    color: '#0e72d2',
-                    fontWeight: 'bold',
-                    fontSize: '15px',
-                    letterSpacing: '1px',
-                    textTransform: 'uppercase'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
-                >
-                  Tablet
-                </a>
-                <a
-                  href="/product-category/smartwatch"
-                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
-                  style={{
-                    color: '#0e72d2',
-                    fontWeight: 'bold',
-                    fontSize: '15px',
-                    letterSpacing: '1px',
-                    textTransform: 'uppercase'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
-                >
-                  Smartwatch
-                </a>
-                <a
-                  href="/product-category/computer"
-                  className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
-                  style={{
-                    color: '#0e72d2',
-                    fontWeight: 'bold',
-                    fontSize: '15px',
-                    letterSpacing: '1px',
-                    textTransform: 'uppercase'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
-                >
-                  Computer
-                </a>
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="py-2">
+                    <a
+                      href="/product-category/phone"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Phone
+                    </a>
+                    <a
+                      href="/product-category/c-tablet"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Tablet
+                    </a>
+                    <a
+                      href="/product-category/smartwatch"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Smartwatch
+                    </a>
+                    <a
+                      href="/product-category/computer"
+                      className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: '#0e72d2',
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#6d6e71'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#0e72d2'}
+                    >
+                      Computer
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          
-          <a 
-            href="/why" 
-            className="capitalize hover:text-custom-green transition-colors duration-200"
-          >
-            Why Us
-          </a>
-          <a 
-            href="/contact-us" 
-            className="capitalize hover:text-custom-green transition-colors duration-200"
-          >
-            Contact Us
-          </a>
+              
+              <a 
+                href="/why" 
+                className="capitalize hover:text-custom-green transition-colors duration-200"
+              >
+                Why Us
+              </a>
+              <a 
+                href="/contact-us" 
+                className="capitalize hover:text-custom-green transition-colors duration-200"
+              >
+                Contact Us
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

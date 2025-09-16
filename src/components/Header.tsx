@@ -141,6 +141,18 @@ const Header: React.FC = () => {
                 Services
               </a>
               <a
+                href="/locations"
+                className="hover:text-gray-600 transition-colors duration-200"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'lato',
+                  color: '#333',
+                  fontWeight: '600'
+                }}
+              >
+                Locations
+              </a>
+              <a
                 href="/how-it-works"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
@@ -265,7 +277,7 @@ const Header: React.FC = () => {
                     </a>
                   </div>
                   <a
-                    href="#"
+                    href="/services"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
                     style={{
                       fontFamily: 'lato',
@@ -274,6 +286,17 @@ const Header: React.FC = () => {
                     }}
                   >
                     Services
+                  </a>
+                  <a
+                    href="/locations"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    Locations
                   </a>
                   <a
                     href="/how-it-works"

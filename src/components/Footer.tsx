@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/reviews"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
