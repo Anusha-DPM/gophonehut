@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
@@ -96,9 +97,11 @@ export default function ContactUs() {
           <div className="flex flex-row justify-between items-center gap-4">
             {/* Left side - Logo */}
             <div className="flex items-center gap-2">
-              <img
+              <Image
                 src="/website-logo.png"
                 alt="PhoneHut Logo"
+                width={120}
+                height={48}
                 className="h-8 md:h-10 lg:h-12 w-auto"
               />
             </div>
@@ -216,9 +219,11 @@ export default function ContactUs() {
 
       {/* Contact Image Section */}
       <section className="w-full">
-        <img
+        <Image
           src="/contact.jpg"
           alt="Contact Us"
+          width={1200}
+          height={400}
           className="w-full h-48 md:h-56 lg:h-64 object-cover"
         />
       </section>
