@@ -1,24 +1,45 @@
 'use client'
 
+import React, { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
+import TopHeader from '@/components/TopHeader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-export default function SmartwatchPage() {
-  const brands = [
-    {
-      id: 'apple',
-      name: '',
-      logo: '/apple.png',
-      link: '/product-category/c-smartwatch/apple'
-    },
-    {
-      id: 'samsung',
-      name: '',
-      logo: '/samsung.png',
-      link: '/product-category/c-smartwatch/samsung'
-    }
-  ]
+// Samsung Galaxy Watch models data - 17 models
+const samsungWatches = [
+  { id: 1, name: 'Galaxy Watch 46mm', slug: 'galaxy-watch-46mm', image: '/watch-samsung/galaxy-watch-46mm.png' },
+  { id: 2, name: 'Galaxy Watch 42mm', slug: 'galaxy-watch-42mm', image: '/watch-samsung/galaxy-watch-42mm.png' },
+  { id: 3, name: 'Galaxy Watch Active', slug: 'galaxy-watch-active', image: '/watch-samsung/galaxy-watch-active.png' },
+  { id: 4, name: 'Galaxy Watch Active 2 40mm', slug: 'galaxy-watch-active-2-40mm', image: '/watch-samsung/galaxy-watch-active-2-40mm.png' },
+  { id: 5, name: 'Galaxy Gear Sport', slug: 'galaxy-gear-sport', image: '/watch-samsung/galaxy-gear-sport.png' },
+  { id: 6, name: 'Galaxy Gear S3 Frontier', slug: 'galaxy-gear-s3-frontier', image: '/watch-samsung/galaxy-gear-s3-frontier.png' },
+  { id: 7, name: 'Galaxy Gear S3 Classic', slug: 'galaxy-gear-s3-classic', image: '/watch-samsung/galaxy-gear-s3-classic.png' },
+  { id: 8, name: 'Galaxy Gear S2', slug: 'galaxy-gear-s2', image: '/watch-samsung/galaxy-gear-s2.png' },
+  { id: 9, name: 'Galaxy Gear S2 Classic', slug: 'galaxy-gear-s2-classic', image: '/watch-samsung/galaxy-gear-s2-classic.png' },
+  { id: 10, name: 'Galaxy Gear S', slug: 'galaxy-gear-s', image: '/watch-samsung/galaxy-gear-s.png' },
+  { id: 11, name: 'Galaxy Gear Live', slug: 'galaxy-gear-live', image: '/watch-samsung/galaxy-gear-live.png' },
+  { id: 12, name: 'Galaxy Gear Fit2 Pro', slug: 'galaxy-gear-fit2-pro', image: '/watch-samsung/galaxy-gear-fit2-pro.png' },
+  { id: 13, name: 'Galaxy Gear Fit2', slug: 'galaxy-gear-fit2', image: '/watch-samsung/galaxy-gear-fit2.png' },
+  { id: 14, name: 'Galaxy Gear Fit', slug: 'galaxy-gear-fit', image: '/watch-samsung/galaxy-gear-fit.png' },
+  { id: 15, name: 'Galaxy Gear 2', slug: 'galaxy-gear-2', image: '/watch-samsung/galaxy-gear-2.png' },
+  { id: 16, name: 'Galaxy Gear 2 Neo', slug: 'galaxy-gear-2-neo', image: '/watch-samsung/galaxy-gear-2-neo.png' },
+  { id: 17, name: 'Samsung Smartwatch', slug: 'samsung-smartwatch', image: '/watch-samsung/20201006130850.png' }
+]
+
+export default function SamsungWatchPage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filteredWatches, setFilteredWatches] = useState(samsungWatches)
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const term = e.target.value.toLowerCase()
+    setSearchTerm(term)
+    const filtered = samsungWatches.filter(watch => 
+      watch.name.toLowerCase().includes(term)
+    )
+    setFilteredWatches(filtered)
+  }
 
   return (
     <main className="min-h-screen">
@@ -86,13 +107,15 @@ export default function SmartwatchPage() {
           <div className="flex flex-row justify-between items-center gap-4">
             {/* Left side - Logo */}
             <div className="flex items-center gap-2">
-              <a href="/" className="block">
-                <img
+              <Link href="/" className="block">
+                <Image
                   src="/website-logo.png"
                   alt="PhoneHut Logo"
+                  width={200}
+                  height={60}
                   className="h-8 md:h-10 lg:h-12 w-auto"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Right side - Navigation */}
@@ -140,111 +163,119 @@ export default function SmartwatchPage() {
 
       <Header />
 
-      {/* Brand Selection Section */}
+      {/* Product Selection Section */}
       <section className="py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-12 md:mb-16">
             <h2
-              className="font-raleway font-bold uppercase text-xl sm:text-2xl md:text-3xl"
+              className="font-raleway font-bold uppercase mb-4"
               style={{
-                color: '#233d63',
+                fontSize: '36px',
+                color: 'black',
                 fontFamily: "'Raleway', sans-serif",
                 letterSpacing: '1px',
                 fontWeight: '700'
               }}
             >
-              Select your brand
+              Select your model
             </h2>
+            <p
+              className="font-lato"
+              style={{
+                fontSize: '20px',
+                lineHeight: '1.5',
+                color: 'black',
+                fontFamily: "'Lato', sans-serif"
+              }}
+            >
+              Please select your model to repair
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-2xl mx-auto">
-            {brands.map((brand) => {
-              if (brand.link) {
-                return (
-                  <Link
-                    key={brand.id}
-                    href={brand.link}
-                    className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 md:p-8 text-center cursor-pointer border border-gray-200 group relative block"
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#6d6e71'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'white'
-                    }}
-                  >
-                    {/* Tick Icon - Top Right Corner */}
-                    <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                      </svg>
-                    </div>
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search for your device here"
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full px-6 py-4 pr-12 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: "'Lato', sans-serif"
+                }}
+              />
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-400"
+                >
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.35-4.35"/>
+                </svg>
+              </div>
+            </div>
+          </div>
 
-                    {/* Brand Logo */}
-                    <div className="mb-4 md:mb-6">
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto flex items-center justify-center">
-                        <img
-                          src={brand.logo}
-                          alt={`${brand.name} Logo`}
-                          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Brand Name */}
-                    <h3
-                      className="text-lg sm:text-xl md:text-2xl font-bold text-[#233d63] group-hover:text-white transition-colors duration-300"
-                      style={{
-                        fontFamily: "'Raleway', sans-serif"
-                      }}
-                    >
-                      {brand.name}
-                    </h3>
-                  </Link>
-                )
-              } else {
-                return (
-                  <div
-                    key={brand.id}
-                    className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 md:p-8 text-center cursor-pointer border border-gray-200 group relative"
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#6d6e71'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'white'
-                    }}
-                  >
-                {/* Tick Icon - Top Right Corner */}
-                <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                  </svg>
-                </div>
-
-                {/* Brand Logo */}
+          {/* Product Grid - Responsive for mobile, tablet, and desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+            {filteredWatches.map((watch) => (
+              <Link
+                key={watch.id}
+                href={`/repair/${watch.slug}`}
+                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 md:p-6 text-center cursor-pointer border border-gray-200 group relative"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#6d6e71'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = 'white'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'white'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = '#233D63'
+                  }
+                }}
+              >
+                {/* Product Image */}
                 <div className="mb-4 md:mb-6">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto flex items-center justify-center">
-                    <img
-                      src={brand.logo}
-                      alt={`${brand.name} Logo`}
-                      className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto flex items-center justify-center">
+                    <Image
+                      src={watch.image}
+                      alt={watch.name}
+                      width={112}
+                      height={112}
+                      className="w-full h-full object-contain transition-all duration-300"
                     />
                   </div>
                 </div>
 
-                {/* Brand Name */}
-                    <h3
-                      className="text-lg sm:text-xl md:text-2xl font-bold text-[#233d63] group-hover:text-white transition-colors duration-300"
-                      style={{
-                        fontFamily: "'Raleway', sans-serif"
-                      }}
-                    >
-                      {brand.name}
-                    </h3>
-                  </div>
-                )
-              }
-            })}
+                {/* Product Name */}
+                <h3
+                  className="transition-colors duration-300"
+                  style={{
+                    fontFamily: "'Raleway', sans-serif",
+                    fontSize: '18px',
+                    color: '#233D63',
+                    textTransform: 'capitalize',
+                    fontWeight: '700'
+                  }}
+                >
+                  {watch.name}
+                </h3>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -270,7 +301,7 @@ export default function SmartwatchPage() {
               lineHeight: '1.6'
             }}
           >
-            Get in touch for a free estimate and see how we can help with your smartwatch repair.
+            Get in touch for a free estimate and see how we can help.
           </p>
 
           <button
