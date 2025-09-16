@@ -61,17 +61,171 @@ const googlePhones = [
   { id: 11, name: 'pixel', slug: 'pixel', image: '/google/g11.png' }
 ]
 
+// Apple Watch models data - 64 models
+const appleWatches = [
+  { id: 1, name: 'Apple Watch Series 5 44mm Titanium GPS + Cellular', slug: 'apple-watch-series-5-44mm-titanium-gps-cellular', image: '/watch-apple/watch-series-5-44mm-titanium-gps-and-cellular.png' },
+  { id: 2, name: 'Apple Watch Series 5 44mm Titanium GPS Only', slug: 'apple-watch-series-5-44mm-titanium-gps-only', image: '/watch-apple/watch-series-5-44mm-titanium-gps-only.png' },
+  { id: 3, name: 'Apple Watch Series 5 44mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-5-44mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-5-44mm-stainless-steel-gps-and-cellular.png' },
+  { id: 4, name: 'Apple Watch Series 5 44mm Stainless Steel GPS Only', slug: 'apple-watch-series-5-44mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-5-44mm-stainless-steel-gps-only.png' },
+  { id: 5, name: 'Apple Watch Series 5 44mm Ceramic GPS + Cellular', slug: 'apple-watch-series-5-44mm-ceramic-gps-cellular', image: '/watch-apple/watch-series-5-44mm-ceramic-gps-and-cellular.png' },
+  { id: 6, name: 'Apple Watch Series 5 44mm Ceramic GPS Only', slug: 'apple-watch-series-5-44mm-ceramic-gps-only', image: '/watch-apple/watch-series-5-44mm-ceramic-gps-only.png' },
+  { id: 7, name: 'Apple Watch Series 5 44mm Aluminium GPS + Cellular', slug: 'apple-watch-series-5-44mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-5-44mm-aluminium-gps-and-cellular.png' },
+  { id: 8, name: 'Apple Watch Series 5 44mm Aluminium GPS Only', slug: 'apple-watch-series-5-44mm-aluminium-gps-only', image: '/watch-apple/watch-series-5-44mm-aluminium-gps-only.png' },
+  { id: 9, name: 'Apple Watch Series 5 40mm Titanium GPS + Cellular', slug: 'apple-watch-series-5-40mm-titanium-gps-cellular', image: '/watch-apple/watch-series-5-40mm-titanium-gps-and-cellular.png' },
+  { id: 10, name: 'Apple Watch Series 5 40mm Titanium GPS Only', slug: 'apple-watch-series-5-40mm-titanium-gps-only', image: '/watch-apple/watch-series-5-40mm-titanium-gps-only.png' },
+  { id: 11, name: 'Apple Watch Series 5 40mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-5-40mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-5-40mm-stainless-steel-gps-and-cellular.png' },
+  { id: 12, name: 'Apple Watch Series 5 40mm Stainless Steel GPS Only', slug: 'apple-watch-series-5-40mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-5-40mm-stainless-steel-gps-only.png' },
+  { id: 13, name: 'Apple Watch Series 5 40mm Ceramic GPS + Cellular', slug: 'apple-watch-series-5-40mm-ceramic-gps-cellular', image: '/watch-apple/watch-series-5-40mm-ceramic-gps-and-cellular.png' },
+  { id: 14, name: 'Apple Watch Series 5 40mm Ceramic GPS Only', slug: 'apple-watch-series-5-40mm-ceramic-gps-only', image: '/watch-apple/watch-series-5-40mm-ceramic-gps-only.png' },
+  { id: 15, name: 'Apple Watch Series 5 40mm Aluminium GPS + Cellular', slug: 'apple-watch-series-5-40mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-5-40mm-aluminium-gps-and-cellular.png' },
+  { id: 16, name: 'Apple Watch Series 5 40mm Aluminium GPS Only', slug: 'apple-watch-series-5-40mm-aluminium-gps-only', image: '/watch-apple/watch-series-5-40mm-aluminium-gps-only.png' },
+  { id: 17, name: 'Apple Watch Series 4 44mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-4-44mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-4-44mm-stainless-steel-gps-and-cellular.png' },
+  { id: 18, name: 'Apple Watch Series 4 44mm Stainless Steel GPS Only', slug: 'apple-watch-series-4-44mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-4-44mm-stainless-steel-gps-only.png' },
+  { id: 19, name: 'Apple Watch Series 4 44mm Aluminium GPS + Cellular', slug: 'apple-watch-series-4-44mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-4-44mm-aluminium-gps-and-cellular.png' },
+  { id: 20, name: 'Apple Watch Series 4 44mm Aluminium GPS Only', slug: 'apple-watch-series-4-44mm-aluminium-gps-only', image: '/watch-apple/watch-series-4-44mm-aluminium-gps-only.png' },
+  { id: 21, name: 'Apple Watch Series 4 40mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-4-40mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-4-40mm-stainless-steel-gps-and-cellular.png' },
+  { id: 22, name: 'Apple Watch Series 4 40mm Stainless Steel GPS Only', slug: 'apple-watch-series-4-40mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-4-40mm-stainless-steel-gps-only.png' },
+  { id: 23, name: 'Apple Watch Series 4 40mm Aluminium GPS + Cellular', slug: 'apple-watch-series-4-40mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-4-40mm-aluminium-gps-and-cellular.png' },
+  { id: 24, name: 'Apple Watch Series 4 40mm Aluminium GPS Only', slug: 'apple-watch-series-4-40mm-aluminium-gps-only', image: '/watch-apple/watch-series-4-40mm-aluminium-gps-only.png' },
+  { id: 25, name: 'Apple Watch Series 3 42mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-3-42mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-3-42mm-stainless-steel-gps-and-cellular.png' },
+  { id: 26, name: 'Apple Watch Series 3 42mm Stainless Steel GPS Only', slug: 'apple-watch-series-3-42mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-3-42mm-stainless-steel-gps-only.png' },
+  { id: 27, name: 'Apple Watch Series 3 42mm Aluminium GPS + Cellular', slug: 'apple-watch-series-3-42mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-3-42mm-aluminium-gps-and-cellular.png' },
+  { id: 28, name: 'Apple Watch Series 3 42mm Aluminium GPS Only', slug: 'apple-watch-series-3-42mm-aluminium-gps-only', image: '/watch-apple/watch-series-3-42mm-aluminium-gps-only.png' },
+  { id: 29, name: 'Apple Watch Series 3 38mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-3-38mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-3-38mm-stainless-steel-gps-and-cellular.png' },
+  { id: 30, name: 'Apple Watch Series 3 38mm Stainless Steel GPS Only', slug: 'apple-watch-series-3-38mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-3-38mm-stainless-steel-gps-only.png' },
+  { id: 31, name: 'Apple Watch Series 3 38mm Aluminium GPS + Cellular', slug: 'apple-watch-series-3-38mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-3-38mm-aluminium-gps-and-cellular.png' },
+  { id: 32, name: 'Apple Watch Series 3 38mm Aluminium GPS Only', slug: 'apple-watch-series-3-38mm-aluminium-gps-only', image: '/watch-apple/watch-series-3-38mm-aluminium-gps-only.png' },
+  { id: 33, name: 'Apple Watch Series 2 42mm Stainless Steel', slug: 'apple-watch-series-2-42mm-stainless-steel', image: '/watch-apple/watch-series-2-42mm-stainless-steel.png' },
+  { id: 34, name: 'Apple Watch Series 2 42mm Aluminium', slug: 'apple-watch-series-2-42mm-aluminium', image: '/watch-apple/watch-series-2-42mm-aluminium.png' },
+  { id: 35, name: 'Apple Watch Series 2 38mm Stainless Steel', slug: 'apple-watch-series-2-38mm-stainless-steel', image: '/watch-apple/watch-series-2-38mm-stainless-steel.png' },
+  { id: 36, name: 'Apple Watch Series 2 38mm Aluminium', slug: 'apple-watch-series-2-38mm-aluminium', image: '/watch-apple/watch-series-2-38mm-aluminium.png' },
+  { id: 37, name: 'Apple Watch Series 1 42mm', slug: 'apple-watch-series-1-42mm', image: '/watch-apple/watch-sport-series-1-42mm.png' },
+  { id: 38, name: 'Apple Watch Series 1 38mm', slug: 'apple-watch-series-1-38mm', image: '/watch-apple/watch-sport-series-1-38mm.png' },
+  { id: 39, name: 'Apple Watch Sport 1st Gen 42mm', slug: 'apple-watch-sport-1st-gen-42mm', image: '/watch-apple/watch-sport-1st-gen-42mm.png' },
+  { id: 40, name: 'Apple Watch Sport 1st Gen 38mm', slug: 'apple-watch-sport-1st-gen-38mm', image: '/watch-apple/watch-sport-1st-gen-38mm.png' },
+  { id: 41, name: 'Apple Watch 1st Gen 42mm', slug: 'apple-watch-1st-gen-42mm', image: '/watch-apple/watch-1st-gen-42mm.png' },
+  { id: 42, name: 'Apple Watch 1st Gen 38mm', slug: 'apple-watch-1st-gen-38mm', image: '/watch-apple/watch-1st-gen-38mm.png' },
+  { id: 43, name: 'Apple Watch Nike+ Series 5 44mm GPS + Cellular', slug: 'apple-watch-nike-series-5-44mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-5-44mm-gps-and-cellular.png' },
+  { id: 44, name: 'Apple Watch Nike+ Series 5 44mm GPS Only', slug: 'apple-watch-nike-series-5-44mm-gps-only', image: '/watch-apple/watch-nike-plus-series-5-44mm-gps-only.png' },
+  { id: 45, name: 'Apple Watch Nike+ Series 5 40mm GPS + Cellular', slug: 'apple-watch-nike-series-5-40mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-5-40mm-gps-and-cellular.png' },
+  { id: 46, name: 'Apple Watch Nike+ Series 5 40mm GPS Only', slug: 'apple-watch-nike-series-5-40mm-gps-only', image: '/watch-apple/watch-nike-plus-series-5-40mm-gps-only.png' },
+  { id: 47, name: 'Apple Watch Nike+ Series 4 44mm GPS + Cellular', slug: 'apple-watch-nike-series-4-44mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-4-44mm-gps-and-cellular.png' },
+  { id: 48, name: 'Apple Watch Nike+ Series 4 44mm GPS Only', slug: 'apple-watch-nike-series-4-44mm-gps-only', image: '/watch-apple/watch-nike-plus-series-4-44mm-gps-only.png' },
+  { id: 49, name: 'Apple Watch Nike+ Series 4 40mm GPS + Cellular', slug: 'apple-watch-nike-series-4-40mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-4-40mm-gps-and-cellular.png' },
+  { id: 50, name: 'Apple Watch Nike+ Series 4 40mm GPS Only', slug: 'apple-watch-nike-series-4-40mm-gps-only', image: '/watch-apple/watch-nike-plus-series-4-40mm-gps-only.png' },
+  { id: 51, name: 'Apple Watch Nike+ Series 3 42mm GPS + Cellular', slug: 'apple-watch-nike-series-3-42mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-3-42mm-gps-and-cellular.png' },
+  { id: 52, name: 'Apple Watch Nike+ Series 3 42mm GPS Only', slug: 'apple-watch-nike-series-3-42mm-gps-only', image: '/watch-apple/watch-nike-plus-series-3-42mm-gps-only.png' },
+  { id: 53, name: 'Apple Watch Nike+ Series 3 38mm GPS + Cellular', slug: 'apple-watch-nike-series-3-38mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-3-38mm-gps-and-cellular.png' },
+  { id: 54, name: 'Apple Watch Nike+ Series 3 38mm GPS Only', slug: 'apple-watch-nike-series-3-38mm-gps-only', image: '/watch-apple/watch-nike-plus-series-3-38mm-gps-only.png' },
+  { id: 55, name: 'Apple Watch Nike+ Series 2 42mm', slug: 'apple-watch-nike-series-2-42mm', image: '/watch-apple/watch-nike-plus-series-2-42mm.png' },
+  { id: 56, name: 'Apple Watch Nike+ Series 2 38mm', slug: 'apple-watch-nike-series-2-38mm', image: '/watch-apple/watch-nike-plus-series-2-38mm.png' },
+  { id: 57, name: 'Apple Watch Hermès Series 3 42mm GPS + Cellular', slug: 'apple-watch-hermes-series-3-42mm-gps-cellular', image: '/watch-apple/watch-hermes-series-3-42mm-gps-and-cellular.png' },
+  { id: 58, name: 'Apple Watch Hermès Series 3 38mm GPS + Cellular', slug: 'apple-watch-hermes-series-3-38mm-gps-cellular', image: '/watch-apple/watch-hermes-series-3-38mm-gps-and-cellular.png' },
+  { id: 59, name: 'Apple Watch Hermès Series 2 42mm', slug: 'apple-watch-hermes-series-2-42mm', image: '/watch-apple/watch-hermes-series-2-42mm.png' },
+  { id: 60, name: 'Apple Watch Hermès Series 2 38mm', slug: 'apple-watch-hermes-series-2-38mm', image: '/watch-apple/watch-hermes-series-2-38mm.png' },
+  { id: 61, name: 'Apple Watch Hermès 1st Gen 42mm', slug: 'apple-watch-hermes-1st-gen-42mm', image: '/watch-apple/watch-hermes-1st-gen-42mm.png' },
+  { id: 62, name: 'Apple Watch Hermès 1st Gen 38mm', slug: 'apple-watch-hermes-1st-gen-38mm', image: '/watch-apple/watch-hermes-1st-gen-38mm.png' },
+  { id: 63, name: 'Apple Watch Edition Series 3 42mm GPS + Cellular', slug: 'apple-watch-edition-series-3-42mm-gps-cellular', image: '/watch-apple/watch-edition-series-3-42mm-gps-and-cellular.png' },
+  { id: 64, name: 'Apple Watch Edition Series 3 38mm GPS + Cellular', slug: 'apple-watch-edition-series-3-38mm-gps-cellular', image: '/watch-apple/watch-edition-series-3-38mm-gps-and-cellular.png' }
+]
+
+// Samsung Galaxy Tab models data - 56 models
+const samsungTablets = [
+  { id: 1, name: 'Galaxy Tab S8 Ultra', slug: 'galaxy-tab-s8-ultra', image: '/tablet-samsung/galaxy-tab-s6-lite.png' },
+  { id: 2, name: 'Galaxy Tab S8+', slug: 'galaxy-tab-s8-plus', image: '/tablet-samsung/galaxy-tab-s5e.png' },
+  { id: 3, name: 'Galaxy Tab S8', slug: 'galaxy-tab-s8', image: '/tablet-samsung/galaxy-tab-s4-10-5.png' },
+  { id: 4, name: 'Galaxy Tab S7 FE', slug: 'galaxy-tab-s7-fe', image: '/tablet-samsung/galaxy-tab-s3-9-7.png' },
+  { id: 5, name: 'Galaxy Tab S7+', slug: 'galaxy-tab-s7-plus', image: '/tablet-samsung/galaxy-tab-s2-9-7.png' },
+  { id: 6, name: 'Galaxy Tab S7', slug: 'galaxy-tab-s7', image: '/tablet-samsung/galaxy-tab-s2-8-0.png' },
+  { id: 7, name: 'Galaxy Tab S6 Lite', slug: 'galaxy-tab-s6-lite', image: '/tablet-samsung/galaxy-tab-s6-lite.png' },
+  { id: 8, name: 'Galaxy Tab S5e', slug: 'galaxy-tab-s5e', image: '/tablet-samsung/galaxy-tab-s5e.png' },
+  { id: 9, name: 'Galaxy Tab S4', slug: 'galaxy-tab-s4', image: '/tablet-samsung/galaxy-tab-s4-10-5.png' },
+  { id: 10, name: 'Galaxy Tab S3', slug: 'galaxy-tab-s3', image: '/tablet-samsung/galaxy-tab-s3-9-7.png' },
+  { id: 11, name: 'Galaxy Tab S2', slug: 'galaxy-tab-s2', image: '/tablet-samsung/galaxy-tab-s2-9-7.png' },
+  { id: 12, name: 'Galaxy Tab S', slug: 'galaxy-tab-s', image: '/tablet-samsung/galaxy-tab-s-10-5.png' },
+  { id: 13, name: 'Galaxy Tab A8', slug: 'galaxy-tab-a8', image: '/tablet-samsung/galaxy-tab-a-8-0-2019.png' },
+  { id: 14, name: 'Galaxy Tab A7 Lite', slug: 'galaxy-tab-a7-lite', image: '/tablet-samsung/galaxy-tab-a-7-0-2016.png' },
+  { id: 15, name: 'Galaxy Tab A7', slug: 'galaxy-tab-a7', image: '/tablet-samsung/galaxy-tab-a-7-0-2016.png' },
+  { id: 16, name: 'Galaxy Tab A 10.1 (2019)', slug: 'galaxy-tab-a-10-1-2019', image: '/tablet-samsung/galaxy-tab-a-10-1-2019.png' },
+  { id: 17, name: 'Galaxy Tab A 10.1 (2016)', slug: 'galaxy-tab-a-10-1-2016', image: '/tablet-samsung/galaxy-tab-a-10-1-2016.png' },
+  { id: 18, name: 'Galaxy Tab A 10.5 (2018)', slug: 'galaxy-tab-a-10-5-2018', image: '/tablet-samsung/galaxy-tab-a-10-5-2018.png' },
+  { id: 19, name: 'Galaxy Tab A 9.7', slug: 'galaxy-tab-a-9-7', image: '/tablet-samsung/galaxy-tab-a-9-7.png' },
+  { id: 20, name: 'Galaxy Tab A 8.0 (2019)', slug: 'galaxy-tab-a-8-0-2019', image: '/tablet-samsung/galaxy-tab-a-8-0-2019.png' },
+  { id: 21, name: 'Galaxy Tab A 8.0 (2018)', slug: 'galaxy-tab-a-8-0-2018', image: '/tablet-samsung/galaxy-tab-a-8-0-2018.png' },
+  { id: 22, name: 'Galaxy Tab A 8.0 (2017)', slug: 'galaxy-tab-a-8-0-2017', image: '/tablet-samsung/galaxy-tab-a-8-0-2017.png' },
+  { id: 23, name: 'Galaxy Tab A 8.0', slug: 'galaxy-tab-a-8-0', image: '/tablet-samsung/galaxy-tab-a-8-0.png' },
+  { id: 24, name: 'Galaxy Tab E 9.6', slug: 'galaxy-tab-e-9-6', image: '/tablet-samsung/galaxy-tab-e-9-6.png' },
+  { id: 25, name: 'Galaxy Tab E 8.0', slug: 'galaxy-tab-e-8-0', image: '/tablet-samsung/galaxy-tab-e-8-0.png' },
+  { id: 26, name: 'Galaxy Tab Pro 12.2', slug: 'galaxy-tab-pro-12-2', image: '/tablet-samsung/galaxy-tab-pro-12-2.png' },
+  { id: 27, name: 'Galaxy Tab Pro 10.1', slug: 'galaxy-tab-pro-10-1', image: '/tablet-samsung/galaxy-tab-pro-10-1.png' },
+  { id: 28, name: 'Galaxy Tab Pro 8.4', slug: 'galaxy-tab-pro-8-4', image: '/tablet-samsung/galaxy-tab-pro-8-4.png' },
+  { id: 29, name: 'Galaxy Tab Pro S', slug: 'galaxy-tab-pro-s', image: '/tablet-samsung/galaxy-tab-pro-s.png' },
+  { id: 30, name: 'Galaxy Tab 8.9', slug: 'galaxy-tab-8-9', image: '/tablet-samsung/galaxy-tab-8-9.png' },
+  { id: 31, name: 'Galaxy Tab 7.7', slug: 'galaxy-tab-7-7', image: '/tablet-samsung/galaxy-tab-7-7.png' },
+  { id: 32, name: 'Galaxy Tab 7.0 Plus', slug: 'galaxy-tab-7-0-plus', image: '/tablet-samsung/galaxy-tab-7-0-plus.png' },
+  { id: 33, name: 'Galaxy Tab 7.0', slug: 'galaxy-tab-7-0', image: '/tablet-samsung/galaxy-tab-7-0.png' },
+  { id: 34, name: 'Galaxy Tab 4 10.1', slug: 'galaxy-tab-4-10-1', image: '/tablet-samsung/galaxy-tab-4-10-1.png' },
+  { id: 35, name: 'Galaxy Tab 4 8.0', slug: 'galaxy-tab-4-8-0', image: '/tablet-samsung/galaxy-tab-4-8-0.png' },
+  { id: 36, name: 'Galaxy Tab 4 7.0', slug: 'galaxy-tab-4-7-0', image: '/tablet-samsung/galaxy-tab-4-7-0.png' },
+  { id: 37, name: 'Galaxy Tab 4 Nook 7.0', slug: 'galaxy-tab-4-nook-7-0', image: '/tablet-samsung/galaxy-tab-4-nook-7-0.png' },
+  { id: 38, name: 'Galaxy Tab 3 10.1', slug: 'galaxy-tab-3-10-1', image: '/tablet-samsung/galaxy-tab-3-10-1.png' },
+  { id: 39, name: 'Galaxy Tab 3 8.0', slug: 'galaxy-tab-3-8-0', image: '/tablet-samsung/galaxy-tab-3-8-0.png' },
+  { id: 40, name: 'Galaxy Tab 3 7.0', slug: 'galaxy-tab-3-7-0', image: '/tablet-samsung/galaxy-tab-3-7-0.png' },
+  { id: 41, name: 'Galaxy Tab 3 7.0 Kids', slug: 'galaxy-tab-3-7-0-kids', image: '/tablet-samsung/galaxy-tab-3-7-0-kids.png' },
+  { id: 42, name: 'Galaxy Tab 3 7.0 Garnet Red', slug: 'galaxy-tab-3-7-0-garnet-red', image: '/tablet-samsung/galaxy-tab-3-7-0-garnet-red.png' },
+  { id: 43, name: 'Galaxy Tab 3 Lite 7.0', slug: 'galaxy-tab-3-lite-7-0', image: '/tablet-samsung/galaxy-tab-3-lite-7-0.png' },
+  { id: 44, name: 'Galaxy Tab 2 10.1', slug: 'galaxy-tab-2-10-1', image: '/tablet-samsung/galaxy-tab-2-10-1.png' },
+  { id: 45, name: 'Galaxy Tab 2 7.0', slug: 'galaxy-tab-2-7-0', image: '/tablet-samsung/galaxy-tab-2-7-0.png' },
+  { id: 46, name: 'Galaxy Tab 10.1', slug: 'galaxy-tab-10-1', image: '/tablet-samsung/galaxy-tab-10-1.png' },
+  { id: 47, name: 'Galaxy Note 10.1 (2014 Edition)', slug: 'galaxy-note-10-1-2014-edition', image: '/tablet-samsung/galaxy-note-10-1-2014-edition.png' },
+  { id: 48, name: 'Galaxy Note 10.1', slug: 'galaxy-note-10-1', image: '/tablet-samsung/galaxy-note-10-1.png' },
+  { id: 49, name: 'Galaxy Note 8.0', slug: 'galaxy-note-8-0', image: '/tablet-samsung/galaxy-note-8-0.png' },
+  { id: 50, name: 'Galaxy Note Pro', slug: 'galaxy-note-pro', image: '/tablet-samsung/galaxy-note-pro.png' },
+  { id: 51, name: 'Galaxy View', slug: 'galaxy-view', image: '/tablet-samsung/galaxy-view.png' },
+  { id: 52, name: 'Galaxy View 2', slug: 'galaxy-view2', image: '/tablet-samsung/galaxy-view2.png' },
+  { id: 53, name: 'Galaxy J Max', slug: 'galaxy-j-max', image: '/tablet-samsung/galaxy-j-max.png' },
+  { id: 54, name: 'ATIV Tab 3', slug: 'ativ-tab-3', image: '/tablet-samsung/ativ-tab-3.png' },
+  { id: 55, name: 'ATIV Tab 5', slug: 'ativ-tab-5', image: '/tablet-samsung/ativ-tab-5.png' },
+  { id: 56, name: 'ATIV Tab 7', slug: 'ativ-tab-7', image: '/tablet-samsung/ativ-tab-7.png' }
+]
+
+// Apple iPad models data - 22 models
+const appleTablets = [
+  { id: 1, name: 'iPad Pro 12.9" (2020)', slug: 'ipad-pro-12-9-2020', image: '/tablet-apple/ipad-pro-12-9-2020.png' },
+  { id: 2, name: 'iPad Pro 12.9" (2018)', slug: 'ipad-pro-12-9-2018', image: '/tablet-apple/ipad-pro-12-9-2018.png' },
+  { id: 3, name: 'iPad Pro 12.9" (2017)', slug: 'ipad-pro-12-9-2017', image: '/tablet-apple/ipad-pro-12-9-2017.png' },
+  { id: 4, name: 'iPad Pro 12.9"', slug: 'ipad-pro-12-9', image: '/tablet-apple/ipad-pro-12-9.png' },
+  { id: 5, name: 'iPad Pro 11" (2020)', slug: 'ipad-pro-11-0-2020', image: '/tablet-apple/ipad-pro-11-0-2020.png' },
+  { id: 6, name: 'iPad Pro 11" (2018)', slug: 'ipad-pro-11-0-2018', image: '/tablet-apple/ipad-pro-11-0-2018.png' },
+  { id: 7, name: 'iPad Pro 10.5"', slug: 'ipad-pro-10-5', image: '/tablet-apple/ipad-pro-10-5.png' },
+  { id: 8, name: 'iPad Pro 9.7"', slug: 'ipad-pro-9-7', image: '/tablet-apple/ipad-pro-9-7.png' },
+  { id: 9, name: 'iPad Air', slug: 'ipad-air', image: '/tablet-apple/ipad-air.png' },
+  { id: 10, name: 'iPad Air 2', slug: 'ipad-air-2', image: '/tablet-apple/ipad-air-2.png' },
+  { id: 11, name: 'iPad (2018)', slug: 'ipad-9-7-2018', image: '/tablet-apple/ipad-9-7-2018.png' },
+  { id: 12, name: 'iPad (2017)', slug: 'ipad-9-7-2017', image: '/tablet-apple/ipad-9-7-2017.png' },
+  { id: 13, name: 'iPad (2019)', slug: 'ipad-10-2-2019', image: '/tablet-apple/ipad-10-2-2019.png' },
+  { id: 14, name: 'iPad', slug: 'ipad', image: '/tablet-apple/ipad.png' },
+  { id: 15, name: 'iPad 2', slug: 'ipad-2', image: '/tablet-apple/ipad-2.png' },
+  { id: 16, name: 'iPad 3', slug: 'ipad-3', image: '/tablet-apple/ipad-3.png' },
+  { id: 17, name: 'iPad 4', slug: 'ipad-4', image: '/tablet-apple/ipad-4.png' },
+  { id: 18, name: 'iPad Mini', slug: 'ipad-mini', image: '/tablet-apple/ipad-mini.png' },
+  { id: 19, name: 'iPad Mini 2', slug: 'ipad-mini-2', image: '/tablet-apple/ipad-mini-2.png' },
+  { id: 20, name: 'iPad Mini 3', slug: 'ipad-mini-3', image: '/tablet-apple/ipad-mini-3.png' },
+  { id: 21, name: 'iPad Mini 4', slug: 'ipad-mini-4', image: '/tablet-apple/ipad-mini-4.png' },
+  { id: 22, name: 'iPad Mini (2019)', slug: 'ipad-mini-2019', image: '/tablet-apple/ipad-mini-2019.png' }
+]
+
 // Samsung Galaxy models data - 234 models
 const samsungPhones = [
-  { id: 1, name: 'Galaxy S23 Ultra', slug: 'galaxy-s23-ultra', image: '/samsung/galaxy-s23-ultra.png' },
-  { id: 2, name: 'Galaxy S23 Plus', slug: 'galaxy-s23-plus', image: '/samsung/galaxy-s23-plus.png' },
-  { id: 3, name: 'Galaxy S23', slug: 'galaxy-s23', image: '/samsung/galaxy-s23.png' },
-  { id: 4, name: 'Galaxy S22 Ultra', slug: 'galaxy-s22-ultra', image: '/samsung/galaxy-s22-ultra.png' },
-  { id: 5, name: 'Galaxy S22 Plus', slug: 'galaxy-s22-plus', image: '/samsung/galaxy-s22-plus.png' },
-  { id: 6, name: 'Galaxy S22', slug: 'galaxy-s22', image: '/samsung/galaxy-s22.png' },
-  { id: 7, name: 'Galaxy S21 Ultra', slug: 'galaxy-s21-ultra', image: '/samsung/galaxy-s21-ultra.png' },
-  { id: 8, name: 'Galaxy S21 Plus', slug: 'galaxy-s21-plus', image: '/samsung/galaxy-s21-plus.png' },
-  { id: 9, name: 'Galaxy S21', slug: 'galaxy-s21', image: '/samsung/galaxy-s21.png' },
+  { id: 1, name: 'Galaxy S23 Ultra', slug: 'galaxy-s23-ultra', image: '/samsung/galaxy-s10-plus.png' },
+  { id: 2, name: 'Galaxy S23 Plus', slug: 'galaxy-s23-plus', image: '/samsung/galaxy-s10.png' },
+  { id: 3, name: 'Galaxy S23', slug: 'galaxy-s23', image: '/samsung/galaxy-s10e.png' },
+  { id: 4, name: 'Galaxy S22 Ultra', slug: 'galaxy-s22-ultra', image: '/samsung/galaxy-s9-plus.png' },
+  { id: 5, name: 'Galaxy S22 Plus', slug: 'galaxy-s22-plus', image: '/samsung/galaxy-s9.png' },
+  { id: 6, name: 'Galaxy S22', slug: 'galaxy-s22', image: '/samsung/galaxy-s8-plus.png' },
+  { id: 7, name: 'Galaxy S21 Ultra', slug: 'galaxy-s21-ultra', image: '/samsung/galaxy-s8.png' },
+  { id: 8, name: 'Galaxy S21 Plus', slug: 'galaxy-s21-plus', image: '/samsung/galaxy-s7-edge.png' },
+  { id: 9, name: 'Galaxy S21', slug: 'galaxy-s21', image: '/samsung/galaxy-s7.png' },
   { id: 10, name: 'Galaxy S20 Ultra 5G', slug: 'galaxy-s20-ultra-5g', image: '/samsung/galaxy-s20-ultra-5g.png' },
   { id: 11, name: 'Galaxy S20 Plus 5G', slug: 'galaxy-s20-plus-5g', image: '/samsung/galaxy-s20-plus-5g.png' },
   { id: 12, name: 'Galaxy S20 5G', slug: 'galaxy-s20-5g', image: '/samsung/galaxy-s20-5g.png' },
@@ -300,17 +454,17 @@ const samsungPhones = [
 ]
 
 // Combine all phones
-const allPhones = [...applePhones, ...googlePhones, ...samsungPhones]
+const allPhones = [...applePhones, ...googlePhones, ...samsungPhones, ...appleTablets, ...samsungTablets, ...appleWatches]
 
 const deviceIssues = [
-  { id: 1, name: 'HEADPHONES PLUG', image: '/phone/innerpage/b1.png' },
-  { id: 2, name: 'CHARGING PORT', image: '/phone/innerpage/b2.png' },
-  { id: 3, name: 'SIDE BUTTON', image: '/phone/innerpage/b3.png' },
-  { id: 4, name: 'ISIGHT CAMERA', image: '/phone/innerpage/b4.png' },
-  { id: 5, name: 'POWER BUTTON', image: '/phone/innerpage/b5.png' },
-  { id: 6, name: 'SCREEN', image: '/phone/innerpage/b6.png' },
-  { id: 7, name: 'BATTERY', image: '/phone/innerpage/b7.png' },
-  { id: 8, name: 'SOMETHING ELSE', image: '/phone/innerpage/b8.png' }
+  { id: 1, name: 'HEADPHONES PLUG' },
+  { id: 2, name: 'CHARGING PORT' },
+  { id: 3, name: 'SIDE BUTTON' },
+  { id: 4, name: 'ISIGHT CAMERA' },
+  { id: 5, name: 'POWER BUTTON' },
+  { id: 6, name: 'SCREEN' },
+  { id: 7, name: 'BATTERY' },
+  { id: 8, name: 'SOMETHING ELSE' }
 ]
 
 interface RepairPageProps {
@@ -327,6 +481,9 @@ export default function RepairPage({ params }: RepairPageProps) {
   
   // Check if it's a Google phone
   const isGooglePhone = googlePhones.some(p => p.slug === params.slug)
+  
+  // Check if it's a Samsung phone
+  const isSamsungPhone = samsungPhones.some(p => p.slug === params.slug)
   
   // If phone not found, return 404
   if (!phone) {
@@ -590,23 +747,9 @@ export default function RepairPage({ params }: RepairPageProps) {
                   {deviceIssues.slice(0, 4).map((issue) => (
                     <div
                       key={issue.id}
-                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${isGooglePhone ? 'p-4 lg:p-12' : 'p-4'}`}
+                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative p-4 lg:p-[50px]"
                       onClick={() => setSelectedIssue(issue.name)}
                     >
-                      {/* Issue Image - Only show for non-Google phones */}
-                      {!isGooglePhone && (
-                        <div className="mb-4">
-                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
-                            <Image
-                              src={issue.image}
-                              alt={issue.name}
-                              width={64}
-                              height={64}
-                              className="w-full h-full object-contain transition-all duration-300"
-                            />
-                          </div>
-                        </div>
-                      )}
 
                       {/* Issue Name */}
                       <h3
@@ -631,23 +774,9 @@ export default function RepairPage({ params }: RepairPageProps) {
                   {deviceIssues.slice(4, 8).map((issue) => (
                     <div
                       key={issue.id}
-                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${isGooglePhone ? 'p-4 lg:p-12' : 'p-4'}`}
+                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative p-4 lg:p-[50px]"
                       onClick={() => setSelectedIssue(issue.name)}
                     >
-                      {/* Issue Image - Only show for non-Google phones */}
-                      {!isGooglePhone && (
-                        <div className="mb-4">
-                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
-                            <Image
-                              src={issue.image}
-                              alt={issue.name}
-                              width={64}
-                              height={64}
-                              className="w-full h-full object-contain transition-all duration-300"
-                            />
-                          </div>
-                        </div>
-                      )}
 
                       {/* Issue Name */}
                       <h3
