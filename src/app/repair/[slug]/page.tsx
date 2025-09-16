@@ -403,38 +403,40 @@ export default function RepairPage({ params }: RepairPageProps) {
 
               {/* Next Button */}
               <div className="flex justify-end">
-                <button
-                  className="rounded-full font-lato font-bold text-white uppercase transition-all duration-300 flex items-center gap-2"
-                  style={{
-                    backgroundColor: '#6d6e71',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    fontFamily: "'Lato', sans-serif",
-                    borderRadius: '50px',
-                    padding: '5px 15px 5px 20px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#0056b3'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#6d6e71'
-                  }}
-                >
-                  Next
-                  <svg 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 24 24" 
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                <Link href={`/repair/appointment?issue=${encodeURIComponent(selectedIssue || '')}&device=${encodeURIComponent(phone.name)}`}>
+                  <button
+                    className="rounded-full font-lato font-bold text-white uppercase transition-all duration-300 flex items-center gap-2"
+                    style={{
+                      backgroundColor: '#6d6e71',
+                      fontWeight: '700',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                      fontFamily: "'Lato', sans-serif",
+                      borderRadius: '50px',
+                      padding: '5px 15px 5px 20px'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#0056b3'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = '#6d6e71'
+                    }}
                   >
-                    <path d="M5 12h14m-7-7 7 7-7 7"/>
-                  </svg>
-                </button>
+                    Next
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14m-7-7 7 7-7 7"/>
+                    </svg>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
