@@ -45,6 +45,18 @@ const applePhones = [
   { id: 34, name: 'iPhone SE (1st gen)', slug: 'iphone-se-1st-gen', image: '/phone/34.png' }
 ]
 
+// Device issues data
+const deviceIssues = [
+  { id: 1, name: 'Screen Cracked', image: '/phone/innerpage/b1.png' },
+  { id: 2, name: 'Battery Issues', image: '/phone/innerpage/b2.png' },
+  { id: 3, name: 'Camera Problems', image: '/phone/innerpage/b3.png' },
+  { id: 4, name: 'Water Damage', image: '/phone/innerpage/b4.png' },
+  { id: 5, name: 'Charging Port', image: '/phone/innerpage/b5.png' },
+  { id: 6, name: 'Speaker Issues', image: '/phone/innerpage/b6.png' },
+  { id: 7, name: 'Home Button', image: '/phone/innerpage/b7.png' },
+  { id: 8, name: 'Software Issues', image: '/phone/innerpage/b8.png' }
+]
+
 export default function ApplePhonePage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredPhones, setFilteredPhones] = useState(applePhones)
@@ -261,7 +273,7 @@ export default function ApplePhonePage() {
                   e.currentTarget.style.backgroundColor = 'white'
                   const textElement = e.currentTarget.querySelector('h3') as HTMLElement
                   if (textElement) {
-                    textElement.style.color = 'black'
+                    textElement.style.color = '#233D63'
                   }
                 }}
               >
@@ -280,20 +292,128 @@ export default function ApplePhonePage() {
 
                 {/* Product Name */}
                 <h3
-                  className="text-sm md:text-base font-lato font-semibold transition-colors duration-300"
+                  className="transition-colors duration-300"
                   style={{
-                    fontFamily: "'Lato', sans-serif",
-                    fontSize: '16px',
-                    color: 'black',
+                    fontFamily: "'Raleway', sans-serif",
+                    fontSize: '18px',
+                    color: '#233D63',
                     textTransform: 'capitalize',
-                    letterSpacing: '1px',
-                    fontWeight: '600'
+                    fontWeight: '700'
                   }}
                 >
                   {phone.name}
                 </h3>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What is wrong with your device? Section */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          {/* Section Heading */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2
+              className="font-lato font-medium mb-8"
+              style={{
+                fontSize: '20px',
+                color: 'black',
+                textTransform: 'capitalize',
+                letterSpacing: '1px',
+                fontWeight: '500',
+                fontFamily: "'Lato', sans-serif"
+              }}
+            >
+              What is wrong with your device?
+            </h2>
+          </div>
+
+          {/* Device Issues Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-6 mb-12">
+            {deviceIssues.map((issue) => (
+              <div
+                key={issue.id}
+                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 text-center cursor-pointer border border-gray-200 group relative"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#6d6e71'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = 'white'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'white'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = '#232222'
+                  }
+                }}
+              >
+                {/* Issue Image */}
+                <div className="mb-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
+                    <Image
+                      src={issue.image}
+                      alt={issue.name}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain transition-all duration-300"
+                    />
+                  </div>
+                </div>
+
+                {/* Issue Name */}
+                <h3
+                  className="transition-colors duration-300"
+                  style={{
+                    fontFamily: "'Raleway', sans-serif",
+                    fontSize: '13px',
+                    color: '#232222',
+                    textTransform: 'capitalize',
+                    letterSpacing: '1px',
+                    fontWeight: '500'
+                  }}
+                >
+                  {issue.name}
+                </h3>
+              </div>
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <div className="text-center">
+            <button
+              className="px-8 py-4 rounded-full font-lato font-bold text-white uppercase transition-all duration-300 flex items-center gap-2 mx-auto"
+              style={{
+                backgroundColor: '#6d6e71',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontFamily: "'Lato', sans-serif",
+                borderRadius: '50px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#0056b3'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#6d6e71'
+              }}
+            >
+              Next
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14m-7-7 7 7-7 7"/>
+              </svg>
+            </button>
           </div>
         </div>
       </section>
