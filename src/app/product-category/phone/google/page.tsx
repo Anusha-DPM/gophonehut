@@ -1,29 +1,39 @@
 'use client'
 
+import React, { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import TopHeader from '@/components/TopHeader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-export default function PhonePage() {
-  const brands = [
-    {
-      id: 'apple',
-      name: 'Apple',
-      logo: '/apple.png',
-      link: '/product-category/phone/apple'
-    },
-    {
-      id: 'samsung',
-      name: 'Samsung',
-      logo: '/samsung.png',
-      link: '#'
-    },
-    {
-      id: 'google',
-      name: 'Google',
-      logo: '/goolge.png',
-      link: '/product-category/phone/google'
-    }
-  ]
+// Google Pixel models data - matching GoPhoneHut reference
+const googlePhones = [
+  { id: 1, name: 'Pixel 4 XL', slug: 'pixel-4-xl', image: '/google/g1.png' },
+  { id: 2, name: 'pixel 4', slug: 'pixel-4', image: '/google/g2.png' },
+  { id: 3, name: 'pixel 3 xl', slug: 'pixel-3-xl', image: '/google/g3.png' },
+  { id: 4, name: 'pixel 4a', slug: 'pixel-4a', image: '/google/g4.png' },
+  { id: 5, name: 'pixel 3', slug: 'pixel-3', image: '/google/g5.png' },
+  { id: 6, name: 'pixel 3a xl', slug: 'pixel-3a-xl', image: '/google/g6.png' },
+  { id: 7, name: 'pixel 3a', slug: 'pixel-3a', image: '/google/g7.png' },
+  { id: 8, name: 'pixel 2 xl', slug: 'pixel-2-xl', image: '/google/g8.png' },
+  { id: 9, name: 'pixel 2', slug: 'pixel-2', image: '/google/g9.png' },
+  { id: 10, name: 'pixel xl', slug: 'pixel-xl', image: '/google/g10.png' },
+  { id: 11, name: 'pixel', slug: 'pixel', image: '/google/g11.png' }
+]
+
+export default function GooglePhonePage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filteredPhones, setFilteredPhones] = useState(googlePhones)
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const term = e.target.value.toLowerCase()
+    setSearchTerm(term)
+    const filtered = googlePhones.filter(phone => 
+      phone.name.toLowerCase().includes(term)
+    )
+    setFilteredPhones(filtered)
+  }
 
   return (
     <main className="min-h-screen">
@@ -91,13 +101,15 @@ export default function PhonePage() {
           <div className="flex flex-row justify-between items-center gap-4">
             {/* Left side - Logo */}
             <div className="flex items-center gap-2">
-              <a href="/" className="block">
-                <img
+              <Link href="/" className="block">
+                <Image
                   src="/website-logo.png"
                   alt="PhoneHut Logo"
+                  width={200}
+                  height={60}
                   className="h-8 md:h-10 lg:h-12 w-auto"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Right side - Navigation */}
@@ -145,56 +157,118 @@ export default function PhonePage() {
 
       <Header />
 
-      {/* Brand Selection Section */}
+      {/* Product Selection Section */}
       <section className="py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-12 md:mb-16">
             <h2
-              className="font-raleway font-bold uppercase text-xl sm:text-2xl md:text-3xl"
+              className="font-raleway font-bold uppercase mb-4"
               style={{
-                color: '#233d63',
+                fontSize: '36px',
+                color: 'black',
                 fontFamily: "'Raleway', sans-serif",
                 letterSpacing: '1px',
                 fontWeight: '700'
               }}
             >
-              Select your brand
+              Select your model
             </h2>
+            <p
+              className="font-lato"
+              style={{
+                fontSize: '20px',
+                lineHeight: '1.5',
+                color: 'black',
+                fontFamily: "'Lato', sans-serif"
+              }}
+            >
+              Please select your model to repair
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-            {brands.map((brand) => (
-              <a
-                key={brand.id}
-                href={brand.link}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 md:p-8 text-center cursor-pointer border border-gray-200 group relative block"
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search for your device here"
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full px-6 py-4 pr-12 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: "'Lato', sans-serif"
+                }}
+              />
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-400"
+                >
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.35-4.35"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Product Grid - Responsive for mobile, tablet, and desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+            {filteredPhones.map((phone) => (
+              <Link
+                key={phone.id}
+                href={`/repair/${phone.slug}`}
+                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 md:p-6 text-center cursor-pointer border border-gray-200 group relative"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = '#6d6e71'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = 'white'
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'white'
+                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
+                  if (textElement) {
+                    textElement.style.color = '#233D63'
+                  }
                 }}
               >
-                {/* Tick Icon - Top Right Corner */}
-                <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                  </svg>
-                </div>
-
-                {/* Brand Logo */}
+                {/* Product Image */}
                 <div className="mb-4 md:mb-6">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto flex items-center justify-center">
-                    <img
-                      src={brand.logo}
-                      alt="Brand Logo"
-                      className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto flex items-center justify-center">
+                    <Image
+                      src={phone.image}
+                      alt={phone.name}
+                      width={112}
+                      height={112}
+                      className="w-full h-full object-contain transition-all duration-300"
                     />
                   </div>
                 </div>
 
-              </a>
+                {/* Product Name */}
+                <h3
+                  className="transition-colors duration-300"
+                  style={{
+                    fontFamily: "'Raleway', sans-serif",
+                    fontSize: '18px',
+                    color: '#233D63',
+                    textTransform: 'capitalize',
+                    fontWeight: '700'
+                  }}
+                >
+                  {phone.name}
+                </h3>
+              </Link>
             ))}
           </div>
         </div>

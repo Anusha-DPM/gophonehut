@@ -46,15 +46,33 @@ const applePhones = [
   { id: 34, name: 'iPhone 2G', slug: 'iphone-2g', image: '/phone/34.png' }
 ]
 
+// Google Pixel models data
+const googlePhones = [
+  { id: 1, name: 'Pixel 4 XL', slug: 'pixel-4-xl', image: '/google/g1.png' },
+  { id: 2, name: 'pixel 4', slug: 'pixel-4', image: '/google/g2.png' },
+  { id: 3, name: 'pixel 3 xl', slug: 'pixel-3-xl', image: '/google/g3.png' },
+  { id: 4, name: 'pixel 4a', slug: 'pixel-4a', image: '/google/g4.png' },
+  { id: 5, name: 'pixel 3', slug: 'pixel-3', image: '/google/g5.png' },
+  { id: 6, name: 'pixel 3a xl', slug: 'pixel-3a-xl', image: '/google/g6.png' },
+  { id: 7, name: 'pixel 3a', slug: 'pixel-3a', image: '/google/g7.png' },
+  { id: 8, name: 'pixel 2 xl', slug: 'pixel-2-xl', image: '/google/g8.png' },
+  { id: 9, name: 'pixel 2', slug: 'pixel-2', image: '/google/g9.png' },
+  { id: 10, name: 'pixel xl', slug: 'pixel-xl', image: '/google/g10.png' },
+  { id: 11, name: 'pixel', slug: 'pixel', image: '/google/g11.png' }
+]
+
+// Combine all phones
+const allPhones = [...applePhones, ...googlePhones]
+
 const deviceIssues = [
-  { id: 1, name: 'Broken Screen', image: '/phone/innerpage/b1.png' },
-  { id: 2, name: 'Water Damage', image: '/phone/innerpage/b2.png' },
-  { id: 3, name: 'Short Battery Life', image: '/phone/innerpage/b3.png' },
-  { id: 4, name: 'Wont Charge', image: '/phone/innerpage/b4.png' },
-  { id: 5, name: 'Unlock / Software', image: '/phone/innerpage/b5.png' },
-  { id: 6, name: 'Camera Problems', image: '/phone/innerpage/b6.png' },
-  { id: 7, name: 'Back Damage', image: '/phone/innerpage/b7.png' },
-  { id: 8, name: 'Something Else', image: '/phone/innerpage/b8.png' }
+  { id: 1, name: 'HEADPHONES PLUG', image: '/phone/innerpage/b1.png' },
+  { id: 2, name: 'CHARGING PORT', image: '/phone/innerpage/b2.png' },
+  { id: 3, name: 'SIDE BUTTON', image: '/phone/innerpage/b3.png' },
+  { id: 4, name: 'ISIGHT CAMERA', image: '/phone/innerpage/b4.png' },
+  { id: 5, name: 'POWER BUTTON', image: '/phone/innerpage/b5.png' },
+  { id: 6, name: 'SCREEN', image: '/phone/innerpage/b6.png' },
+  { id: 7, name: 'BATTERY', image: '/phone/innerpage/b7.png' },
+  { id: 8, name: 'SOMETHING ELSE', image: '/phone/innerpage/b8.png' }
 ]
 
 interface RepairPageProps {
@@ -63,10 +81,14 @@ interface RepairPageProps {
   }
 }
 
+
 export default function RepairPage({ params }: RepairPageProps) {
   // Find the phone by slug
-  const phone = applePhones.find(p => p.slug === params.slug)
+  const phone = allPhones.find(p => p.slug === params.slug)
   const [selectedIssue, setSelectedIssue] = useState<string | null>(null)
+  
+  // Check if it's a Google phone
+  const isGooglePhone = googlePhones.some(p => p.slug === params.slug)
   
   // If phone not found, return 404
   if (!phone) {
@@ -222,8 +244,11 @@ export default function RepairPage({ params }: RepairPageProps) {
                     <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    <Link href="/product-category/phone/apple" className="ml-1 text-gray-700 hover:text-blue-600 md:ml-2">
-                      Apple
+                    <Link 
+                      href={applePhones.some(p => p.slug === params.slug) ? "/product-category/phone/apple" : "/product-category/phone/google"} 
+                      className="ml-1 text-gray-700 hover:text-blue-600 md:ml-2"
+                    >
+                      {applePhones.some(p => p.slug === params.slug) ? "Apple" : "Google"}
                     </Link>
                   </div>
                 </li>
@@ -281,30 +306,31 @@ export default function RepairPage({ params }: RepairPageProps) {
 
             {/* Right Section - Device Issues */}
             <div className="lg:col-span-2">
-              <h2
-                className="text-2xl md:text-3xl font-bold mb-8 text-center lg:text-left"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233d63'
-                }}
-              >
-                What is wrong with your device?
-              </h2>
+                 <h2
+                   className="text-2xl md:text-3xl font-bold mb-8 text-center lg:text-left"
+                   style={{
+                     fontFamily: "'Raleway', sans-serif",
+                     color: '#233d63',
+                     textTransform: 'uppercase'
+                   }}
+                 >
+                   please choose fault
+                 </h2>
 
               {/* Selected Issue Display */}
               {selectedIssue && (
                 <div className="mb-6">
                   <div className="bg-white rounded-lg border border-gray-300 p-4">
-                    <h3 
-                      className="text-lg font-bold mb-2"
-                      style={{
-                        fontFamily: "'Raleway', sans-serif",
-                        color: '#233d63',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      WHAT IS WRONG WITH YOUR DEVICE?:
-                    </h3>
+                     <h3
+                       className="text-lg font-bold mb-2"
+                       style={{
+                         fontFamily: "'Raleway', sans-serif",
+                         color: '#233d63',
+                         textTransform: 'uppercase'
+                       }}
+                     >
+                       PLEASE CHOOSE FAULT:
+                     </h3>
                     <p 
                       className="text-base"
                       style={{
@@ -326,21 +352,23 @@ export default function RepairPage({ params }: RepairPageProps) {
                   {deviceIssues.slice(0, 4).map((issue) => (
                     <div
                       key={issue.id}
-                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 text-center cursor-pointer border border-gray-200 group relative"
+                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${isGooglePhone ? 'p-4 lg:p-12' : 'p-4'}`}
                       onClick={() => setSelectedIssue(issue.name)}
                     >
-                      {/* Issue Image */}
-                      <div className="mb-4">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
-                          <Image
-                            src={issue.image}
-                            alt={issue.name}
-                            width={64}
-                            height={64}
-                            className="w-full h-full object-contain transition-all duration-300"
-                          />
+                      {/* Issue Image - Only show for non-Google phones */}
+                      {!isGooglePhone && (
+                        <div className="mb-4">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
+                            <Image
+                              src={issue.image}
+                              alt={issue.name}
+                              width={64}
+                              height={64}
+                              className="w-full h-full object-contain transition-all duration-300"
+                            />
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Issue Name */}
                       <h3
@@ -349,7 +377,7 @@ export default function RepairPage({ params }: RepairPageProps) {
                           fontFamily: "'Raleway', sans-serif",
                           fontSize: '13px',
                           color: '#232222',
-                          textTransform: 'capitalize',
+                          textTransform: 'none',
                           letterSpacing: '1px',
                           fontWeight: '500'
                         }}
@@ -365,21 +393,23 @@ export default function RepairPage({ params }: RepairPageProps) {
                   {deviceIssues.slice(4, 8).map((issue) => (
                     <div
                       key={issue.id}
-                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 text-center cursor-pointer border border-gray-200 group relative"
+                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${isGooglePhone ? 'p-4 lg:p-12' : 'p-4'}`}
                       onClick={() => setSelectedIssue(issue.name)}
                     >
-                      {/* Issue Image */}
-                      <div className="mb-4">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
-                          <Image
-                            src={issue.image}
-                            alt={issue.name}
-                            width={64}
-                            height={64}
-                            className="w-full h-full object-contain transition-all duration-300"
-                          />
+                      {/* Issue Image - Only show for non-Google phones */}
+                      {!isGooglePhone && (
+                        <div className="mb-4">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
+                            <Image
+                              src={issue.image}
+                              alt={issue.name}
+                              width={64}
+                              height={64}
+                              className="w-full h-full object-contain transition-all duration-300"
+                            />
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Issue Name */}
                       <h3
@@ -388,7 +418,7 @@ export default function RepairPage({ params }: RepairPageProps) {
                           fontFamily: "'Raleway', sans-serif",
                           fontSize: '13px',
                           color: '#232222',
-                          textTransform: 'capitalize',
+                          textTransform: 'none',
                           letterSpacing: '1px',
                           fontWeight: '500'
                         }}
