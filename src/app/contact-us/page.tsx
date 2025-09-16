@@ -235,7 +235,7 @@ export default function ContactUs() {
             <h1
               className="font-raleway font-bold uppercase mb-4"
               style={{
-                fontFamily: "'Raleway', sans-serif",
+                fontFamily: "&apos;Raleway&apos;, sans-serif",
                 fontSize: '36px',
                 color: '#233d63',
                 letterSpacing: '1px',
@@ -247,7 +247,7 @@ export default function ContactUs() {
             <p
               className="text-lg text-gray-600 max-w-2xl mx-auto"
               style={{
-                fontFamily: "'Lato', sans-serif"
+                fontFamily: "&apos;Lato&apos;, sans-serif"
               }}
             >
               If you are interested in getting a quote for any of our services, then you can use the below form and we will get back to you as soon as possible.
@@ -261,7 +261,7 @@ export default function ContactUs() {
                 <h2
                   className="text-2xl font-bold mb-6 text-center"
                   style={{
-                    fontFamily: "'Raleway', sans-serif",
+                    fontFamily: "&apos;Raleway&apos;, sans-serif",
                     color: '#233d63'
                   }}
                 >
@@ -364,7 +364,7 @@ export default function ContactUs() {
                   type="submit"
                   className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold uppercase transition-colors duration-200 hover:bg-blue-700"
                   style={{
-                    fontFamily: "'Lato', sans-serif",
+                    fontFamily: "&apos;Lato&apos;, sans-serif",
                     letterSpacing: '1px'
                   }}
                 >
@@ -378,7 +378,7 @@ export default function ContactUs() {
                 <h2
                   className="text-2xl font-bold mb-6 text-center"
                   style={{
-                    fontFamily: "'Raleway', sans-serif",
+                    fontFamily: "&apos;Raleway&apos;, sans-serif",
                     color: '#233d63'
                   }}
                 >
@@ -402,7 +402,7 @@ export default function ContactUs() {
                       <h3
                         className="text-lg font-semibold mb-1"
                         style={{
-                          fontFamily: "'Lato', sans-serif",
+                          fontFamily: "&apos;Lato&apos;, sans-serif",
                           fontSize: '24px',
                           color: 'black',
                           textTransform: 'capitalize',
@@ -415,7 +415,7 @@ export default function ContactUs() {
                       <p
                         className="text-gray-600"
                         style={{
-                          fontFamily: "'Lato', sans-serif",
+                          fontFamily: "&apos;Lato&apos;, sans-serif",
                           fontSize: '14px',
                           color: 'black',
                           textTransform: 'capitalize',
@@ -443,7 +443,7 @@ export default function ContactUs() {
                       <p
                         className="text-gray-600"
                         style={{
-                          fontFamily: "'Lato', sans-serif",
+                          fontFamily: "&apos;Lato&apos;, sans-serif",
                           fontSize: '14px',
                           color: 'black',
                           textTransform: 'capitalize',
@@ -470,7 +470,7 @@ export default function ContactUs() {
                       <p
                         className="text-gray-600"
                         style={{
-                          fontFamily: "'Lato', sans-serif",
+                          fontFamily: "&apos;Lato&apos;, sans-serif",
                           fontSize: '14px',
                           color: 'black',
                           textTransform: 'capitalize',

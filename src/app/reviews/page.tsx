@@ -266,7 +266,7 @@ export default function ReviewsPage() {
             <h1 
               className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
               style={{
-                fontFamily: "'Raleway', sans-serif",
+                fontFamily: "&apos;Raleway&apos;, sans-serif",
                 fontSize: '36px',
                 color: 'black',
                 textTransform: 'uppercase',
@@ -282,7 +282,7 @@ export default function ReviewsPage() {
                 fontSize: '16px',
                 lineHeight: '1.5',
                 color: 'black',
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "&apos;Lato&apos;, sans-serif",
                 fontWeight: '600'
               }}
             >
@@ -308,7 +308,7 @@ export default function ReviewsPage() {
                     <h3 
                       className="text-lg md:text-xl font-semibold mb-3"
                       style={{
-                        fontFamily: "'Lato', sans-serif",
+                        fontFamily: "&apos;Lato&apos;, sans-serif",
                         fontSize: '16px',
                         color: 'black',
                         fontWeight: '600'
@@ -320,7 +320,7 @@ export default function ReviewsPage() {
                       <p 
                         className="font-semibold"
                         style={{
-                          fontFamily: "'Lato', sans-serif",
+                          fontFamily: "&apos;Lato&apos;, sans-serif",
                           fontSize: '16px',
                           color: 'black',
                           fontWeight: '600'
@@ -331,7 +331,7 @@ export default function ReviewsPage() {
                       <p 
                         className="text-gray-600"
                         style={{
-                          fontFamily: "'Lato', sans-serif",
+                          fontFamily: "&apos;Lato&apos;, sans-serif",
                           fontSize: '16px',
                           color: '#666'
                         }}
@@ -351,7 +351,7 @@ export default function ReviewsPage() {
               className="px-8 py-4 rounded-full text-white font-bold transition-colors duration-200 hover:bg-blue-700"
               style={{
                 backgroundColor: '#6d6e71',
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "&apos;Lato&apos;, sans-serif",
                 fontWeight: '700',
                 textTransform: 'uppercase',
                 letterSpacing: '1px',
