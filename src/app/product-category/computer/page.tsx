@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -8,7 +9,8 @@ export default function ComputerPage() {
     {
       id: 'apple',
       name: '',
-      logo: '/apple.png'
+      logo: '/apple.png',
+      link: '/product-category/c-computer/apple'
     }
   ]
 
@@ -152,17 +154,61 @@ export default function ComputerPage() {
 
           <div className="flex justify-center">
             <div className="w-full max-w-sm">
-              {brands.map((brand) => (
-                <div
-                  key={brand.id}
-                  className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 md:p-8 text-center cursor-pointer border border-gray-200 group relative"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#6d6e71'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'white'
-                  }}
-                >
+              {brands.map((brand) => {
+                if (brand.link) {
+                  return (
+                    <Link
+                      key={brand.id}
+                      href={brand.link}
+                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 md:p-8 text-center cursor-pointer border border-gray-200 group relative block"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#6d6e71'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'white'
+                      }}
+                    >
+                      {/* Tick Icon - Top Right Corner */}
+                      <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                      </div>
+
+                      {/* Brand Logo */}
+                      <div className="mb-4 md:mb-6">
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto flex items-center justify-center">
+                          <img
+                            src={brand.logo}
+                            alt={`${brand.name} Logo`}
+                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Brand Name */}
+                      <h3
+                        className="text-lg sm:text-xl md:text-2xl font-bold text-[#233d63] group-hover:text-white transition-colors duration-300"
+                        style={{
+                          fontFamily: "'Raleway', sans-serif"
+                        }}
+                      >
+                        {brand.name}
+                      </h3>
+                    </Link>
+                  )
+                } else {
+                  return (
+                    <div
+                      key={brand.id}
+                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 md:p-8 text-center cursor-pointer border border-gray-200 group relative"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#6d6e71'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'white'
+                      }}
+                    >
                   {/* Tick Icon - Top Right Corner */}
                   <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -182,16 +228,18 @@ export default function ComputerPage() {
                   </div>
 
                   {/* Brand Name */}
-                  <h3
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-[#233d63] group-hover:text-white transition-colors duration-300"
-                    style={{
-                      fontFamily: "'Raleway', sans-serif"
-                    }}
-                  >
-                    {brand.name}
-                  </h3>
-                </div>
-              ))}
+                      <h3
+                        className="text-lg sm:text-xl md:text-2xl font-bold text-[#233d63] group-hover:text-white transition-colors duration-300"
+                        style={{
+                          fontFamily: "'Raleway', sans-serif"
+                        }}
+                      >
+                        {brand.name}
+                      </h3>
+                    </div>
+                  )
+                }
+              })}
             </div>
           </div>
         </div>

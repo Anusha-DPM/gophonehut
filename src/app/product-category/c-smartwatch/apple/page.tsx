@@ -9,70 +9,70 @@ import Footer from '@/components/Footer'
 
 // Apple Watch models data - 64 models
 const appleWatches = [
-  { id: 1, name: 'Apple Watch Series 5 44mm Titanium GPS + Cellular', slug: 'apple-watch-series-5-44mm-titanium-gps-cellular', image: '/watch-apple/watch-series-5-44mm-titanium-gps-and-cellular.png' },
-  { id: 2, name: 'Apple Watch Series 5 44mm Titanium GPS Only', slug: 'apple-watch-series-5-44mm-titanium-gps-only', image: '/watch-apple/watch-series-5-44mm-titanium-gps-only.png' },
-  { id: 3, name: 'Apple Watch Series 5 44mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-5-44mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-5-44mm-stainless-steel-gps-and-cellular.png' },
-  { id: 4, name: 'Apple Watch Series 5 44mm Stainless Steel GPS Only', slug: 'apple-watch-series-5-44mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-5-44mm-stainless-steel-gps-only.png' },
-  { id: 5, name: 'Apple Watch Series 5 44mm Ceramic GPS + Cellular', slug: 'apple-watch-series-5-44mm-ceramic-gps-cellular', image: '/watch-apple/watch-series-5-44mm-ceramic-gps-and-cellular.png' },
-  { id: 6, name: 'Apple Watch Series 5 44mm Ceramic GPS Only', slug: 'apple-watch-series-5-44mm-ceramic-gps-only', image: '/watch-apple/watch-series-5-44mm-ceramic-gps-only.png' },
-  { id: 7, name: 'Apple Watch Series 5 44mm Aluminium GPS + Cellular', slug: 'apple-watch-series-5-44mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-5-44mm-aluminium-gps-and-cellular.png' },
-  { id: 8, name: 'Apple Watch Series 5 44mm Aluminium GPS Only', slug: 'apple-watch-series-5-44mm-aluminium-gps-only', image: '/watch-apple/watch-series-5-44mm-aluminium-gps-only.png' },
-  { id: 9, name: 'Apple Watch Series 5 40mm Titanium GPS + Cellular', slug: 'apple-watch-series-5-40mm-titanium-gps-cellular', image: '/watch-apple/watch-series-5-40mm-titanium-gps-and-cellular.png' },
-  { id: 10, name: 'Apple Watch Series 5 40mm Titanium GPS Only', slug: 'apple-watch-series-5-40mm-titanium-gps-only', image: '/watch-apple/watch-series-5-40mm-titanium-gps-only.png' },
-  { id: 11, name: 'Apple Watch Series 5 40mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-5-40mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-5-40mm-stainless-steel-gps-and-cellular.png' },
-  { id: 12, name: 'Apple Watch Series 5 40mm Stainless Steel GPS Only', slug: 'apple-watch-series-5-40mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-5-40mm-stainless-steel-gps-only.png' },
-  { id: 13, name: 'Apple Watch Series 5 40mm Ceramic GPS + Cellular', slug: 'apple-watch-series-5-40mm-ceramic-gps-cellular', image: '/watch-apple/watch-series-5-40mm-ceramic-gps-and-cellular.png' },
-  { id: 14, name: 'Apple Watch Series 5 40mm Ceramic GPS Only', slug: 'apple-watch-series-5-40mm-ceramic-gps-only', image: '/watch-apple/watch-series-5-40mm-ceramic-gps-only.png' },
-  { id: 15, name: 'Apple Watch Series 5 40mm Aluminium GPS + Cellular', slug: 'apple-watch-series-5-40mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-5-40mm-aluminium-gps-and-cellular.png' },
-  { id: 16, name: 'Apple Watch Series 5 40mm Aluminium GPS Only', slug: 'apple-watch-series-5-40mm-aluminium-gps-only', image: '/watch-apple/watch-series-5-40mm-aluminium-gps-only.png' },
-  { id: 17, name: 'Apple Watch Series 4 44mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-4-44mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-4-44mm-stainless-steel-gps-and-cellular.png' },
-  { id: 18, name: 'Apple Watch Series 4 44mm Stainless Steel GPS Only', slug: 'apple-watch-series-4-44mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-4-44mm-stainless-steel-gps-only.png' },
-  { id: 19, name: 'Apple Watch Series 4 44mm Aluminium GPS + Cellular', slug: 'apple-watch-series-4-44mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-4-44mm-aluminium-gps-and-cellular.png' },
-  { id: 20, name: 'Apple Watch Series 4 44mm Aluminium GPS Only', slug: 'apple-watch-series-4-44mm-aluminium-gps-only', image: '/watch-apple/watch-series-4-44mm-aluminium-gps-only.png' },
-  { id: 21, name: 'Apple Watch Series 4 40mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-4-40mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-4-40mm-stainless-steel-gps-and-cellular.png' },
-  { id: 22, name: 'Apple Watch Series 4 40mm Stainless Steel GPS Only', slug: 'apple-watch-series-4-40mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-4-40mm-stainless-steel-gps-only.png' },
-  { id: 23, name: 'Apple Watch Series 4 40mm Aluminium GPS + Cellular', slug: 'apple-watch-series-4-40mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-4-40mm-aluminium-gps-and-cellular.png' },
-  { id: 24, name: 'Apple Watch Series 4 40mm Aluminium GPS Only', slug: 'apple-watch-series-4-40mm-aluminium-gps-only', image: '/watch-apple/watch-series-4-40mm-aluminium-gps-only.png' },
-  { id: 25, name: 'Apple Watch Series 3 42mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-3-42mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-3-42mm-stainless-steel-gps-and-cellular.png' },
-  { id: 26, name: 'Apple Watch Series 3 42mm Stainless Steel GPS Only', slug: 'apple-watch-series-3-42mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-3-42mm-stainless-steel-gps-only.png' },
-  { id: 27, name: 'Apple Watch Series 3 42mm Aluminium GPS + Cellular', slug: 'apple-watch-series-3-42mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-3-42mm-aluminium-gps-and-cellular.png' },
-  { id: 28, name: 'Apple Watch Series 3 42mm Aluminium GPS Only', slug: 'apple-watch-series-3-42mm-aluminium-gps-only', image: '/watch-apple/watch-series-3-42mm-aluminium-gps-only.png' },
-  { id: 29, name: 'Apple Watch Series 3 38mm Stainless Steel GPS + Cellular', slug: 'apple-watch-series-3-38mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-3-38mm-stainless-steel-gps-and-cellular.png' },
-  { id: 30, name: 'Apple Watch Series 3 38mm Stainless Steel GPS Only', slug: 'apple-watch-series-3-38mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-3-38mm-stainless-steel-gps-only.png' },
-  { id: 31, name: 'Apple Watch Series 3 38mm Aluminium GPS + Cellular', slug: 'apple-watch-series-3-38mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-3-38mm-aluminium-gps-and-cellular.png' },
-  { id: 32, name: 'Apple Watch Series 3 38mm Aluminium GPS Only', slug: 'apple-watch-series-3-38mm-aluminium-gps-only', image: '/watch-apple/watch-series-3-38mm-aluminium-gps-only.png' },
-  { id: 33, name: 'Apple Watch Series 2 42mm Stainless Steel', slug: 'apple-watch-series-2-42mm-stainless-steel', image: '/watch-apple/watch-series-2-42mm-stainless-steel.png' },
-  { id: 34, name: 'Apple Watch Series 2 42mm Aluminium', slug: 'apple-watch-series-2-42mm-aluminium', image: '/watch-apple/watch-series-2-42mm-aluminium.png' },
-  { id: 35, name: 'Apple Watch Series 2 38mm Stainless Steel', slug: 'apple-watch-series-2-38mm-stainless-steel', image: '/watch-apple/watch-series-2-38mm-stainless-steel.png' },
-  { id: 36, name: 'Apple Watch Series 2 38mm Aluminium', slug: 'apple-watch-series-2-38mm-aluminium', image: '/watch-apple/watch-series-2-38mm-aluminium.png' },
-  { id: 37, name: 'Apple Watch Series 1 42mm', slug: 'apple-watch-series-1-42mm', image: '/watch-apple/watch-sport-series-1-42mm.png' },
-  { id: 38, name: 'Apple Watch Series 1 38mm', slug: 'apple-watch-series-1-38mm', image: '/watch-apple/watch-sport-series-1-38mm.png' },
-  { id: 39, name: 'Apple Watch Sport 1st Gen 42mm', slug: 'apple-watch-sport-1st-gen-42mm', image: '/watch-apple/watch-sport-1st-gen-42mm.png' },
-  { id: 40, name: 'Apple Watch Sport 1st Gen 38mm', slug: 'apple-watch-sport-1st-gen-38mm', image: '/watch-apple/watch-sport-1st-gen-38mm.png' },
-  { id: 41, name: 'Apple Watch 1st Gen 42mm', slug: 'apple-watch-1st-gen-42mm', image: '/watch-apple/watch-1st-gen-42mm.png' },
-  { id: 42, name: 'Apple Watch 1st Gen 38mm', slug: 'apple-watch-1st-gen-38mm', image: '/watch-apple/watch-1st-gen-38mm.png' },
-  { id: 43, name: 'Apple Watch Nike+ Series 5 44mm GPS + Cellular', slug: 'apple-watch-nike-series-5-44mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-5-44mm-gps-and-cellular.png' },
-  { id: 44, name: 'Apple Watch Nike+ Series 5 44mm GPS Only', slug: 'apple-watch-nike-series-5-44mm-gps-only', image: '/watch-apple/watch-nike-plus-series-5-44mm-gps-only.png' },
-  { id: 45, name: 'Apple Watch Nike+ Series 5 40mm GPS + Cellular', slug: 'apple-watch-nike-series-5-40mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-5-40mm-gps-and-cellular.png' },
-  { id: 46, name: 'Apple Watch Nike+ Series 5 40mm GPS Only', slug: 'apple-watch-nike-series-5-40mm-gps-only', image: '/watch-apple/watch-nike-plus-series-5-40mm-gps-only.png' },
-  { id: 47, name: 'Apple Watch Nike+ Series 4 44mm GPS + Cellular', slug: 'apple-watch-nike-series-4-44mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-4-44mm-gps-and-cellular.png' },
-  { id: 48, name: 'Apple Watch Nike+ Series 4 44mm GPS Only', slug: 'apple-watch-nike-series-4-44mm-gps-only', image: '/watch-apple/watch-nike-plus-series-4-44mm-gps-only.png' },
-  { id: 49, name: 'Apple Watch Nike+ Series 4 40mm GPS + Cellular', slug: 'apple-watch-nike-series-4-40mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-4-40mm-gps-and-cellular.png' },
-  { id: 50, name: 'Apple Watch Nike+ Series 4 40mm GPS Only', slug: 'apple-watch-nike-series-4-40mm-gps-only', image: '/watch-apple/watch-nike-plus-series-4-40mm-gps-only.png' },
-  { id: 51, name: 'Apple Watch Nike+ Series 3 42mm GPS + Cellular', slug: 'apple-watch-nike-series-3-42mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-3-42mm-gps-and-cellular.png' },
-  { id: 52, name: 'Apple Watch Nike+ Series 3 42mm GPS Only', slug: 'apple-watch-nike-series-3-42mm-gps-only', image: '/watch-apple/watch-nike-plus-series-3-42mm-gps-only.png' },
-  { id: 53, name: 'Apple Watch Nike+ Series 3 38mm GPS + Cellular', slug: 'apple-watch-nike-series-3-38mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-3-38mm-gps-and-cellular.png' },
-  { id: 54, name: 'Apple Watch Nike+ Series 3 38mm GPS Only', slug: 'apple-watch-nike-series-3-38mm-gps-only', image: '/watch-apple/watch-nike-plus-series-3-38mm-gps-only.png' },
-  { id: 55, name: 'Apple Watch Nike+ Series 2 42mm', slug: 'apple-watch-nike-series-2-42mm', image: '/watch-apple/watch-nike-plus-series-2-42mm.png' },
-  { id: 56, name: 'Apple Watch Nike+ Series 2 38mm', slug: 'apple-watch-nike-series-2-38mm', image: '/watch-apple/watch-nike-plus-series-2-38mm.png' },
-  { id: 57, name: 'Apple Watch Hermès Series 3 42mm GPS + Cellular', slug: 'apple-watch-hermes-series-3-42mm-gps-cellular', image: '/watch-apple/watch-hermes-series-3-42mm-gps-and-cellular.png' },
-  { id: 58, name: 'Apple Watch Hermès Series 3 38mm GPS + Cellular', slug: 'apple-watch-hermes-series-3-38mm-gps-cellular', image: '/watch-apple/watch-hermes-series-3-38mm-gps-and-cellular.png' },
-  { id: 59, name: 'Apple Watch Hermès Series 2 42mm', slug: 'apple-watch-hermes-series-2-42mm', image: '/watch-apple/watch-hermes-series-2-42mm.png' },
-  { id: 60, name: 'Apple Watch Hermès Series 2 38mm', slug: 'apple-watch-hermes-series-2-38mm', image: '/watch-apple/watch-hermes-series-2-38mm.png' },
-  { id: 61, name: 'Apple Watch Hermès 1st Gen 42mm', slug: 'apple-watch-hermes-1st-gen-42mm', image: '/watch-apple/watch-hermes-1st-gen-42mm.png' },
-  { id: 62, name: 'Apple Watch Hermès 1st Gen 38mm', slug: 'apple-watch-hermes-1st-gen-38mm', image: '/watch-apple/watch-hermes-1st-gen-38mm.png' },
-  { id: 63, name: 'Apple Watch Edition Series 3 42mm GPS + Cellular', slug: 'apple-watch-edition-series-3-42mm-gps-cellular', image: '/watch-apple/watch-edition-series-3-42mm-gps-and-cellular.png' },
-  { id: 64, name: 'Apple Watch Edition Series 3 38mm GPS + Cellular', slug: 'apple-watch-edition-series-3-38mm-gps-cellular', image: '/watch-apple/watch-edition-series-3-38mm-gps-and-cellular.png' }
+  { id: 1, name: 'Watch Series 5 44mm Ceramic GPS And Cellular', slug: 'apple-watch-series-5-44mm-titanium-gps-cellular', image: '/watch-apple/watch-series-5-44mm-titanium-gps-and-cellular.png' },
+  { id: 2, name: 'Watch Series 5 44mm Ceramic GPS Only', slug: 'apple-watch-series-5-44mm-titanium-gps-only', image: '/watch-apple/watch-series-5-44mm-titanium-gps-only.png' },
+  { id: 3, name: 'Watch Series 5 40mm Ceramic GPS And Cellular', slug: 'apple-watch-series-5-44mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-5-44mm-stainless-steel-gps-and-cellular.png' },
+  { id: 4, name: 'Watch Series 5 40mm Ceramic GPS Only', slug: 'apple-watch-series-5-44mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-5-44mm-stainless-steel-gps-only.png' },
+  { id: 5, name: 'Watch Series 5 40mm Titanium GPS And Cellular', slug: 'apple-watch-series-5-44mm-ceramic-gps-cellular', image: '/watch-apple/watch-series-5-44mm-ceramic-gps-and-cellular.png' },
+  { id: 6, name: 'Watch Series 5 44mm Titanium GPS And Cellular', slug: 'apple-watch-series-5-44mm-ceramic-gps-only', image: '/watch-apple/watch-series-5-44mm-ceramic-gps-only.png' },
+  { id: 7, name: 'Watch Series 5 44mm Titanium GPS Only', slug: 'apple-watch-series-5-44mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-5-44mm-aluminium-gps-and-cellular.png' },
+  { id: 8, name: 'Watch Series 5 40mm Titanium GPS Only', slug: 'apple-watch-series-5-44mm-aluminium-gps-only', image: '/watch-apple/watch-series-5-44mm-aluminium-gps-only.png' },
+  { id: 9, name: 'Watch Series 5 44mm Stainless Steel GPS Only', slug: 'apple-watch-series-5-40mm-titanium-gps-cellular', image: '/watch-apple/watch-series-5-40mm-titanium-gps-and-cellular.png' },
+  { id: 10, name: 'Watch Series 5 44mm Stainless Steel GPS And Cellular', slug: 'apple-watch-series-5-40mm-titanium-gps-only', image: '/watch-apple/watch-series-5-40mm-titanium-gps-only.png' },
+  { id: 11, name: 'Watch Series 5 40mm Stainless Steel GPS Only', slug: 'apple-watch-series-5-40mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-5-40mm-stainless-steel-gps-and-cellular.png' },
+  { id: 12, name: 'Watch Series 5 40mm Stainless Steel GPS And Cellular', slug: 'apple-watch-series-5-40mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-5-40mm-stainless-steel-gps-only.png' },
+  { id: 13, name: 'Watch Series 5 44mm Aluminium GPS And Cellular', slug: 'apple-watch-series-5-40mm-ceramic-gps-cellular', image: '/watch-apple/watch-series-5-40mm-ceramic-gps-and-cellular.png' },
+  { id: 14, name: 'Watch Series 5 40mm Aluminium GPS And Cellular', slug: 'apple-watch-series-5-40mm-ceramic-gps-only', image: '/watch-apple/watch-series-5-40mm-ceramic-gps-only.png' },
+  { id: 15, name: 'Watch Nike Plus Series 5 44mm GPS And Cellular', slug: 'apple-watch-series-5-40mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-5-40mm-aluminium-gps-and-cellular.png' },
+  { id: 16, name: 'Watch Series 5 44mm Aluminium GPS Only', slug: 'apple-watch-series-5-40mm-aluminium-gps-only', image: '/watch-apple/watch-series-5-40mm-aluminium-gps-only.png' },
+  { id: 17, name: 'Watch Series 5 40mm Aluminium GPS Only', slug: 'apple-watch-series-4-44mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-4-44mm-stainless-steel-gps-and-cellular.png' },
+  { id: 18, name: 'Watch Nike Plus Series 5 40mm GPS And Cellular', slug: 'apple-watch-series-4-44mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-4-44mm-stainless-steel-gps-only.png' },
+  { id: 19, name: 'Watch Nike Plus Series 5 44mm GPS Only', slug: 'apple-watch-series-4-44mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-4-44mm-aluminium-gps-and-cellular.png' },
+  { id: 20, name: 'Watch Hermes Series 3 42mm GPS And Cellular', slug: 'apple-watch-series-4-44mm-aluminium-gps-only', image: '/watch-apple/watch-series-4-44mm-aluminium-gps-only.png' },
+  { id: 21, name: 'Watch Nike Plus Series 5 40mm GPS Only', slug: 'apple-watch-series-4-40mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-4-40mm-stainless-steel-gps-and-cellular.png' },
+  { id: 22, name: 'Watch Hermes Series 3 38mm GPS And Cellular', slug: 'apple-watch-series-4-40mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-4-40mm-stainless-steel-gps-only.png' },
+  { id: 23, name: 'Watch Series 4 44mm Stainless Steel GPS And Cellular', slug: 'apple-watch-series-4-40mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-4-40mm-aluminium-gps-and-cellular.png' },
+  { id: 24, name: 'Watch Series 4 44mm Stainless Steel GPS Only', slug: 'apple-watch-series-4-40mm-aluminium-gps-only', image: '/watch-apple/watch-series-4-40mm-aluminium-gps-only.png' },
+  { id: 25, name: 'Watch Nike Plus Series 4 44mm GPS And Cellular', slug: 'apple-watch-series-3-42mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-3-42mm-stainless-steel-gps-and-cellular.png' },
+  { id: 26, name: 'Watch Nike Plus Series 4 40mm GPS And Cellular', slug: 'apple-watch-series-3-42mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-3-42mm-stainless-steel-gps-only.png' },
+  { id: 27, name: 'Watch Series 4 40mm Stainless Steel GPS Only', slug: 'apple-watch-series-3-42mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-3-42mm-aluminium-gps-and-cellular.png' },
+  { id: 28, name: 'Watch Series 4 40mm Stainless Steel GPS And Cellular', slug: 'apple-watch-series-3-42mm-aluminium-gps-only', image: '/watch-apple/watch-series-3-42mm-aluminium-gps-only.png' },
+  { id: 29, name: 'Watch Series 4 44mm Aluminium GPS And Cellular', slug: 'apple-watch-series-3-38mm-stainless-steel-gps-cellular', image: '/watch-apple/watch-series-3-38mm-stainless-steel-gps-and-cellular.png' },
+  { id: 30, name: 'Watch Nike Plus Series 4 44mm GPS Only', slug: 'apple-watch-series-3-38mm-stainless-steel-gps-only', image: '/watch-apple/watch-series-3-38mm-stainless-steel-gps-only.png' },
+  { id: 31, name: 'Watch Hermes 1st Gen 42mm', slug: 'apple-watch-series-3-38mm-aluminium-gps-cellular', image: '/watch-apple/watch-series-3-38mm-aluminium-gps-and-cellular.png' },
+  { id: 32, name: 'Watch Edition Series 3 42mm GPS And Cellular', slug: 'apple-watch-series-3-38mm-aluminium-gps-only', image: '/watch-apple/watch-series-3-38mm-aluminium-gps-only.png' },
+  { id: 33, name: 'Watch Series 4 40mm Aluminium GPS And Cellular', slug: 'apple-watch-series-2-42mm-stainless-steel', image: '/watch-apple/watch-series-2-42mm-stainless-steel.png' },
+  { id: 34, name: 'Watch Series 4 44mm Aluminium GPS Only', slug: 'apple-watch-series-2-42mm-aluminium', image: '/watch-apple/watch-series-2-42mm-aluminium.png' },
+  { id: 35, name: 'Watch Series 4 40mm Aluminium GPS Only', slug: 'apple-watch-series-2-38mm-stainless-steel', image: '/watch-apple/watch-series-2-38mm-stainless-steel.png' },
+  { id: 36, name: 'Watch Nike Plus Series 4 40mm GPS Only', slug: 'apple-watch-series-2-38mm-aluminium', image: '/watch-apple/watch-series-2-38mm-aluminium.png' },
+  { id: 37, name: 'Watch Hermes 1st Gen 38mm', slug: 'apple-watch-series-1-42mm', image: '/watch-apple/watch-sport-series-1-42mm.png' },
+  { id: 38, name: 'Watch Hermes Series 2 42mm', slug: 'apple-watch-series-1-38mm', image: '/watch-apple/watch-sport-series-1-38mm.png' },
+  { id: 39, name: 'Watch Edition Series 3 38mm GPS And Cellular', slug: 'apple-watch-sport-1st-gen-42mm', image: '/watch-apple/watch-sport-1st-gen-42mm.png' },
+  { id: 40, name: 'Watch Series 3 42mm Stainless Steel GPS And Cellular', slug: 'apple-watch-sport-1st-gen-38mm', image: '/watch-apple/watch-sport-1st-gen-38mm.png' },
+  { id: 41, name: 'Watch Hermes Series 2 38mm', slug: 'apple-watch-1st-gen-42mm', image: '/watch-apple/watch-1st-gen-42mm.png' },
+  { id: 42, name: 'Watch Series 3 42mm Aluminium GPS And Cellular', slug: 'apple-watch-1st-gen-38mm', image: '/watch-apple/watch-1st-gen-38mm.png' },
+  { id: 43, name: 'Watch Nike Plus Series 3 42mm GPS And Cellular', slug: 'apple-watch-nike-series-5-44mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-5-44mm-gps-and-cellular.png' },
+  { id: 44, name: 'Watch Series 3 38mm Stainless Steel GPS And Cellular', slug: 'apple-watch-nike-series-5-44mm-gps-only', image: '/watch-apple/watch-nike-plus-series-5-44mm-gps-only.png' },
+  { id: 45, name: 'Watch Series 3 38mm Aluminium GPS And Cellular', slug: 'apple-watch-nike-series-5-40mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-5-40mm-gps-and-cellular.png' },
+  { id: 46, name: 'Watch Series 3 42mm Aluminium GPS Only', slug: 'apple-watch-nike-series-5-40mm-gps-only', image: '/watch-apple/watch-nike-plus-series-5-40mm-gps-only.png' },
+  { id: 47, name: 'Watch Series 2 42mm Stainless Steel', slug: 'apple-watch-nike-series-4-44mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-4-44mm-gps-and-cellular.png' },
+  { id: 48, name: 'Watch Series 3 42mm Stainless Steel GPS Only', slug: 'apple-watch-nike-series-4-44mm-gps-only', image: '/watch-apple/watch-nike-plus-series-4-44mm-gps-only.png' },
+  { id: 49, name: 'Watch Nike Plus Series 3 38mm GPS And Cellular', slug: 'apple-watch-nike-series-4-40mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-4-40mm-gps-and-cellular.png' },
+  { id: 50, name: 'Watch Series 3 38mm Aluminium GPS Only', slug: 'apple-watch-nike-series-4-40mm-gps-only', image: '/watch-apple/watch-nike-plus-series-4-40mm-gps-only.png' },
+  { id: 51, name: 'Watch Series 3 38mm Stainless Steel GPS Only', slug: 'apple-watch-nike-series-3-42mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-3-42mm-gps-and-cellular.png' },
+  { id: 52, name: 'Watch Series 2 42mm Aluminium', slug: 'apple-watch-nike-series-3-42mm-gps-only', image: '/watch-apple/watch-nike-plus-series-3-42mm-gps-only.png' },
+  { id: 53, name: 'Watch Nike Plus Series 3 42mm GPS Only', slug: 'apple-watch-nike-series-3-38mm-gps-cellular', image: '/watch-apple/watch-nike-plus-series-3-38mm-gps-and-cellular.png' },
+  { id: 54, name: 'Watch Series 2 38mm Stainless Steel', slug: 'apple-watch-nike-series-3-38mm-gps-only', image: '/watch-apple/watch-nike-plus-series-3-38mm-gps-only.png' },
+  { id: 55, name: 'Watch Nike Plus Series 2 42mm', slug: 'apple-watch-nike-series-2-42mm', image: '/watch-apple/watch-nike-plus-series-2-42mm.png' },
+  { id: 56, name: 'Watch Nike Plus Series 3 38mm GPS Only', slug: 'apple-watch-nike-series-2-38mm', image: '/watch-apple/watch-nike-plus-series-2-38mm.png' },
+  { id: 57, name: 'Watch Series 2 38mm Aluminium', slug: 'apple-watch-hermes-series-3-42mm-gps-cellular', image: '/watch-apple/watch-hermes-series-3-42mm-gps-and-cellular.png' },
+  { id: 58, name: 'Watch Nike Plus Series 2 38mm', slug: 'apple-watch-hermes-series-3-38mm-gps-cellular', image: '/watch-apple/watch-hermes-series-3-38mm-gps-and-cellular.png' },
+  { id: 59, name: 'Watch Sport Series 1 42mm', slug: 'apple-watch-hermes-series-2-42mm', image: '/watch-apple/watch-hermes-series-2-42mm.png' },
+  { id: 60, name: 'Watch 1st Gen 42mm', slug: 'apple-watch-hermes-series-2-38mm', image: '/watch-apple/watch-hermes-series-2-38mm.png' },
+  { id: 61, name: 'Watch Sport Series 1 38mm', slug: 'apple-watch-hermes-1st-gen-42mm', image: '/watch-apple/watch-hermes-1st-gen-42mm.png' },
+  { id: 62, name: 'Watch Sport 1st Gen 42mm', slug: 'apple-watch-hermes-1st-gen-38mm', image: '/watch-apple/watch-hermes-1st-gen-38mm.png' },
+  { id: 63, name: 'Watch 1st Gen 38mm', slug: 'apple-watch-edition-series-3-42mm-gps-cellular', image: '/watch-apple/watch-edition-series-3-42mm-gps-and-cellular.png' },
+  { id: 64, name: 'Watch Sport 1st Gen 38mm', slug: 'apple-watch-edition-series-3-38mm-gps-cellular', image: '/watch-apple/watch-edition-series-3-38mm-gps-and-cellular.png' }
 ]
 
 export default function AppleWatchPage() {
@@ -182,7 +182,7 @@ export default function AppleWatchPage() {
                   Contact
                 </a>
               </nav>
-
+              
               {/* Search Icon */}
               <div className="ml-4">
                 <svg 
@@ -253,7 +253,7 @@ export default function AppleWatchPage() {
                 }}
               />
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg
+                <svg 
                   className="h-5 w-5 text-gray-400"
                   fill="none"
                   stroke="currentColor"
@@ -325,54 +325,45 @@ export default function AppleWatchPage() {
       </section>
 
       {/* Can't Find Your Device Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
-          <h3
-            className="font-raleway font-bold uppercase mb-4"
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
+        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+          <h2
+            className="text-3xl md:text-4xl font-bold mb-6"
             style={{
-              fontSize: '28px',
-              color: 'black',
               fontFamily: "'Raleway', sans-serif",
-              letterSpacing: '1px',
-              fontWeight: '700'
+              color: '#233d63'
             }}
           >
-            Can't find a model you're looking for?
-          </h3>
+            Can&apos;t Find A Model You&apos;re Looking For?
+          </h2>
+          
           <p
-            className="font-lato mb-8"
+            className="text-lg mb-8"
             style={{
-              fontSize: '18px',
-              lineHeight: '1.6',
+              fontFamily: 'lato',
               color: '#666',
-              fontFamily: "'Lato', sans-serif"
+              lineHeight: '1.6'
             }}
           >
-            Don't worry! We repair many more models than what's listed here. 
-            Contact us and we'll be happy to help you with your specific device.
+            Don&apos;t worry! We repair many more models than what&apos;s listed here. Contact us and we&apos;ll be happy to help you with your specific device.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact-us"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-raleway font-bold uppercase rounded-lg hover:bg-blue-700 transition-colors duration-300"
-              style={{
-                fontSize: '16px',
-                letterSpacing: '1px'
-              }}
-            >
-              Contact Us
-            </a>
-            <a
-              href="tel:408-224-2869"
-              className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-raleway font-bold uppercase rounded-lg hover:bg-green-700 transition-colors duration-300"
-              style={{
-                fontSize: '16px',
-                letterSpacing: '1px'
-              }}
-            >
-              Call Now
-            </a>
-          </div>
+
+          <button
+            className="py-4 px-8 rounded-lg font-semibold text-lg transition-colors duration-200"
+            style={{
+              backgroundColor: '#6d6e71',
+              color: 'white',
+              fontFamily: 'lato'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#0056b3'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#6d6e71'
+            }}
+          >
+            Quote Request
+          </button>
         </div>
       </section>
 

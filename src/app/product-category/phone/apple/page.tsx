@@ -309,7 +309,7 @@ export default function ApplePhonePage() {
               color: '#233d63'
             }}
           >
-            Can&apos;t find a model you&apos;re looking for?
+            Can&apos;t Find A Model You&apos;re Looking For?
           </h2>
           
           <p
@@ -320,7 +320,7 @@ export default function ApplePhonePage() {
               lineHeight: '1.6'
             }}
           >
-            Get in touch for a free estimate and see how we can help.
+            Don&apos;t worry! We repair many more models than what&apos;s listed here. Contact us and we&apos;ll be happy to help you with your specific device.
           </p>
 
           <button

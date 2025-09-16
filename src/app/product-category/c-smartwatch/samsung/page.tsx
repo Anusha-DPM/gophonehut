@@ -9,15 +9,15 @@ import Footer from '@/components/Footer'
 
 // Samsung Galaxy Watch models data - 17 models
 const samsungWatches = [
-  { id: 1, name: 'Galaxy Watch 46mm', slug: 'galaxy-watch-46mm', image: '/watch-samsung/galaxy-watch-46mm.png' },
-  { id: 2, name: 'Galaxy Watch 42mm', slug: 'galaxy-watch-42mm', image: '/watch-samsung/galaxy-watch-42mm.png' },
+  { id: 1, name: 'Galaxy Watch', slug: 'galaxy-watch-46mm', image: '/watch-samsung/galaxy-watch-46mm.png' },
+  { id: 2, name: 'Galaxy Watch', slug: 'galaxy-watch-42mm', image: '/watch-samsung/galaxy-watch-42mm.png' },
   { id: 3, name: 'Galaxy Watch Active', slug: 'galaxy-watch-active', image: '/watch-samsung/galaxy-watch-active.png' },
-  { id: 4, name: 'Galaxy Watch Active 2 40mm', slug: 'galaxy-watch-active-2-40mm', image: '/watch-samsung/galaxy-watch-active-2-40mm.png' },
+  { id: 4, name: 'Galaxy Watch Active 2', slug: 'galaxy-watch-active-2-40mm', image: '/watch-samsung/galaxy-watch-active-2-40mm.png' },
   { id: 5, name: 'Galaxy Gear Sport', slug: 'galaxy-gear-sport', image: '/watch-samsung/galaxy-gear-sport.png' },
-  { id: 6, name: 'Galaxy Gear S3 Frontier', slug: 'galaxy-gear-s3-frontier', image: '/watch-samsung/galaxy-gear-s3-frontier.png' },
-  { id: 7, name: 'Galaxy Gear S3 Classic', slug: 'galaxy-gear-s3-classic', image: '/watch-samsung/galaxy-gear-s3-classic.png' },
+  { id: 6, name: 'Galaxy Gear S3', slug: 'galaxy-gear-s3-frontier', image: '/watch-samsung/galaxy-gear-s3-frontier.png' },
+  { id: 7, name: 'Galaxy Gear S3', slug: 'galaxy-gear-s3-classic', image: '/watch-samsung/galaxy-gear-s3-classic.png' },
   { id: 8, name: 'Galaxy Gear S2', slug: 'galaxy-gear-s2', image: '/watch-samsung/galaxy-gear-s2.png' },
-  { id: 9, name: 'Galaxy Gear S2 Classic', slug: 'galaxy-gear-s2-classic', image: '/watch-samsung/galaxy-gear-s2-classic.png' },
+  { id: 9, name: 'Galaxy Gear S2', slug: 'galaxy-gear-s2-classic', image: '/watch-samsung/galaxy-gear-s2-classic.png' },
   { id: 10, name: 'Galaxy Gear S', slug: 'galaxy-gear-s', image: '/watch-samsung/galaxy-gear-s.png' },
   { id: 11, name: 'Galaxy Gear Live', slug: 'galaxy-gear-live', image: '/watch-samsung/galaxy-gear-live.png' },
   { id: 12, name: 'Galaxy Gear Fit2 Pro', slug: 'galaxy-gear-fit2-pro', image: '/watch-samsung/galaxy-gear-fit2-pro.png' },

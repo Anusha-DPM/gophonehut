@@ -7,77 +7,122 @@ import TopHeader from '@/components/TopHeader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-// Samsung Galaxy Tab models data - 56 models
-const samsungTablets = [
-  { id: 1, name: 'Galaxy Tab S6 Lite', slug: 'galaxy-tab-s6-lite', image: '/tablet-samsung/galaxy-tab-s6-lite.png' },
-  { id: 2, name: 'Galaxy Tab S5e', slug: 'galaxy-tab-s5e', image: '/tablet-samsung/galaxy-tab-s5e.png' },
-  { id: 3, name: 'Galaxy Tab S4 10.5', slug: 'galaxy-tab-s4-10-5', image: '/tablet-samsung/galaxy-tab-s4-10-5.png' },
-  { id: 4, name: 'Galaxy Tab S3 9.7', slug: 'galaxy-tab-s3-9-7', image: '/tablet-samsung/galaxy-tab-s3-9-7.png' },
-  { id: 5, name: 'Galaxy Tab S2 9.7', slug: 'galaxy-tab-s2-9-7', image: '/tablet-samsung/galaxy-tab-s2-9-7.png' },
-  { id: 6, name: 'Galaxy Tab S2 8.0', slug: 'galaxy-tab-s2-8-0', image: '/tablet-samsung/galaxy-tab-s2-8-0.png' },
-  { id: 7, name: 'Galaxy Tab S6', slug: 'galaxy-tab-s6', image: '/tablet-samsung/Galaxy Tab S6.png' },
-  { id: 8, name: 'Galaxy Tab S 10.5', slug: 'galaxy-tab-s-10-5', image: '/tablet-samsung/galaxy-tab-s-10-5.png' },
-  { id: 9, name: 'Galaxy Tab S 8.4', slug: 'galaxy-tab-s-8-4', image: '/tablet-samsung/galaxy-tab-s-8-4.png' },
-  { id: 10, name: 'Galaxy Tab A 10.1 (2019)', slug: 'galaxy-tab-a-10-1-2019', image: '/tablet-samsung/galaxy-tab-a-10-1-2019.png' },
-  { id: 11, name: 'Galaxy Tab A 10.1 (2016)', slug: 'galaxy-tab-a-10-1-2016', image: '/tablet-samsung/galaxy-tab-a-10-1-2016.png' },
-  { id: 12, name: 'Galaxy Tab A 10.5 (2018)', slug: 'galaxy-tab-a-10-5-2018', image: '/tablet-samsung/galaxy-tab-a-10-5-2018.png' },
-  { id: 13, name: 'Galaxy Tab A 9.7', slug: 'galaxy-tab-a-9-7', image: '/tablet-samsung/galaxy-tab-a-9-7.png' },
-  { id: 14, name: 'Galaxy Tab A 8.0 (2019)', slug: 'galaxy-tab-a-8-0-2019', image: '/tablet-samsung/galaxy-tab-a-8-0-2019.png' },
-  { id: 15, name: 'Galaxy Tab A 8.0 (2018)', slug: 'galaxy-tab-a-8-0-2018', image: '/tablet-samsung/galaxy-tab-a-8-0-2018.png' },
-  { id: 16, name: 'Galaxy Tab A 8.0 (2017)', slug: 'galaxy-tab-a-8-0-2017', image: '/tablet-samsung/galaxy-tab-a-8-0-2017.png' },
-  { id: 17, name: 'Galaxy Tab A 8.0', slug: 'galaxy-tab-a-8-0', image: '/tablet-samsung/galaxy-tab-a-8-0.png' },
-  { id: 18, name: 'Galaxy Tab A 7.0 (2016)', slug: 'galaxy-tab-a-7-0-2016', image: '/tablet-samsung/galaxy-tab-a-7-0-2016.png' },
-  { id: 19, name: 'Galaxy Tab E 9.6', slug: 'galaxy-tab-e-9-6', image: '/tablet-samsung/galaxy-tab-e-9-6.png' },
-  { id: 20, name: 'Galaxy Tab E 8.0', slug: 'galaxy-tab-e-8-0', image: '/tablet-samsung/galaxy-tab-e-8-0.png' },
-  { id: 21, name: 'Galaxy Tab Pro 12.2', slug: 'galaxy-tab-pro-12-2', image: '/tablet-samsung/galaxy-tab-pro-12-2.png' },
-  { id: 22, name: 'Galaxy Tab Pro 10.1', slug: 'galaxy-tab-pro-10-1', image: '/tablet-samsung/galaxy-tab-pro-10-1.png' },
-  { id: 23, name: 'Galaxy Tab Pro 8.4', slug: 'galaxy-tab-pro-8-4', image: '/tablet-samsung/galaxy-tab-pro-8-4.png' },
-  { id: 24, name: 'Galaxy Tab Pro S', slug: 'galaxy-tab-pro-s', image: '/tablet-samsung/galaxy-tab-pro-s.png' },
-  { id: 25, name: 'Galaxy Tab 8.9', slug: 'galaxy-tab-8-9', image: '/tablet-samsung/galaxy-tab-8-9.png' },
-  { id: 26, name: 'Galaxy Tab 7.7', slug: 'galaxy-tab-7-7', image: '/tablet-samsung/galaxy-tab-7-7.png' },
-  { id: 27, name: 'Galaxy Tab 7.0 Plus', slug: 'galaxy-tab-7-0-plus', image: '/tablet-samsung/galaxy-tab-7-0-plus.png' },
-  { id: 28, name: 'Galaxy Tab 7.0', slug: 'galaxy-tab-7-0', image: '/tablet-samsung/galaxy-tab-7-0.png' },
-  { id: 29, name: 'Galaxy Tab 4 10.1', slug: 'galaxy-tab-4-10-1', image: '/tablet-samsung/galaxy-tab-4-10-1.png' },
-  { id: 30, name: 'Galaxy Tab 4 8.0', slug: 'galaxy-tab-4-8-0', image: '/tablet-samsung/galaxy-tab-4-8-0.png' },
-  { id: 31, name: 'Galaxy Tab 4 7.0', slug: 'galaxy-tab-4-7-0', image: '/tablet-samsung/galaxy-tab-4-7-0.png' },
-  { id: 32, name: 'Galaxy Tab 4 Nook 7.0', slug: 'galaxy-tab-4-nook-7-0', image: '/tablet-samsung/galaxy-tab-4-nook-7-0.png' },
-  { id: 33, name: 'Galaxy Tab 3 10.1', slug: 'galaxy-tab-3-10-1', image: '/tablet-samsung/galaxy-tab-3-10-1.png' },
-  { id: 34, name: 'Galaxy Tab 3 8.0', slug: 'galaxy-tab-3-8-0', image: '/tablet-samsung/galaxy-tab-3-8-0.png' },
-  { id: 35, name: 'Galaxy Tab 3 7.0', slug: 'galaxy-tab-3-7-0', image: '/tablet-samsung/galaxy-tab-3-7-0.png' },
-  { id: 36, name: 'Galaxy Tab 3 7.0 Kids', slug: 'galaxy-tab-3-7-0-kids', image: '/tablet-samsung/galaxy-tab-3-7-0-kids.png' },
-  { id: 37, name: 'Galaxy Tab 3 7.0 Garnet Red', slug: 'galaxy-tab-3-7-0-garnet-red', image: '/tablet-samsung/galaxy-tab-3-7-0-garnet-red.png' },
-  { id: 38, name: 'Galaxy Tab 3 Lite 7.0', slug: 'galaxy-tab-3-lite-7-0', image: '/tablet-samsung/galaxy-tab-3-lite-7-0.png' },
-  { id: 39, name: 'Galaxy Tab 2 10.1', slug: 'galaxy-tab-2-10-1', image: '/tablet-samsung/galaxy-tab-2-10-1.png' },
-  { id: 40, name: 'Galaxy Tab 2 7.0', slug: 'galaxy-tab-2-7-0', image: '/tablet-samsung/galaxy-tab-2-7-0.png' },
-  { id: 41, name: 'Galaxy Tab 10.1', slug: 'galaxy-tab-10-1', image: '/tablet-samsung/galaxy-tab-10-1.png' },
-  { id: 42, name: 'Galaxy Note 10.1 (2014 Edition)', slug: 'galaxy-note-10-1-2014-edition', image: '/tablet-samsung/galaxy-note-10-1-2014-edition.png' },
-  { id: 43, name: 'Galaxy Note 10.1', slug: 'galaxy-note-10-1', image: '/tablet-samsung/galaxy-note-10-1.png' },
-  { id: 44, name: 'Galaxy Note 8.0', slug: 'galaxy-note-8-0', image: '/tablet-samsung/galaxy-note-8-0.png' },
-  { id: 45, name: 'Galaxy Note Pro', slug: 'galaxy-note-pro', image: '/tablet-samsung/galaxy-note-pro.png' },
-  { id: 46, name: 'Galaxy View', slug: 'galaxy-view', image: '/tablet-samsung/galaxy-view.png' },
-  { id: 47, name: 'Galaxy View 2', slug: 'galaxy-view2', image: '/tablet-samsung/galaxy-view2.png' },
-  { id: 48, name: 'Galaxy J Max', slug: 'galaxy-j-max', image: '/tablet-samsung/galaxy-j-max.png' },
-  { id: 49, name: 'ATIV Tab 3', slug: 'ativ-tab-3', image: '/tablet-samsung/ativ-tab-3.png' },
-  { id: 50, name: 'ATIV Tab 5', slug: 'ativ-tab-5', image: '/tablet-samsung/ativ-tab-5.png' },
-  { id: 51, name: 'ATIV Tab 7', slug: 'ativ-tab-7', image: '/tablet-samsung/ativ-tab-7.png' },
-  { id: 52, name: 'ATIV Tab Q', slug: 'ativ-tab-q', image: '/tablet-samsung/ativ-tab-q.png' },
-  { id: 53, name: 'ATIV Tab', slug: 'ativ-tab', image: '/tablet-samsung/ativ-tab.png' },
-  { id: 54, name: 'Google Nexus 10', slug: 'google-nexus-10', image: '/tablet-samsung/google-nexus-10.png' },
-  { id: 55, name: 'Q1 Ultra', slug: 'q1-ultra', image: '/tablet-samsung/q1-ultra.png' },
-  { id: 56, name: 'Q1', slug: 'q1', image: '/tablet-samsung/q1.png' }
+// Apple Computer models data - 101 models
+const appleComputers = [
+  { id: 1, name: 'MacBook Pro 16"', slug: 'macbook-pro-16-2019', image: '/computer-apple/macbook-pro-16-2019.png' },
+  { id: 2, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2019', image: '/computer-apple/macbook-pro-15-2019.png' },
+  { id: 3, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2018', image: '/computer-apple/macbook-pro-15-2018.png' },
+  { id: 4, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2017', image: '/computer-apple/macbook-pro-15-2017.png' },
+  { id: 5, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2016', image: '/computer-apple/macbook-pro-15-2016.png' },
+  { id: 6, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2015', image: '/computer-apple/macbook-pro-15-2015.png' },
+  { id: 7, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2014', image: '/computer-apple/macbook-pro-15-2014.png' },
+  { id: 8, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2013', image: '/computer-apple/macbook-pro-15-2013.png' },
+  { id: 9, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2012', image: '/computer-apple/macbook-pro-15-2012.png' },
+  { id: 10, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2011', image: '/computer-apple/macbook-pro-15-2011.png' },
+  { id: 11, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2010', image: '/computer-apple/macbook-pro-15-2010.png' },
+  { id: 12, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2009', image: '/computer-apple/macbook-pro-15-2009.png' },
+  { id: 13, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2008', image: '/computer-apple/macbook-pro-15-2008.png' },
+  { id: 14, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2007', image: '/computer-apple/macbook-pro-15-2007.png' },
+  { id: 15, name: 'MacBook Pro 15"', slug: 'macbook-pro-15-2006', image: '/computer-apple/macbook-pro-15-2006.png' },
+  { id: 16, name: 'MacBook Pro 17"', slug: 'macbook-pro-17-2011', image: '/computer-apple/macbook-pro-17-2011.png' },
+  { id: 17, name: 'MacBook Pro 17"', slug: 'macbook-pro-17-2010', image: '/computer-apple/macbook-pro-17-2010.png' },
+  { id: 18, name: 'MacBook Pro 17"', slug: 'macbook-pro-17-2009', image: '/computer-apple/macbook-pro-17-2009.png' },
+  { id: 19, name: 'MacBook Pro 17"', slug: 'macbook-pro-17-2008', image: '/computer-apple/macbook-pro-17-2008.png' },
+  { id: 20, name: 'MacBook Pro 17"', slug: 'macbook-pro-17-2007', image: '/computer-apple/macbook-pro-17-2007.png' },
+  { id: 21, name: 'MacBook Pro 17"', slug: 'macbook-pro-17-2006', image: '/computer-apple/macbook-pro-17-2006.png' },
+  { id: 22, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2020', image: '/computer-apple/macbook-pro-13-2020.png' },
+  { id: 23, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2019', image: '/computer-apple/macbook-pro-13-2019.png' },
+  { id: 24, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2018', image: '/computer-apple/macbook-pro-13-2018.png' },
+  { id: 25, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2017', image: '/computer-apple/macbook-pro-13-2017.png' },
+  { id: 26, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2016', image: '/computer-apple/macbook-pro-13-2016.png' },
+  { id: 27, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2015', image: '/computer-apple/macbook-pro-13-2015.png' },
+  { id: 28, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2014', image: '/computer-apple/macbook-pro-13-2014.png' },
+  { id: 29, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2013', image: '/computer-apple/macbook-pro-13-2013.png' },
+  { id: 30, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2012', image: '/computer-apple/macbook-pro-13-2012.png' },
+  { id: 31, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2011', image: '/computer-apple/macbook-pro-13-2011.png' },
+  { id: 32, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2010', image: '/computer-apple/macbook-pro-13-2010.png' },
+  { id: 33, name: 'MacBook Pro 13"', slug: 'macbook-pro-13-2009', image: '/computer-apple/macbook-pro-13-2009.png' },
+  { id: 34, name: 'MacBook Air 13"', slug: 'macbook-air-13-2020', image: '/computer-apple/macbook-air-13-2020.png' },
+  { id: 35, name: 'MacBook Air 13"', slug: 'macbook-air-13-2019', image: '/computer-apple/macbook-air-13-2019.png' },
+  { id: 36, name: 'MacBook Air 13"', slug: 'macbook-air-13-2018', image: '/computer-apple/macbook-air-13-2018.png' },
+  { id: 37, name: 'MacBook Air 13"', slug: 'macbook-air-13-2017', image: '/computer-apple/macbook-air-13-2017.png' },
+  { id: 38, name: 'MacBook Air 13"', slug: 'macbook-air-13-2015', image: '/computer-apple/macbook-air-13-2015.png' },
+  { id: 39, name: 'MacBook Air 13"', slug: 'macbook-air-13-2014', image: '/computer-apple/macbook-air-13-2014.png' },
+  { id: 40, name: 'MacBook Air 13"', slug: 'macbook-air-13-2013', image: '/computer-apple/macbook-air-13-2013.png' },
+  { id: 41, name: 'MacBook Air 13"', slug: 'macbook-air-13-2012', image: '/computer-apple/macbook-air-13-2012.png' },
+  { id: 42, name: 'MacBook Air 13"', slug: 'macbook-air-13-2011', image: '/computer-apple/macbook-air-13-2011.png' },
+  { id: 43, name: 'MacBook Air 13"', slug: 'macbook-air-13-2010', image: '/computer-apple/macbook-air-13-2010.png' },
+  { id: 44, name: 'MacBook Air 13"', slug: 'macbook-air-13-2009', image: '/computer-apple/macbook-air-13-2009.png' },
+  { id: 45, name: 'MacBook Air 13"', slug: 'macbook-air-13-2008', image: '/computer-apple/macbook-air-13-2008.png' },
+  { id: 46, name: 'MacBook Air 11"', slug: 'macbook-air-11-2015', image: '/computer-apple/macbook-air-11-2015.png' },
+  { id: 47, name: 'MacBook Air 11"', slug: 'macbook-air-11-2014', image: '/computer-apple/macbook-air-11-2014.png' },
+  { id: 48, name: 'MacBook Air 11"', slug: 'macbook-air-11-2013', image: '/computer-apple/macbook-air-11-2013.png' },
+  { id: 49, name: 'MacBook Air 11"', slug: 'macbook-air-11-2012', image: '/computer-apple/macbook-air-11-2012.png' },
+  { id: 50, name: 'MacBook Air 11"', slug: 'macbook-air-11-2011', image: '/computer-apple/macbook-air-11-2011.png' },
+  { id: 51, name: 'MacBook Air 11"', slug: 'macbook-air-11-2010', image: '/computer-apple/macbook-air-11-2010.png' },
+  { id: 52, name: 'MacBook 12"', slug: 'macbook-12-2017', image: '/computer-apple/macbook-12-2017.png' },
+  { id: 53, name: 'MacBook 12"', slug: 'macbook-12-2016', image: '/computer-apple/macbook-12-2016.png' },
+  { id: 54, name: 'MacBook 12"', slug: 'macbook-12-2015', image: '/computer-apple/macbook-12-2015.png' },
+  { id: 55, name: 'MacBook 13"', slug: 'macbook-13-2010', image: '/computer-apple/macbook-13-2010.png' },
+  { id: 56, name: 'MacBook 13"', slug: 'macbook-13-2009', image: '/computer-apple/macbook-13-2009.png' },
+  { id: 57, name: 'MacBook 13"', slug: 'macbook-13-2008', image: '/computer-apple/macbook-13-2008.png' },
+  { id: 58, name: 'MacBook 13"', slug: 'macbook-13-2007', image: '/computer-apple/macbook-13-2007.png' },
+  { id: 59, name: 'MacBook 13"', slug: 'macbook-13-2006', image: '/computer-apple/macbook-13-2006.png' },
+  { id: 60, name: 'iMac 27"', slug: 'imac-27-2020', image: '/computer-apple/imac-27-2020.png' },
+  { id: 61, name: 'iMac 27"', slug: 'imac-27-2019', image: '/computer-apple/imac-27-2019.png' },
+  { id: 62, name: 'iMac 27"', slug: 'imac-27-2017', image: '/computer-apple/imac-27-2017.png' },
+  { id: 63, name: 'iMac 27"', slug: 'imac-27-2015', image: '/computer-apple/imac-27-2015.png' },
+  { id: 64, name: 'iMac 27"', slug: 'imac-27-2014', image: '/computer-apple/imac-27-2014.png' },
+  { id: 65, name: 'iMac 27"', slug: 'imac-27-2013', image: '/computer-apple/imac-27-2013.png' },
+  { id: 66, name: 'iMac 27"', slug: 'imac-27-2012', image: '/computer-apple/imac-27-2012.png' },
+  { id: 67, name: 'iMac 27"', slug: 'imac-27-2011', image: '/computer-apple/imac-27-2011.png' },
+  { id: 68, name: 'iMac 27"', slug: 'imac-27-2010', image: '/computer-apple/imac-27-2010.png' },
+  { id: 69, name: 'iMac 27"', slug: 'imac-27-2009', image: '/computer-apple/imac-27-2009.png' },
+  { id: 70, name: 'iMac 21.5"', slug: 'imac-21-5-2019', image: '/computer-apple/imac-21-5-2019.png' },
+  { id: 71, name: 'iMac 21.5"', slug: 'imac-21-5-2017', image: '/computer-apple/imac-21-5-2017.png' },
+  { id: 72, name: 'iMac 21.5"', slug: 'imac-21-5-2015', image: '/computer-apple/imac-21-5-2015.png' },
+  { id: 73, name: 'iMac 21.5"', slug: 'imac-21-5-2014', image: '/computer-apple/imac-21-5-2014.png' },
+  { id: 74, name: 'iMac 21.5"', slug: 'imac-21-5-2013', image: '/computer-apple/imac-21-5-2013.png' },
+  { id: 75, name: 'iMac 21.5"', slug: 'imac-21-5-2012', image: '/computer-apple/imac-21-5-2012.png' },
+  { id: 76, name: 'iMac 21.5"', slug: 'imac-21-5-2011', image: '/computer-apple/imac-21-5-2011.png' },
+  { id: 77, name: 'iMac 21.5"', slug: 'imac-21-5-2010', image: '/computer-apple/imac-21-5-2010.png' },
+  { id: 78, name: 'iMac 21.5"', slug: 'imac-21-5-2009', image: '/computer-apple/imac-21-5-2009.png' },
+  { id: 79, name: 'iMac 24"', slug: 'imac-24-2009', image: '/computer-apple/imac-24-2009.png' },
+  { id: 80, name: 'iMac 24"', slug: 'imac-24-2008', image: '/computer-apple/imac-24-2008.png' },
+  { id: 81, name: 'iMac 24"', slug: 'imac-24-2007', image: '/computer-apple/imac-24-2007.png' },
+  { id: 82, name: 'iMac 20"', slug: 'imac-20-2009', image: '/computer-apple/imac-20-2009.png' },
+  { id: 83, name: 'iMac 20"', slug: 'imac-20-2008', image: '/computer-apple/imac-20-2008.png' },
+  { id: 84, name: 'iMac 20"', slug: 'imac-20-2007', image: '/computer-apple/imac-20-2007.png' },
+  { id: 85, name: 'iMac Pro 27"', slug: 'imac-pro-27', image: '/computer-apple/imac-pro-27.png' },
+  { id: 86, name: 'Mac Pro Rack', slug: 'mac-pro-rack-2019', image: '/computer-apple/mac-pro-rack-2019.png' },
+  { id: 87, name: 'Mac Pro (2019)', slug: 'mac-pro-2013', image: '/computer-apple/mac-pro-2013.png' },
+  { id: 88, name: 'Mac Pro', slug: 'mac-pro-2012', image: '/computer-apple/mac-pro-2012.png' },
+  { id: 89, name: 'Mac Pro', slug: 'mac-pro-2010', image: '/computer-apple/mac-pro-2010.png' },
+  { id: 90, name: 'Mac Pro', slug: 'mac-pro-2009', image: '/computer-apple/mac-pro-2009.png' },
+  { id: 91, name: 'Mac Pro', slug: 'mac-pro-2008', image: '/computer-apple/mac-pro-2008.png' },
+  { id: 92, name: 'Mac Pro', slug: 'mac-pro-2007', image: '/computer-apple/mac-pro-2007.png' },
+  { id: 93, name: 'Mac Pro', slug: 'mac-pro-2006', image: '/computer-apple/mac-pro-2006.png' },
+  { id: 94, name: 'Mac Mini', slug: 'mac-mini-2018', image: '/computer-apple/mac-mini-2018.png' },
+  { id: 95, name: 'Mac Mini', slug: 'mac-mini-2014', image: '/computer-apple/mac-mini-2014.png' },
+  { id: 96, name: 'Mac Mini', slug: 'mac-mini-2012', image: '/computer-apple/mac-mini-2012.png' },
+  { id: 97, name: 'Mac Mini', slug: 'mac-mini-2011', image: '/computer-apple/mac-mini-2011.png' },
+  { id: 98, name: 'Mac Mini', slug: 'mac-mini-2010', image: '/computer-apple/mac-mini-2010.png' },
+  { id: 99, name: 'Mac Mini', slug: 'mac-mini-2009', image: '/computer-apple/mac-mini-2009.png' },
+  { id: 100, name: 'Mac Mini', slug: 'mac-mini-2007', image: '/computer-apple/mac-mini-2007.png' },
+  { id: 101, name: 'Apple Computer', slug: 'apple-computer', image: '/computer-apple/20201003140158.jpg' }
 ]
 
-export default function SamsungTabletPage() {
+export default function AppleComputerPage() {
   const [searchTerm, setSearchTerm] = useState('')
-  const [filteredTablets, setFilteredTablets] = useState(samsungTablets)
+  const [filteredComputers, setFilteredComputers] = useState(appleComputers)
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value.toLowerCase()
     setSearchTerm(term)
-    const filtered = samsungTablets.filter(tablet => 
-      tablet.name.toLowerCase().includes(term)
+    const filtered = appleComputers.filter(computer => 
+      computer.name.toLowerCase().includes(term)
     )
-    setFilteredTablets(filtered)
+    setFilteredComputers(filtered)
   }
 
   return (
@@ -267,10 +312,10 @@ export default function SamsungTabletPage() {
 
           {/* Product Grid - Responsive for mobile, tablet, and desktop */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-            {filteredTablets.map((tablet) => (
+            {filteredComputers.map((computer) => (
               <Link
-                key={tablet.id}
-                href={`/repair/${tablet.slug}`}
+                key={computer.id}
+                href={`/repair/${computer.slug}`}
                 className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 md:p-6 text-center cursor-pointer border border-gray-200 group relative"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = '#6d6e71'
@@ -291,8 +336,8 @@ export default function SamsungTabletPage() {
                 <div className="mb-4 md:mb-6">
                   <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto flex items-center justify-center">
                     <Image
-                      src={tablet.image}
-                      alt={tablet.name}
+                      src={computer.image}
+                      alt={computer.name}
                       width={112}
                       height={112}
                       className="w-full h-full object-contain transition-all duration-300"
@@ -311,7 +356,7 @@ export default function SamsungTabletPage() {
                     fontWeight: '700'
                   }}
                 >
-                  {tablet.name}
+                  {computer.name}
                 </h3>
               </Link>
             ))}
@@ -329,7 +374,7 @@ export default function SamsungTabletPage() {
               color: '#233d63'
             }}
           >
-            Can&apos;t find a model you&apos;re looking for?
+            Can&apos;t Find A Model You&apos;re Looking For?
           </h2>
           
           <p
@@ -340,7 +385,7 @@ export default function SamsungTabletPage() {
               lineHeight: '1.6'
             }}
           >
-            Get in touch for a free estimate and see how we can help.
+            Don&apos;t worry! We repair many more models than what&apos;s listed here. Contact us and we&apos;ll be happy to help you with your specific device.
           </p>
 
           <button
