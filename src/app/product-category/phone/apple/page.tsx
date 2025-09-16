@@ -7,55 +7,44 @@ import TopHeader from '@/components/TopHeader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-// Apple iPhone models data
+// Apple iPhone models data - matching GoPhoneHut reference
 const applePhones = [
-  { id: 1, name: 'iPhone 15 Pro Max', slug: 'iphone-15-pro-max', image: '/phone/1.png' },
-  { id: 2, name: 'iPhone 15 Pro', slug: 'iphone-15-pro', image: '/phone/2.png' },
-  { id: 3, name: 'iPhone 15 Plus', slug: 'iphone-15-plus', image: '/phone/3.png' },
-  { id: 4, name: 'iPhone 15', slug: 'iphone-15', image: '/phone/4.png' },
-  { id: 5, name: 'iPhone 14 Pro Max', slug: 'iphone-14-pro-max', image: '/phone/5.png' },
-  { id: 6, name: 'iPhone 14 Pro', slug: 'iphone-14-pro', image: '/phone/6.png' },
-  { id: 7, name: 'iPhone 14 Plus', slug: 'iphone-14-plus', image: '/phone/7.png' },
-  { id: 8, name: 'iPhone 14', slug: 'iphone-14', image: '/phone/8.png' },
-  { id: 9, name: 'iPhone 13 Pro Max', slug: 'iphone-13-pro-max', image: '/phone/9.png' },
-  { id: 10, name: 'iPhone 13 Pro', slug: 'iphone-13-pro', image: '/phone/10.png' },
-  { id: 11, name: 'iPhone 13', slug: 'iphone-13', image: '/phone/11.png' },
-  { id: 12, name: 'iPhone 13 mini', slug: 'iphone-13-mini', image: '/phone/12.png' },
-  { id: 13, name: 'iPhone 12 Pro Max', slug: 'iphone-12-pro-max', image: '/phone/13.png' },
-  { id: 14, name: 'iPhone 12 Pro', slug: 'iphone-12-pro', image: '/phone/14.png' },
-  { id: 15, name: 'iPhone 12', slug: 'iphone-12', image: '/phone/15.png' },
-  { id: 16, name: 'iPhone 12 mini', slug: 'iphone-12-mini', image: '/phone/16.png' },
-  { id: 17, name: 'iPhone 11 Pro Max', slug: 'iphone-11-pro-max', image: '/phone/17.png' },
-  { id: 18, name: 'iPhone 11 Pro', slug: 'iphone-11-pro', image: '/phone/18.png' },
-  { id: 19, name: 'iPhone 11', slug: 'iphone-11', image: '/phone/19.png' },
-  { id: 20, name: 'iPhone XS Max', slug: 'iphone-xs-max', image: '/phone/20.png' },
-  { id: 21, name: 'iPhone XS', slug: 'iphone-xs', image: '/phone/21.png' },
-  { id: 22, name: 'iPhone XR', slug: 'iphone-xr', image: '/phone/22.png' },
-  { id: 23, name: 'iPhone X', slug: 'iphone-x', image: '/phone/23.png' },
-  { id: 24, name: 'iPhone 8 Plus', slug: 'iphone-8-plus', image: '/phone/24.png' },
-  { id: 25, name: 'iPhone 8', slug: 'iphone-8', image: '/phone/25.png' },
-  { id: 26, name: 'iPhone 7 Plus', slug: 'iphone-7-plus', image: '/phone/26.png' },
-  { id: 27, name: 'iPhone 7', slug: 'iphone-7', image: '/phone/27.png' },
-  { id: 28, name: 'iPhone 6s Plus', slug: 'iphone-6s-plus', image: '/phone/28.png' },
-  { id: 29, name: 'iPhone 6s', slug: 'iphone-6s', image: '/phone/29.png' },
-  { id: 30, name: 'iPhone 6 Plus', slug: 'iphone-6-plus', image: '/phone/30.png' },
-  { id: 31, name: 'iPhone 6', slug: 'iphone-6', image: '/phone/31.png' },
-  { id: 32, name: 'iPhone SE (3rd gen)', slug: 'iphone-se-3rd-gen', image: '/phone/32.png' },
-  { id: 33, name: 'iPhone SE (2nd gen)', slug: 'iphone-se-2nd-gen', image: '/phone/33.png' },
-  { id: 34, name: 'iPhone SE (1st gen)', slug: 'iphone-se-1st-gen', image: '/phone/34.png' }
+  { id: 1, name: 'iPhone 14 Pro Max', slug: 'iphone-14-pro-max', image: '/phone/1.png' },
+  { id: 2, name: 'iPhone 14 Pro', slug: 'iphone-14-pro', image: '/phone/2.png' },
+  { id: 3, name: 'iPhone 14 Plus', slug: 'iphone-14-plus', image: '/phone/3.png' },
+  { id: 4, name: 'iPhone 14', slug: 'iphone-14', image: '/phone/4.png' },
+  { id: 5, name: 'iPhone 13 Pro Max', slug: 'iphone-13-pro-max', image: '/phone/5.png' },
+  { id: 6, name: 'iPhone 13 Pro', slug: 'iphone-13-pro', image: '/phone/6.png' },
+  { id: 7, name: 'iPhone 13', slug: 'iphone-13', image: '/phone/7.png' },
+  { id: 8, name: 'iPhone 13 Mini', slug: 'iphone-13-mini', image: '/phone/8.png' },
+  { id: 9, name: 'iPhone 12 Pro Max', slug: 'iphone-12-pro-max', image: '/phone/9.png' },
+  { id: 10, name: 'iPhone 12 Pro', slug: 'iphone-12-pro', image: '/phone/10.png' },
+  { id: 11, name: 'iPhone 12', slug: 'iphone-12', image: '/phone/11.png' },
+  { id: 12, name: 'iPhone 12 Mini', slug: 'iphone-12-mini', image: '/phone/12.png' },
+  { id: 13, name: 'iPhone 11 Pro Max', slug: 'iphone-11-pro-max', image: '/phone/13.png' },
+  { id: 14, name: 'iPhone 11 Pro', slug: 'iphone-11-pro', image: '/phone/14.png' },
+  { id: 15, name: 'iPhone 11', slug: 'iphone-11', image: '/phone/15.png' },
+  { id: 16, name: 'iPhone XS Max', slug: 'iphone-xs-max', image: '/phone/16.png' },
+  { id: 17, name: 'iPhone XS', slug: 'iphone-xs', image: '/phone/17.png' },
+  { id: 18, name: 'iPhone XR', slug: 'iphone-xr', image: '/phone/18.png' },
+  { id: 19, name: 'iPhone X', slug: 'iphone-x', image: '/phone/19.png' },
+  { id: 20, name: 'iPhone SE (2020)', slug: 'iphone-se-2020', image: '/phone/20.png' },
+  { id: 21, name: 'iPhone 8 Plus', slug: 'iphone-8-plus', image: '/phone/21.png' },
+  { id: 22, name: 'iPhone 8', slug: 'iphone-8', image: '/phone/22.png' },
+  { id: 23, name: 'iPhone 7 Plus', slug: 'iphone-7-plus', image: '/phone/23.png' },
+  { id: 24, name: 'iPhone 7', slug: 'iphone-7', image: '/phone/24.png' },
+  { id: 25, name: 'iPhone 6S Plus', slug: 'iphone-6s-plus', image: '/phone/25.png' },
+  { id: 26, name: 'iPhone 6S', slug: 'iphone-6s', image: '/phone/26.png' },
+  { id: 27, name: 'iPhone 6 Plus', slug: 'iphone-6-plus', image: '/phone/27.png' },
+  { id: 28, name: 'iPhone SE (2016)', slug: 'iphone-se-2016', image: '/phone/28.png' },
+  { id: 29, name: 'iPhone 6', slug: 'iphone-6', image: '/phone/29.png' },
+  { id: 30, name: 'iPhone 5S', slug: 'iphone-5s', image: '/phone/30.png' },
+  { id: 31, name: 'iPhone 5C', slug: 'iphone-5c', image: '/phone/31.png' },
+  { id: 32, name: 'iPhone 5', slug: 'iphone-5', image: '/phone/32.png' },
+  { id: 33, name: 'iPhone 4S', slug: 'iphone-4s', image: '/phone/33.png' },
+  { id: 34, name: 'iPhone 2G', slug: 'iphone-2g', image: '/phone/34.png' }
 ]
 
-// Device issues data
-const deviceIssues = [
-  { id: 1, name: 'Screen Cracked', image: '/phone/innerpage/b1.png' },
-  { id: 2, name: 'Battery Issues', image: '/phone/innerpage/b2.png' },
-  { id: 3, name: 'Camera Problems', image: '/phone/innerpage/b3.png' },
-  { id: 4, name: 'Water Damage', image: '/phone/innerpage/b4.png' },
-  { id: 5, name: 'Charging Port', image: '/phone/innerpage/b5.png' },
-  { id: 6, name: 'Speaker Issues', image: '/phone/innerpage/b6.png' },
-  { id: 7, name: 'Home Button', image: '/phone/innerpage/b7.png' },
-  { id: 8, name: 'Software Issues', image: '/phone/innerpage/b8.png' }
-]
 
 export default function ApplePhonePage() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -215,7 +204,7 @@ export default function ApplePhonePage() {
                 fontSize: '20px',
                 lineHeight: '1.5',
                 color: 'black',
-                fontFamily: "'Lato', sans-serif'
+                fontFamily: "'Lato', sans-serif"
               }}
             >
               Please select your model to repair
@@ -309,114 +298,6 @@ export default function ApplePhonePage() {
         </div>
       </section>
 
-      {/* What is wrong with your device? Section */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          {/* Section Heading */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2
-              className="font-lato font-medium mb-8"
-              style={{
-                fontSize: '20px',
-                color: 'black',
-                textTransform: 'capitalize',
-                letterSpacing: '1px',
-                fontWeight: '500',
-                fontFamily: "'Lato', sans-serif"
-              }}
-            >
-              What is wrong with your device?
-            </h2>
-          </div>
-
-          {/* Device Issues Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-6 mb-12">
-            {deviceIssues.map((issue) => (
-              <div
-                key={issue.id}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 text-center cursor-pointer border border-gray-200 group relative"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#6d6e71'
-                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
-                  if (textElement) {
-                    textElement.style.color = 'white'
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'white'
-                  const textElement = e.currentTarget.querySelector('h3') as HTMLElement
-                  if (textElement) {
-                    textElement.style.color = '#232222'
-                  }
-                }}
-              >
-                {/* Issue Image */}
-                <div className="mb-4">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center">
-                    <Image
-                      src={issue.image}
-                      alt={issue.name}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-contain transition-all duration-300"
-                    />
-                  </div>
-                </div>
-
-                {/* Issue Name */}
-                <h3
-                  className="transition-colors duration-300"
-                  style={{
-                    fontFamily: "'Raleway', sans-serif",
-                    fontSize: '13px',
-                    color: '#232222',
-                    textTransform: 'capitalize',
-                    letterSpacing: '1px',
-                    fontWeight: '500'
-                  }}
-                >
-                  {issue.name}
-                </h3>
-              </div>
-            ))}
-          </div>
-
-          {/* Next Button */}
-          <div className="text-center">
-            <button
-              className="px-8 py-4 rounded-full font-lato font-bold text-white uppercase transition-all duration-300 flex items-center gap-2 mx-auto"
-              style={{
-                backgroundColor: '#6d6e71',
-                fontWeight: '700',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                fontFamily: "'Lato', sans-serif",
-                borderRadius: '50px'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#0056b3'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#6d6e71'
-              }}
-            >
-              Next
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14m-7-7 7 7-7 7"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Can't Find Your Device Section */}
       <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
