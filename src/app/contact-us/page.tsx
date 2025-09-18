@@ -229,11 +229,19 @@ export default function ContactUs() {
       </section>
 
       {/* Contact Us Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section 
+        className="py-16 md:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1
-              className="font-raleway font-bold uppercase mb-4"
+              className="font-raleway font-bold uppercase mb-4 mobile-contact-heading-26px"
               style={{
                 fontFamily: "&apos;Raleway&apos;, sans-serif",
                 fontSize: '36px',

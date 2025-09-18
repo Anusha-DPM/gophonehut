@@ -218,7 +218,7 @@ export default function HowItWorksPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center">
             <h1
-              className="font-raleway font-bold uppercase text-3xl md:text-4xl"
+              className="font-raleway font-bold uppercase text-3xl md:text-4xl mobile-how-it-works-heading-26px"
               style={{
                 fontFamily: "'Raleway', sans-serif",
                 fontSize: '36px',
@@ -234,11 +234,19 @@ export default function HowItWorksPage() {
       </section>
 
       {/* We Make Life Easy Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-white">
+      <section 
+        className="py-12 md:py-16 lg:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center">
             <h2
-              className="font-raleway font-bold uppercase mb-4 md:mb-6 text-xl md:text-2xl"
+              className="font-raleway font-bold uppercase mb-4 md:mb-6 text-xl md:text-2xl mobile-we-make-life-easy-heading-26px"
               style={{
                 fontFamily: "'Raleway', sans-serif",
                 fontSize: '26px',
@@ -290,7 +298,15 @@ export default function HowItWorksPage() {
       </section>
 
       {/* Steps Section */}
-      <section className="py-12 md:py-16 lg:py-20">
+      <section 
+        className="py-12 md:py-16 lg:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:gap-y-16">
             {steps.map((step) => (

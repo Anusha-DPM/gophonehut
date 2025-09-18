@@ -640,7 +640,7 @@ export default function QuickRepairPage() {
                   color: '#666'
                 }}
               >
-                I'm Phone Hut. I am happy to help you with the instant repair
+                I&apos;m Phone Hut. I am happy to help you with the instant repair
               </span>
             </div>
           </div>
@@ -801,7 +801,7 @@ export default function QuickRepairPage() {
                     fontWeight: '700'
                   }}
                 >
-                  What's the issue?
+                  What&apos;s the issue?
                 </h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                   {issues.map((issue) => (

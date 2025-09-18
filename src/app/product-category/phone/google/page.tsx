@@ -84,7 +84,7 @@ export default function GooglePhonePage() {
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
@@ -158,7 +158,15 @@ export default function GooglePhonePage() {
       <Header />
 
       {/* Product Selection Section */}
-      <section className="py-16 md:py-20">
+      <section 
+        className="py-16 md:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-12 md:mb-16">

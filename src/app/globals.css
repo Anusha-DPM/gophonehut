@@ -97,6 +97,27 @@ body {
   .mobile-reviews-heading-line-height {
     line-height: 1.2 !important;
   }
+  .mobile-how-it-works-heading-26px {
+    font-size: 26px !important;
+  }
+  .mobile-we-make-life-easy-heading-26px {
+    font-size: 26px !important;
+  }
+  .mobile-contact-heading-26px {
+    font-size: 26px !important;
+  }
+  .mobile-write-review-hero-spacing {
+    padding-bottom: 2rem !important; /* 32px instead of 80px (py-20) */
+  }
+  .mobile-bulk-repair-hero-spacing {
+    padding-bottom: 2rem !important; /* 32px instead of 80px (py-20) */
+  }
+  .mobile-device-not-found-hero-spacing {
+    padding-bottom: 2rem !important; /* 32px instead of 80px (py-20) */
+  }
+  .mobile-reviews-page-heading-26px {
+    font-size: 26px !important;
+  }
 }
 
 /* Desktop-specific font sizes */

@@ -264,7 +264,7 @@ export default function ReviewsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 mobile-reviews-page-heading-26px"
               style={{
                 fontFamily: "&apos;Raleway&apos;, sans-serif",
                 fontSize: '36px',

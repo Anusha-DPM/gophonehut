@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
@@ -186,7 +186,7 @@ export default function PrivacyPolicyPage() {
                     fontWeight: '500'
                   }}
                 >
-                  In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.
+                  In common with other websites, log files are stored on the web server saving details such as the visitor&apos;s IP address, browser type, referring page and time of visit.
                 </p>
                 <p
                   className="text-base md:text-lg leading-relaxed"
@@ -210,7 +210,7 @@ export default function PrivacyPolicyPage() {
                     fontWeight: '500'
                   }}
                 >
-                  Where registration is required, the visitor's email and a username will be stored on the server.
+                  Where registration is required, the visitor&apos;s email and a username will be stored on the server.
                 </p>
               </div>
             </div>
@@ -241,7 +241,7 @@ export default function PrivacyPolicyPage() {
                     fontWeight: '500'
                   }}
                 >
-                  The information is used to enhance the vistor's experience when using the website to display personalised content and possibly advertising.
+                  The information is used to enhance the vistor&apos;s experience when using the website to display personalised content and possibly advertising.
                 </p>
                 <p
                   className="text-base md:text-lg leading-relaxed"
@@ -425,7 +425,7 @@ export default function PrivacyPolicyPage() {
                     fontWeight: '500'
                   }}
                 >
-                  Google's use of the DART cookie enables it to serve ads to visitors based on their visit to sites they visit on the Internet.
+                  Google&apos;s use of the DART cookie enables it to serve ads to visitors based on their visit to sites they visit on the Internet.
                 </p>
                 <p
                   className="text-base md:text-lg leading-relaxed"

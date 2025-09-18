@@ -278,7 +278,15 @@ export default function WhyPage() {
       </section>
 
       {/* How it works Section */}
-      <section className="py-8 md:py-16 lg:py-20 bg-white">
+      <section 
+        className="py-8 md:py-16 lg:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
           {/* Features Grid */}

@@ -625,6 +625,49 @@ export default function RepairPage({ params }: RepairPageProps) {
   // Check if it's a Google phone
   const isGooglePhone = googlePhones.some(p => p.slug === params.slug)
   
+  // Determine device type, brand, and model
+  const getDeviceInfo = () => {
+    if (!phone) return { deviceType: '', brand: '', model: '' }
+    
+    // Determine device type based on which array the phone belongs to
+    let deviceType = ''
+    let brand = ''
+    
+    if (applePhones.some(p => p.slug === phone.slug)) {
+      deviceType = 'phone'
+      brand = 'apple'
+    } else if (googlePhones.some(p => p.slug === phone.slug)) {
+      deviceType = 'phone'
+      brand = 'google'
+    } else if (samsungPhones.some(p => p.slug === phone.slug)) {
+      deviceType = 'phone'
+      brand = 'samsung'
+    } else if (appleTablets.some(p => p.slug === phone.slug)) {
+      deviceType = 'tablet'
+      brand = 'apple'
+    } else if (samsungTablets.some(p => p.slug === phone.slug)) {
+      deviceType = 'tablet'
+      brand = 'samsung'
+    } else if (appleWatches.some(p => p.slug === phone.slug)) {
+      deviceType = 'smartwatch'
+      brand = 'apple'
+    } else if (samsungWatches.some(p => p.slug === phone.slug)) {
+      deviceType = 'smartwatch'
+      brand = 'samsung'
+    } else if (appleComputers.some(p => p.slug === phone.slug)) {
+      deviceType = 'computer'
+      brand = 'apple'
+    }
+    
+    return {
+      deviceType,
+      brand,
+      model: phone.name
+    }
+  }
+  
+  const deviceInfo = getDeviceInfo()
+  
   // Check if it's a Samsung phone
   const isSamsungPhone = samsungPhones.some(p => p.slug === params.slug)
   
@@ -766,7 +809,15 @@ export default function RepairPage({ params }: RepairPageProps) {
       <Header />
 
       {/* Product Detail Section */}
-      <section className="py-16 md:py-20">
+      <section 
+        className="py-16 md:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Breadcrumb */}
           <div className="mb-8">
@@ -907,11 +958,11 @@ export default function RepairPage({ params }: RepairPageProps) {
                       onClick={() => setSelectedIssue(issue.name)}
                     >
                       {/* Image for Apple phones */}
-                      {isApplePhone && issue.image && (
+                      {isApplePhone && 'image' in issue && (issue as any).image && (
                         <div className="mb-3">
                           <div className="w-16 h-16 mx-auto flex items-center justify-center">
                             <Image
-                              src={issue.image}
+                              src={(issue as any).image}
                               alt={issue.name}
                               width={64}
                               height={64}
@@ -950,11 +1001,11 @@ export default function RepairPage({ params }: RepairPageProps) {
                       onClick={() => setSelectedIssue(issue.name)}
                     >
                       {/* Image for Apple phones */}
-                      {isApplePhone && issue.image && (
+                      {isApplePhone && 'image' in issue && (issue as any).image && (
                         <div className="mb-3">
                           <div className="w-16 h-16 mx-auto flex items-center justify-center">
                             <Image
-                              src={issue.image}
+                              src={(issue as any).image}
                               alt={issue.name}
                               width={64}
                               height={64}
@@ -986,7 +1037,7 @@ export default function RepairPage({ params }: RepairPageProps) {
 
               {/* Next Button */}
               <div className="flex justify-end">
-                <Link href={`/repair/appointment?issue=${encodeURIComponent(selectedIssue || '')}&device=${encodeURIComponent(phone.name)}`}>
+                <Link href={`/repair/appointment?issue=${encodeURIComponent(selectedIssue || '')}&device=${encodeURIComponent(phone?.name || '')}&deviceType=${encodeURIComponent(deviceInfo.deviceType)}&brand=${encodeURIComponent(deviceInfo.brand)}&model=${encodeURIComponent(deviceInfo.model)}&image=${encodeURIComponent(phone?.image || '')}`}>
                   <button
                     className="rounded-full font-lato font-bold text-white uppercase transition-all duration-300 flex items-center gap-2"
                     style={{

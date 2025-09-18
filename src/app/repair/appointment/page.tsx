@@ -16,6 +16,7 @@ export default function AppointmentPage() {
   const model = searchParams.get('model')
   const color = searchParams.get('color')
   const storage = searchParams.get('storage')
+  const deviceImage = searchParams.get('image')
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -203,7 +204,15 @@ export default function AppointmentPage() {
       </div>
 
       {/* Main Content Section */}
-      <section className="py-8 md:py-12">
+      <section 
+        className="py-8 md:py-12"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-8 md:mb-12">
@@ -725,6 +734,18 @@ export default function AppointmentPage() {
                       >
                         Repair Details
                       </h3>
+                      
+                      {/* Device Image */}
+                      {deviceImage && (
+                        <div className="mb-4 text-center">
+                          <img
+                            src={deviceImage}
+                            alt={model || deviceName || 'Selected Device'}
+                            className="w-24 h-24 mx-auto object-contain"
+                          />
+                        </div>
+                      )}
+                      
                       <div className="space-y-3">
                         {deviceType && (
                           <div className="flex justify-between">

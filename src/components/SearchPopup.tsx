@@ -263,7 +263,7 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ isOpen, onClose }) => {
           {searchQuery && !isLoading && searchResults.length === 0 && (
             <div className="p-6 text-center text-gray-500">
               <p style={{ fontFamily: "'Lato', sans-serif" }}>
-                No devices found for "{searchQuery}"
+                No devices found for &quot;{searchQuery}&quot;
               </p>
             </div>
           )}

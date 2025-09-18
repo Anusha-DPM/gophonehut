@@ -205,7 +205,15 @@ export default function ComputerPage() {
       <Header />
 
       {/* Brand Selection Section */}
-      <section className="py-16 md:py-20">
+      <section 
+        className="py-16 md:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-12 md:mb-16">

@@ -76,7 +76,7 @@ const QuoteRequestPopup: React.FC<QuoteRequestPopupProps> = ({ isOpen, onClose }
               fontWeight: '500'
             }}
           >
-            Can't Find Your Device?<br />
+            Can&apos;t Find Your Device?<br />
             If you do not see your device please fill out the form below and we will get back to you ASAP. Please add the model number to your device if you can locate it to make it easier for us to reserve the proper parts for your repair. Please also feel free to give us a call during business hours and we will be happy to help.
           </p>
 
@@ -226,7 +226,7 @@ const QuoteRequestPopup: React.FC<QuoteRequestPopupProps> = ({ isOpen, onClose }
                 className="block text-sm font-medium text-gray-700 mb-1"
                 style={{ fontFamily: "'Lato', sans-serif" }}
               >
-                What's the issue? *
+                What&apos;s the issue? *
               </label>
               <select
                 id="issue"

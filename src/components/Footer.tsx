@@ -14,6 +14,13 @@ const Footer: React.FC = () => {
     }
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <footer className="w-full" style={{ backgroundColor: '#f2f2f2' }}>
       {/* Upper Footer Section */}
@@ -358,6 +365,19 @@ const Footer: React.FC = () => {
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7h2v-2h-2v2zm0-4h2V6h-2v5z"/>
               </svg>
             </a>
+          </div>
+
+          {/* Mobile Scroll to Top Button */}
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={scrollToTop}
+              className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors duration-200"
+              aria-label="Scroll to top"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+              </svg>
+            </button>
           </div>
         </div>
 
@@ -769,6 +789,7 @@ const Footer: React.FC = () => {
                 Privacy Policy
               </a>
               <button
+                onClick={scrollToTop}
                 className="w-8 h-8 bg-gray-300 rounded flex items-center justify-center hover:bg-gray-400 transition-colors duration-200 ml-4"
                 aria-label="Scroll to top"
               >

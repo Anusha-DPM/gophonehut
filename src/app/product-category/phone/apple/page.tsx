@@ -108,7 +108,7 @@ export default function ApplePhonePage() {
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
@@ -182,7 +182,15 @@ export default function ApplePhonePage() {
       <Header />
 
       {/* Product Selection Section */}
-      <section className="py-16 md:py-20">
+      <section 
+        className="py-16 md:py-20"
+        style={{ 
+          backgroundImage: 'url(/inner_pages_bg_image.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-12 md:mb-16">
@@ -298,283 +306,6 @@ export default function ApplePhonePage() {
         </div>
       </section>
 
-      {/* Repair Issues Section */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-6"
-              style={{
-                fontFamily: "'Raleway', sans-serif",
-                color: '#233d63'
-              }}
-            >
-              Common iPhone Repair Issues
-            </h2>
-            <p
-              className="text-lg"
-              style={{
-                fontFamily: "'Lato', sans-serif",
-                color: '#666',
-                lineHeight: '1.6'
-              }}
-            >
-              We fix all types of iPhone problems. Select the issue that matches your device.
-            </p>
-          </div>
-
-          {/* Repair Issues Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {/* Broken Screen */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b1.png"
-                    alt="Broken Screen"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Broken Screen
-              </h3>
-            </div>
-
-            {/* Water Damage */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b2.png"
-                    alt="Water Damage"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Water Damage
-              </h3>
-            </div>
-
-            {/* Short Battery Life */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b3.png"
-                    alt="Short Battery Life"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Short Battery Life
-              </h3>
-            </div>
-
-            {/* Won't Charge */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b4.png"
-                    alt="Won't Charge"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Won't Charge
-              </h3>
-            </div>
-
-            {/* Unlock / Software */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b5.png"
-                    alt="Unlock / Software"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Unlock / Software
-              </h3>
-            </div>
-
-            {/* Camera Problems */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b6.png"
-                    alt="Camera Problems"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Camera Problems
-              </h3>
-            </div>
-
-            {/* Something Else */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b7.png"
-                    alt="Something Else"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Something Else
-              </h3>
-            </div>
-
-            {/* Back Damage */}
-            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-6 text-center cursor-pointer border border-gray-200 group">
-              <div className="mb-4">
-                <div className="w-20 h-20 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/phone/innerpage/b8.png"
-                    alt="Back Damage"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-              <h3
-                className="font-semibold text-lg transition-colors duration-300"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  fontWeight: '600'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#6d6e71'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#233D63'
-                }}
-              >
-                Back Damage
-              </h3>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Can't Find Your Device Section */}
       <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f9fa' }}>

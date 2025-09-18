@@ -57,7 +57,7 @@ export default function OffersPage() {
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
@@ -305,7 +305,7 @@ export default function OffersPage() {
                     fontWeight: '500'
                   }}
                 >
-                  You're in the right place.
+                  You&apos;re in the right place.
                 </p>
               </div>
               

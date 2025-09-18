@@ -79,7 +79,7 @@ export default function MissingProductFormPage() {
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
               <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
@@ -151,7 +151,7 @@ export default function MissingProductFormPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32" style={{ backgroundImage: 'url(/contact.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="relative py-20 md:py-32 mobile-device-not-found-hero-spacing" style={{ backgroundImage: 'url(/contact.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
           <h1
