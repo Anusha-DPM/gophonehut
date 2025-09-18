@@ -4,9 +4,11 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import AppointmentPopup from '@/components/AppointmentPopup'
 
 export default function LocationsPage() {
   const [selectedLocation, setSelectedLocation] = useState('sanjose')
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
 
   const locations = {
     sanjose: {
@@ -433,6 +435,7 @@ export default function LocationsPage() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
+                  onClick={() => setIsPopupOpen(true)}
                   className="flex-1 py-3 px-6 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
                   style={{
                     fontFamily: "'lato', sans-serif",
@@ -535,6 +538,7 @@ export default function LocationsPage() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
+                  onClick={() => setIsPopupOpen(true)}
                   className="flex-1 py-3 px-6 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
                   style={{
                     fontFamily: "'lato', sans-serif",
@@ -569,6 +573,12 @@ export default function LocationsPage() {
 
       {/* Footer Section */}
       <Footer />
+      
+      {/* Appointment Popup */}
+      <AppointmentPopup 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+      />
     </main>
   )
 }

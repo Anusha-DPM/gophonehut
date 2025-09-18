@@ -582,7 +582,20 @@ const samsungPhones = [
 // Combine all phones
 const allPhones = [...applePhones, ...googlePhones, ...samsungPhones, ...appleTablets, ...samsungTablets, ...appleWatches, ...samsungWatches, ...appleComputers]
 
-const deviceIssues = [
+// Apple phone repair issues with images
+const appleRepairIssues = [
+  { id: 1, name: 'Broken Screen', image: '/phone/innerpage/b1.png' },
+  { id: 2, name: 'Water Damage', image: '/phone/innerpage/b2.png' },
+  { id: 3, name: 'Short Battery Life', image: '/phone/innerpage/b3.png' },
+  { id: 4, name: 'Wont Charge', image: '/phone/innerpage/b4.png' },
+  { id: 5, name: 'Unlock / Software', image: '/phone/innerpage/b5.png' },
+  { id: 6, name: 'Camera Problems', image: '/phone/innerpage/b6.png' },
+  { id: 7, name: 'Something Else', image: '/phone/innerpage/b7.png' },
+  { id: 8, name: 'Back Damage', image: '/phone/innerpage/b8.png' }
+]
+
+// Default device issues for non-Apple phones
+const defaultDeviceIssues = [
   { id: 1, name: 'HEADPHONES PLUG' },
   { id: 2, name: 'CHARGING PORT' },
   { id: 3, name: 'SIDE BUTTON' },
@@ -610,6 +623,12 @@ export default function RepairPage({ params }: RepairPageProps) {
   
   // Check if it's a Samsung phone
   const isSamsungPhone = samsungPhones.some(p => p.slug === params.slug)
+  
+  // Check if it's an Apple phone
+  const isApplePhone = applePhones.some(p => p.slug === params.slug)
+  
+  // Choose the appropriate issues array
+  const deviceIssues = isApplePhone ? appleRepairIssues : defaultDeviceIssues
   
   // If phone not found, return 404
   if (!phone) {
@@ -873,9 +892,25 @@ export default function RepairPage({ params }: RepairPageProps) {
                   {deviceIssues.slice(0, 4).map((issue) => (
                     <div
                       key={issue.id}
-                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative p-4 lg:p-[50px]"
+                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${
+                        isApplePhone ? 'p-[10px]' : 'p-4 lg:p-[50px]'
+                      }`}
                       onClick={() => setSelectedIssue(issue.name)}
                     >
+                      {/* Image for Apple phones */}
+                      {isApplePhone && issue.image && (
+                        <div className="mb-3">
+                          <div className="w-16 h-16 mx-auto flex items-center justify-center">
+                            <Image
+                              src={issue.image}
+                              alt={issue.name}
+                              width={64}
+                              height={64}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                      )}
 
                       {/* Issue Name */}
                       <h3
@@ -900,9 +935,25 @@ export default function RepairPage({ params }: RepairPageProps) {
                   {deviceIssues.slice(4, 8).map((issue) => (
                     <div
                       key={issue.id}
-                      className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative p-4 lg:p-[50px]"
+                      className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center cursor-pointer border border-gray-200 group relative ${
+                        isApplePhone ? 'p-[10px]' : 'p-4 lg:p-[50px]'
+                      }`}
                       onClick={() => setSelectedIssue(issue.name)}
                     >
+                      {/* Image for Apple phones */}
+                      {isApplePhone && issue.image && (
+                        <div className="mb-3">
+                          <div className="w-16 h-16 mx-auto flex items-center justify-center">
+                            <Image
+                              src={issue.image}
+                              alt={issue.name}
+                              width={64}
+                              height={64}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                      )}
 
                       {/* Issue Name */}
                       <h3
@@ -966,6 +1017,7 @@ export default function RepairPage({ params }: RepairPageProps) {
 
         </div>
       </section>
+
 
       <Footer />
     </main>

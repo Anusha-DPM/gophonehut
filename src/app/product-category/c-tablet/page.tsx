@@ -1,10 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import QuoteRequestPopup from '@/components/QuoteRequestPopup'
 
 export default function TabletPage() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
   const brands = [
     {
       id: 'apple',
@@ -274,6 +278,7 @@ export default function TabletPage() {
           </p>
 
           <button
+            onClick={() => setIsPopupOpen(true)}
             className="py-4 px-8 rounded-lg font-semibold text-lg transition-colors duration-200"
             style={{
               backgroundColor: '#6d6e71',
@@ -293,6 +298,12 @@ export default function TabletPage() {
       </section>
 
       <Footer />
+      
+      {/* Quote Request Popup */}
+      <QuoteRequestPopup 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+      />
     </main>
   )
 }

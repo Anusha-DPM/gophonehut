@@ -188,8 +188,9 @@ const ReviewsSection: React.FC = () => {
 
           {/* More Reviews Button */}
           <div className="flex justify-center mt-8">
-            <button
-              className="transition-colors duration-300 flex items-center gap-2"
+            <a
+              href="/reviews"
+              className="transition-colors duration-300 flex items-center gap-2 inline-block"
               style={{
                 position: 'relative',
                 cursor: 'pointer',
@@ -207,7 +208,8 @@ const ReviewsSection: React.FC = () => {
                 letterSpacing: '1px',
                 border: 'none',
                 borderRadius: '50px',
-                textShadow: '1px 1px 1px rgba(0, 0, 0, 0.2)'
+                textShadow: '1px 1px 1px rgba(0, 0, 0, 0.2)',
+                textDecoration: 'none'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#0056b3';
@@ -228,7 +230,7 @@ const ReviewsSection: React.FC = () => {
                   clipRule="evenodd" 
                 />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>

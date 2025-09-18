@@ -298,9 +298,13 @@ const HeroSection: React.FC = () => {
               
               <div className="flex flex-col items-center md:items-start gap-3 md:gap-4">
                 {/* Primary CTA Button */}
-                <button className="px-3 md:px-4 py-2 bg-transparent text-white text-sm md:text-base font-lato font-semibold uppercase tracking-wider border border-white rounded-full hover:bg-white hover:text-gray-800 transition-all duration-300 w-fit md:-mt-2.5" style={{ marginTop: '0', marginBottom: '10px', fontSize: '17px', padding: '8px 15px' }}>
+                <a 
+                  href="/repairs" 
+                  className="px-3 md:px-4 py-2 bg-transparent text-white text-sm md:text-base font-lato font-semibold uppercase tracking-wider border border-white rounded-full hover:bg-white hover:text-gray-800 transition-all duration-300 w-fit md:-mt-2.5 inline-block text-center" 
+                  style={{ marginTop: '0', marginBottom: '10px', fontSize: '17px', padding: '8px 15px' }}
+                >
                   GET STARTED
-                </button>
+                </a>
                 
                  {/* Search Bar Style Button */}
                  <button className="bg-transparent text-white text-xs md:text-sm font-lato font-normal tracking-wider border border-white rounded-full flex items-center justify-end w-fit" style={{ padding: '8px 23px', fontSize: '16px' }}>
