@@ -51,13 +51,13 @@ export default function ServicesPage() {
 
             {/* Right side - Quick Links */}
             <div className="flex items-center gap-4 text-sm">
-              <a href="/quick-repair" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/quick-repair" className="font-lato font-normal transition-colors duration-200 hover:text-[#71af43]" style={{ color: '#007DD2' }}>
                 Quick Repair
               </a>
-              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal transition-colors duration-200 hover:text-[#71af43]" style={{ color: '#007DD2' }}>
                 Locations
               </a>
-              <a href="/order-track" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/order-track" className="font-lato font-normal transition-colors duration-200 hover:text-[#71af43]" style={{ color: '#007DD2' }}>
                 Track Order
               </a>
             </div>

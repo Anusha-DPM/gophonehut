@@ -8,6 +8,7 @@ const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
+  const [isMobileRepairsOpen, setIsMobileRepairsOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -223,71 +224,96 @@ const Header: React.FC = () => {
             <div className="lg:hidden border-t border-gray-200 py-4">
               <div className="space-y-4">
                 <div>
-                  <a
-                    href="/repairs"
-                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
-                    style={{
-                      fontFamily: 'lato',
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Repairs
-                  </a>
-                  <div className="ml-4 space-y-2">
+                  {/* Repairs with dropdown */}
+                  <div className="flex items-center justify-between">
                     <a
-                      href="/product-category/phone"
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                      href="/repairs"
+                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200 flex-1"
                       style={{
-                        color: '#0e72d2',
-                        fontWeight: 'bold',
-                        fontSize: '14px',
-                        letterSpacing: '1px',
-                        textTransform: 'uppercase'
+                        fontFamily: 'lato',
+                        color: '#333',
+                        fontWeight: '600'
                       }}
                     >
-                      Phone
+                      Repairs
                     </a>
-                    <a
-                      href="/product-category/c-tablet"
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    <button
+                      onClick={() => setIsMobileRepairsOpen(!isMobileRepairsOpen)}
+                      className="px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
                       style={{
-                        color: '#0e72d2',
-                        fontWeight: 'bold',
-                        fontSize: '14px',
-                        letterSpacing: '1px',
-                        textTransform: 'uppercase'
+                        fontFamily: 'lato',
+                        color: '#333',
+                        fontWeight: '600'
                       }}
                     >
-                      Tablet
-                    </a>
-                    <a
-                      href="/product-category/smartwatch"
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
-                      style={{
-                        color: '#0e72d2',
-                        fontWeight: 'bold',
-                        fontSize: '14px',
-                        letterSpacing: '1px',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      Smartwatch
-                    </a>
-                    <a
-                      href="/product-category/computer"
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
-                      style={{
-                        color: '#0e72d2',
-                        fontWeight: 'bold',
-                        fontSize: '14px',
-                        letterSpacing: '1px',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      Computer
-                    </a>
+                      <svg 
+                        className={`w-4 h-4 transition-transform duration-200 ${isMobileRepairsOpen ? 'rotate-180' : ''}`}
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
                   </div>
+                  {isMobileRepairsOpen && (
+                    <div className="ml-4">
+                      <a
+                        href="/product-category/phone"
+                        className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: 'black',
+                          fontWeight: 'bold',
+                          fontSize: '13px',
+                          letterSpacing: '1px',
+                          textTransform: 'capitalize'
+                        }}
+                      >
+                        Phone
+                      </a>
+                      <a
+                        href="/product-category/c-tablet"
+                        className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: 'black',
+                          fontWeight: 'bold',
+                          fontSize: '13px',
+                          letterSpacing: '1px',
+                          textTransform: 'capitalize'
+                        }}
+                      >
+                        Tablet
+                      </a>
+                      <a
+                        href="/product-category/smartwatch"
+                        className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: 'black',
+                          fontWeight: 'bold',
+                          fontSize: '13px',
+                          letterSpacing: '1px',
+                          textTransform: 'capitalize'
+                        }}
+                      >
+                        Smartwatch
+                      </a>
+                      <a
+                        href="/product-category/computer"
+                        className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                        style={{
+                          color: 'black',
+                          fontWeight: 'bold',
+                          fontSize: '13px',
+                          letterSpacing: '1px',
+                          textTransform: 'capitalize'
+                        }}
+                      >
+                        Computer
+                      </a>
+                    </div>
+                  )}
+                  
+                  {/* Services */}
                   <a
                     href="/services"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
@@ -299,6 +325,8 @@ const Header: React.FC = () => {
                   >
                     Services
                   </a>
+                  
+                  {/* How it works */}
                   <a
                     href="/how-it-works"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
@@ -310,6 +338,8 @@ const Header: React.FC = () => {
                   >
                     How it works
                   </a>
+                  
+                  {/* Why Us */}
                   <a
                     href="/why"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
@@ -321,6 +351,8 @@ const Header: React.FC = () => {
                   >
                     Why Us
                   </a>
+                  
+                  {/* Contact */}
                   <a
                     href="/contact-us"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"

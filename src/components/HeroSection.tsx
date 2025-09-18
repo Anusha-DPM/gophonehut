@@ -6,6 +6,8 @@ import SearchPopup from './SearchPopup'
 
 const HeroSection: React.FC = () => {
   const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileRepairsOpen, setIsMobileRepairsOpen] = useState(false)
 
   return (
     <>
@@ -21,12 +23,16 @@ const HeroSection: React.FC = () => {
       
       {/* First Row - Header */}
       <div className="relative z-10">
-        {/* Mobile Header - Transparent Background */}
-        <div className="md:hidden" style={{ backgroundColor: 'transparent' }}>
+        {/* Mobile Header - Dynamic Background */}
+        <div className="md:hidden" style={{ backgroundColor: isMobileMenuOpen ? 'white' : 'transparent' }}>
           <div className="flex items-center justify-between px-4 py-4">
             {/* Left - Hamburger Menu */}
             <div className="flex items-center">
-              <button className="text-white">
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={isMobileMenuOpen ? "text-gray-800" : "text-white"}
+                aria-label="Toggle mobile menu"
+              >
                 <svg 
                   width="24" 
                   height="24" 
@@ -37,9 +43,15 @@ const HeroSection: React.FC = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <line x1="3" y1="6" x2="21" y2="6"/>
-                  <line x1="3" y1="12" x2="21" y2="12"/>
-                  <line x1="3" y1="18" x2="21" y2="18"/>
+                  {isMobileMenuOpen ? (
+                    <path d="M6 18L18 6M6 6l12 12"/>
+                  ) : (
+                    <>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <line x1="3" y1="12" x2="21" y2="12"/>
+                      <line x1="3" y1="18" x2="21" y2="18"/>
+                    </>
+                  )}
                 </svg>
               </button>
             </div>
@@ -62,7 +74,7 @@ const HeroSection: React.FC = () => {
             <div className="flex items-center">
               <button 
                 onClick={() => setIsSearchPopupOpen(true)}
-                style={{ color: '#0e72d2' }}
+                style={{ color: isMobileMenuOpen ? '#0e72d2' : '#0e72d2' }}
                 className="hover:opacity-80 transition-opacity duration-200"
               >
                 <svg 
@@ -82,6 +94,183 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 py-4">
+            <div className="space-y-4">
+              <div>
+                {/* Repairs with dropdown */}
+                <div className="flex items-center justify-between">
+                  <a
+                    href="/repairs"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200 flex-1"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    Repairs
+                  </a>
+                  <button
+                    onClick={() => setIsMobileRepairsOpen(!isMobileRepairsOpen)}
+                    className="px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    <svg 
+                      className={`w-4 h-4 transition-transform duration-200 ${isMobileRepairsOpen ? 'rotate-180' : ''}`}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
+                {isMobileRepairsOpen && (
+                  <div className="ml-4">
+                    <a
+                      href="/product-category/phone"
+                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '13px',
+                        letterSpacing: '1px',
+                        textTransform: 'capitalize'
+                      }}
+                    >
+                      Phone
+                    </a>
+                    <a
+                      href="/product-category/c-tablet"
+                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '13px',
+                        letterSpacing: '1px',
+                        textTransform: 'capitalize'
+                      }}
+                    >
+                      Tablet
+                    </a>
+                    <a
+                      href="/product-category/smartwatch"
+                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '13px',
+                        letterSpacing: '1px',
+                        textTransform: 'capitalize'
+                      }}
+                    >
+                      Smartwatch
+                    </a>
+                    <a
+                      href="/product-category/computer"
+                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      style={{
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: '13px',
+                        letterSpacing: '1px',
+                        textTransform: 'capitalize'
+                      }}
+                    >
+                      Computer
+                    </a>
+                  </div>
+                )}
+                
+                {/* Services */}
+                <a
+                  href="/services"
+                  className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    fontFamily: 'lato',
+                    color: '#333',
+                    fontWeight: '600'
+                  }}
+                >
+                  Services
+                </a>
+                
+                {/* How it works */}
+                <a
+                  href="/how-it-works"
+                  className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    fontFamily: 'lato',
+                    color: '#333',
+                    fontWeight: '600'
+                  }}
+                >
+                  How it works
+                </a>
+                
+                {/* Why Us */}
+                <a
+                  href="/why"
+                  className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    fontFamily: 'lato',
+                    color: '#333',
+                    fontWeight: '600'
+                  }}
+                >
+                  Why Us
+                </a>
+                
+                {/* Contact */}
+                <a
+                  href="/contact-us"
+                  className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
+                  style={{
+                    fontFamily: 'lato',
+                    color: '#333',
+                    fontWeight: '600'
+                  }}
+                >
+                  Contact
+                </a>
+                
+                {/* Mobile Search Button */}
+                <button
+                  onClick={() => setIsSearchPopupOpen(true)}
+                  className="flex items-center px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200 w-full text-left"
+                  style={{
+                    fontFamily: 'lato',
+                    color: '#333',
+                    fontWeight: '600'
+                  }}
+                >
+                  <svg 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mr-2"
+                  >
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                  </svg>
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Desktop Header */}
         <div className="hidden md:block">
