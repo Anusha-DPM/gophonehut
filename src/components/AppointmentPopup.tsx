@@ -186,7 +186,9 @@ const AppointmentPopup: React.FC<AppointmentPopupProps> = ({ isOpen, onClose }) 
   // Get available models based on selected category and brand
   const getAvailableModels = () => {
     if (!selectedCategory || !selectedBrand) return []
-    return deviceModels[selectedCategory as keyof typeof deviceModels]?.[selectedBrand as keyof typeof deviceModels[typeof selectedCategory]] || []
+    const categoryData = deviceModels[selectedCategory as keyof typeof deviceModels]
+    if (!categoryData) return []
+    return categoryData[selectedBrand as keyof typeof categoryData] || []
   }
 
   // Handle category change
@@ -451,11 +453,11 @@ const AppointmentPopup: React.FC<AppointmentPopupProps> = ({ isOpen, onClose }) 
                       }}
                     >
                       {/* Show image for Apple phones */}
-                      {selectedCategory === 'phone' && selectedBrand === 'apple' && issue.image && (
+                      {selectedCategory === 'phone' && selectedBrand === 'apple' && 'image' in issue && (issue as any).image && (
                         <div className="mb-2">
                           <div className="w-8 h-8 mx-auto flex items-center justify-center">
                             <img
-                              src={issue.image}
+                              src={(issue as any).image}
                               alt={issue.name}
                               className="w-full h-full object-contain"
                             />
