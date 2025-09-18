@@ -136,7 +136,7 @@ const HeroSection: React.FC = () => {
                   <div className="ml-4">
                     <a
                       href="/product-category/phone"
-                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      className="block px-4 py-0.5 hover:bg-gray-100 transition-colors duration-200"
                       style={{
                         color: 'black',
                         fontWeight: 'bold',
@@ -149,7 +149,7 @@ const HeroSection: React.FC = () => {
                     </a>
                     <a
                       href="/product-category/c-tablet"
-                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      className="block px-4 py-0.5 hover:bg-gray-100 transition-colors duration-200"
                       style={{
                         color: 'black',
                         fontWeight: 'bold',
@@ -162,7 +162,7 @@ const HeroSection: React.FC = () => {
                     </a>
                     <a
                       href="/product-category/smartwatch"
-                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      className="block px-4 py-0.5 hover:bg-gray-100 transition-colors duration-200"
                       style={{
                         color: 'black',
                         fontWeight: 'bold',
@@ -175,7 +175,7 @@ const HeroSection: React.FC = () => {
                     </a>
                     <a
                       href="/product-category/computer"
-                      className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                      className="block px-4 py-0.5 hover:bg-gray-100 transition-colors duration-200"
                       style={{
                         color: 'black',
                         fontWeight: 'bold',
@@ -298,10 +298,10 @@ const HeroSection: React.FC = () => {
                       Repairs
                     </a>
                     <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200" style={{ marginTop: '4px' }}>
-                      <div className="py-2">
+                      <div className="py-1">
                         <a
                           href="/product-category/phone"
-                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',
@@ -316,7 +316,7 @@ const HeroSection: React.FC = () => {
                         </a>
                         <a
                           href="/product-category/c-tablet"
-                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',
@@ -331,7 +331,7 @@ const HeroSection: React.FC = () => {
                         </a>
                         <a
                           href="/product-category/smartwatch"
-                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',
@@ -346,7 +346,7 @@ const HeroSection: React.FC = () => {
                         </a>
                         <a
                           href="/product-category/computer"
-                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',
