@@ -8,6 +8,7 @@ import TopHeader from '@/components/TopHeader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ChangeModelPopup from '@/components/ChangeModelPopup'
+import SearchPopup from '@/components/SearchPopup'
 
 // Apple iPhone models data - matching GoPhoneHut reference
 const applePhones = [
@@ -619,6 +620,7 @@ export default function RepairPage({ params }: RepairPageProps) {
   const phone = allPhones.find(p => p.slug === params.slug)
   const [selectedIssue, setSelectedIssue] = useState<string | null>(null)
   const [isChangeModelPopupOpen, setIsChangeModelPopupOpen] = useState(false)
+  const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
   
   // Check if it's a Google phone
   const isGooglePhone = googlePhones.some(p => p.slug === params.slug)
@@ -683,13 +685,13 @@ export default function RepairPage({ params }: RepairPageProps) {
 
             {/* Right side - Quick Links */}
             <div className="flex items-center gap-4 text-sm">
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/quick-repair" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/order-track" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Track Order
               </a>
             </div>
@@ -736,21 +738,25 @@ export default function RepairPage({ params }: RepairPageProps) {
               
               {/* Search Icon */}
               <div className="ml-4">
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <button
+                  onClick={() => setIsSearchPopupOpen(true)}
                   className="hover:text-gray-300 transition-colors duration-200 cursor-pointer"
                   style={{ color: '#0e72d2' }}
                 >
-                  <circle cx="11" cy="11" r="8"/>
-                  <path d="m21 21-4.35-4.35"/>
-                </svg>
+                  <svg 
+                    width="20" 
+                    height="20" 
+                    viewBox="0 0 24 24" 
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
@@ -1028,6 +1034,12 @@ export default function RepairPage({ params }: RepairPageProps) {
       <ChangeModelPopup 
         isOpen={isChangeModelPopupOpen} 
         onClose={() => setIsChangeModelPopupOpen(false)} 
+      />
+      
+      {/* Search Popup */}
+      <SearchPopup 
+        isOpen={isSearchPopupOpen} 
+        onClose={() => setIsSearchPopupOpen(false)} 
       />
     </main>
   )

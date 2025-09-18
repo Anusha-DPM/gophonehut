@@ -61,16 +61,10 @@ export default function OrderTrackPage() {
             {/* Right side - Navigation Links */}
             <div className="flex items-center gap-6 text-sm font-lato font-normal text-custom-blue">
               <a 
-                href="#" 
+                href="/quick-repair" 
                 className="capitalize hover:text-custom-green transition-colors duration-200"
               >
                 Quick Repair
-              </a>
-              <a 
-                href="/locations" 
-                className="capitalize hover:text-custom-green transition-colors duration-200"
-              >
-                Locations
               </a>
               <a 
                 href="/order-track" 
@@ -190,18 +184,6 @@ export default function OrderTrackPage() {
                 }}
               >
                 Services
-              </a>
-              <a
-                href="/locations"
-                className="hover:text-gray-600 transition-colors duration-200"
-                style={{
-                  fontSize: '16px',
-                  fontFamily: 'lato',
-                  color: '#333',
-                  fontWeight: '600'
-                }}
-              >
-                Locations
               </a>
               <a
                 href="/how-it-works"

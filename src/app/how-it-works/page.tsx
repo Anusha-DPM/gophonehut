@@ -73,13 +73,13 @@ export default function HowItWorksPage() {
 
             {/* Right side - Quick Links */}
             <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm">
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/quick-repair" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/order-track" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Track Order
               </a>
             </div>

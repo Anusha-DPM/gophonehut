@@ -512,10 +512,10 @@ export default function QuickRepairPage() {
               <a href="/quick-repair" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Quick Repair
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/locations" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Locations
               </a>
-              <a href="#" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
+              <a href="/order-track" className="font-lato font-normal text-black hover:text-gray-600 transition-colors duration-200">
                 Track Order
               </a>
             </div>

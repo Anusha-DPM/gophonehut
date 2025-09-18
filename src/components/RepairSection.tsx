@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
+import SearchPopup from './SearchPopup'
 
 interface RepairSectionProps {
   heading?: string
@@ -10,6 +11,7 @@ interface RepairSectionProps {
 
 const RepairSection: React.FC<RepairSectionProps> = ({ heading = "What are you needing repaired?", showSearchBar = true }) => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+  const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
 
   const repairCategories = [
     {
@@ -68,11 +70,13 @@ const RepairSection: React.FC<RepairSectionProps> = ({ heading = "What are you n
               <input
                 type="text"
                 placeholder="Search for your device here"
-                className="w-full px-0 py-3 border-0 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-lg bg-transparent text-center"
+                className="w-full px-0 py-3 border-0 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-lg bg-transparent text-center cursor-pointer"
                 style={{ 
                   fontFamily: "'Raleway', sans-serif",
                   letterSpacing: '1.1px'
                 }}
+                onClick={() => setIsSearchPopupOpen(true)}
+                readOnly
               />
             </div>
           </div>
@@ -126,6 +130,12 @@ const RepairSection: React.FC<RepairSectionProps> = ({ heading = "What are you n
           ))}
         </div>
       </div>
+
+      {/* Search Popup */}
+      <SearchPopup 
+        isOpen={isSearchPopupOpen} 
+        onClose={() => setIsSearchPopupOpen(false)} 
+      />
     </section>
   )
 }

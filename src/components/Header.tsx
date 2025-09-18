@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import SearchPopup from './SearchPopup'
 
 const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -141,18 +143,6 @@ const Header: React.FC = () => {
                 Services
               </a>
               <a
-                href="/locations"
-                className="hover:text-gray-600 transition-colors duration-200"
-                style={{
-                  fontSize: '16px',
-                  fontFamily: 'lato',
-                  color: '#333',
-                  fontWeight: '600'
-                }}
-              >
-                Locations
-              </a>
-              <a
                 href="/how-it-works"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
@@ -188,6 +178,28 @@ const Header: React.FC = () => {
               >
                 Contact
               </a>
+              
+              {/* Search Icon */}
+              <button
+                onClick={() => setIsSearchPopupOpen(true)}
+                className="ml-4 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                aria-label="Search"
+              >
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.35-4.35"/>
+                </svg>
+              </button>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -288,17 +300,6 @@ const Header: React.FC = () => {
                     Services
                   </a>
                   <a
-                    href="/locations"
-                    className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
-                    style={{
-                      fontFamily: 'lato',
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Locations
-                  </a>
-                  <a
                     href="/how-it-works"
                     className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200"
                     style={{
@@ -331,6 +332,33 @@ const Header: React.FC = () => {
                   >
                     Contact
                   </a>
+                  
+                  {/* Mobile Search Button */}
+                  <button
+                    onClick={() => setIsSearchPopupOpen(true)}
+                    className="flex items-center px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-200 w-full text-left"
+                    style={{
+                      fontFamily: 'lato',
+                      color: '#333',
+                      fontWeight: '600'
+                    }}
+                  >
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="mr-2"
+                    >
+                      <circle cx="11" cy="11" r="8"/>
+                      <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    Search
+                  </button>
                 </div>
               </div>
             </div>
@@ -340,6 +368,12 @@ const Header: React.FC = () => {
 
       {/* Spacer for sticky header */}
       {isSticky && <div className="h-16 md:h-20" />}
+
+      {/* Search Popup */}
+      <SearchPopup 
+        isOpen={isSearchPopupOpen} 
+        onClose={() => setIsSearchPopupOpen(false)} 
+      />
     </>
   )
 }

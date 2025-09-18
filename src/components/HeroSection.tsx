@@ -1,9 +1,12 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
+import SearchPopup from './SearchPopup'
 
 const HeroSection: React.FC = () => {
+  const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
+
   return (
     <>
       {/* Top Header Section */}
@@ -58,15 +61,6 @@ const HeroSection: React.FC = () => {
                 onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#007dd9'}
               >
                 Quick Repair
-              </a>
-              <a 
-                href="#" 
-                className="capitalize transition-colors duration-200"
-                style={{ color: '#007dd9' }}
-                onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#71af43'}
-                onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#007dd9'}
-              >
-                Locations
               </a>
               <a 
                 href="#" 
@@ -133,7 +127,11 @@ const HeroSection: React.FC = () => {
 
             {/* Right - Search Icon */}
             <div className="flex items-center">
-              <button style={{ color: '#0e72d2' }}>
+              <button 
+                onClick={() => setIsSearchPopupOpen(true)}
+                style={{ color: '#0e72d2' }}
+                className="hover:opacity-80 transition-opacity duration-200"
+              >
                 <svg 
                   width="24" 
                   height="24" 
@@ -258,21 +256,25 @@ const HeroSection: React.FC = () => {
                 
                 {/* Search Icon */}
                 <div className="ml-4">
-                  <svg 
-                    width="20" 
-                    height="20" 
-                    viewBox="0 0 24 24" 
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <button
+                    onClick={() => setIsSearchPopupOpen(true)}
                     className="hover:text-gray-300 transition-colors duration-200 cursor-pointer"
                     style={{ color: '#0e72d2' }}
                   >
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                  </svg>
+                    <svg 
+                      width="20" 
+                      height="20" 
+                      viewBox="0 0 24 24" 
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="11" cy="11" r="8"/>
+                      <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
@@ -307,7 +309,11 @@ const HeroSection: React.FC = () => {
                 </a>
                 
                  {/* Search Bar Style Button */}
-                 <button className="bg-transparent text-white text-xs md:text-sm font-lato font-normal tracking-wider border border-white rounded-full flex items-center justify-end w-fit" style={{ padding: '8px 23px', fontSize: '16px' }}>
+                 <button 
+                   onClick={() => setIsSearchPopupOpen(true)}
+                   className="bg-transparent text-white text-xs md:text-sm font-lato font-normal tracking-wider border border-white rounded-full flex items-center justify-end w-fit hover:bg-white hover:text-gray-800 transition-all duration-300" 
+                   style={{ padding: '8px 23px', fontSize: '16px' }}
+                 >
                    <span className="mr-2 text-xs md:text-sm" style={{ fontSize: '16px' }}>Search for your device here</span>
                    <svg 
                      width="14" 
@@ -358,8 +364,13 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-
       </div>
+
+      {/* Search Popup */}
+      <SearchPopup 
+        isOpen={isSearchPopupOpen} 
+        onClose={() => setIsSearchPopupOpen(false)} 
+      />
     </>
   )
 }
