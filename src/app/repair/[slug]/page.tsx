@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 import TopHeader from '@/components/TopHeader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ChangeModelPopup from '@/components/ChangeModelPopup'
 
 // Apple iPhone models data - matching GoPhoneHut reference
 const applePhones = [
@@ -617,6 +618,7 @@ export default function RepairPage({ params }: RepairPageProps) {
   // Find the phone by slug
   const phone = allPhones.find(p => p.slug === params.slug)
   const [selectedIssue, setSelectedIssue] = useState<string | null>(null)
+  const [isChangeModelPopupOpen, setIsChangeModelPopupOpen] = useState(false)
   
   // Check if it's a Google phone
   const isGooglePhone = googlePhones.some(p => p.slug === params.slug)
@@ -834,6 +836,7 @@ export default function RepairPage({ params }: RepairPageProps) {
               
               <div className="mb-0">
                 <button
+                  onClick={() => setIsChangeModelPopupOpen(true)}
                   className="text-blue-600 hover:text-blue-800 underline font-medium"
                   style={{
                     fontFamily: "'Lato', sans-serif"
@@ -1020,6 +1023,12 @@ export default function RepairPage({ params }: RepairPageProps) {
 
 
       <Footer />
+      
+      {/* Change Model Popup */}
+      <ChangeModelPopup 
+        isOpen={isChangeModelPopupOpen} 
+        onClose={() => setIsChangeModelPopupOpen(false)} 
+      />
     </main>
   )
 }
