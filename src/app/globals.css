@@ -62,3 +62,40 @@ body {
 .hover\:text-hover-gray:hover {
   color: #6d6e71;
 }
+
+/* 3D Card Flip Effects */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Mobile-specific font sizes */
+@media (max-width: 767px) {
+  .mobile-heading-26px {
+    font-size: 26px !important;
+  }
+  .mobile-faq-heading-20px {
+    font-size: 20px !important;
+  }
+}
+
+/* Desktop-specific font sizes */
+@media (min-width: 1024px) {
+  .desktop-heading-36px {
+    font-size: 36px !important;
+  }
+  .desktop-faq-heading-18px {
+    font-size: 18px !important;
+  }
+}

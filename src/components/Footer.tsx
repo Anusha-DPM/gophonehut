@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-1">
               <li>
                 <a
-                  href="#"
+                  href="/contact-us"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/write-a-review"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/bulk-repair-form"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/missing-product-form"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-1">
               <li>
                 <a
-                  href="#"
+                  href="/faqs"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -163,7 +163,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-1">
               <li>
                 <a
-                  href="#"
+                  href="/how-it-works"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -205,7 +205,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/offers"
                   className="hover:text-gray-600 transition-colors duration-200"
                   style={{
                     fontSize: '14px',
@@ -376,7 +376,7 @@ const Footer: React.FC = () => {
             {/* Legal Links & Scroll-to-Top Button */}
             <div className="flex items-center space-x-4">
               <a
-                href="#"
+                href="/terms-and-conditions"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
                   fontSize: '14px',
@@ -398,7 +398,7 @@ const Footer: React.FC = () => {
                 /
               </span>
               <a
-                href="#"
+                href="/privacy-policy"
                 className="hover:text-gray-600 transition-colors duration-200"
                 style={{
                   fontSize: '14px',

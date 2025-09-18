@@ -54,7 +54,7 @@ const TopHeader: React.FC<TopHeaderProps> = ({ showAllLinks = true }) => {
         {/* Right side - Navigation Links */}
         <div className="flex items-center gap-6 text-sm font-lato font-normal text-custom-blue">
           <a 
-            href="#" 
+            href="/quick-repair" 
             className="capitalize hover:text-custom-green transition-colors duration-200"
           >
             Quick Repair
