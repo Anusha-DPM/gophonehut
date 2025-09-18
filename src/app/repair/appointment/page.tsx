@@ -11,6 +11,11 @@ export default function AppointmentPage() {
   const searchParams = useSearchParams()
   const selectedIssue = searchParams.get('issue')
   const deviceName = searchParams.get('device')
+  const deviceType = searchParams.get('deviceType')
+  const brand = searchParams.get('brand')
+  const model = searchParams.get('model')
+  const color = searchParams.get('color')
+  const storage = searchParams.get('storage')
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -707,8 +712,8 @@ export default function AppointmentPage() {
               {/* Right Side - Addresses */}
               <div className="lg:col-span-1">
                 <div className="space-y-6">
-                  {/* Selected Issue Display */}
-                  {selectedIssue && deviceName && (
+                  {/* Selected Items Display */}
+                  {(selectedIssue || deviceType || brand || model) && (
                     <div className="bg-white rounded-lg shadow-lg p-6">
                       <h3
                         className="text-lg font-bold mb-4"
@@ -718,29 +723,147 @@ export default function AppointmentPage() {
                           textTransform: 'uppercase'
                         }}
                       >
-                        {deviceName}
+                        Repair Details
                       </h3>
-                      <div className="space-y-2">
-                        <p
-                          className="text-sm font-semibold"
-                          style={{
-                            fontFamily: "'Lato', sans-serif",
-                            color: '#233d63',
-                            textTransform: 'uppercase'
-                          }}
-                        >
-                          What is wrong with your device?:
-                        </p>
-                        <p
-                          className="text-base"
-                          style={{
-                            fontFamily: "'Lato', sans-serif",
-                            color: '#233d63',
-                            textTransform: 'capitalize'
-                          }}
-                        >
-                          {selectedIssue}
-                        </p>
+                      <div className="space-y-3">
+                        {deviceType && (
+                          <div className="flex justify-between">
+                            <span
+                              className="text-sm font-semibold"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63',
+                                textTransform: 'uppercase'
+                              }}
+                            >
+                              Device Type:
+                            </span>
+                            <span
+                              className="text-base capitalize"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63'
+                              }}
+                            >
+                              {deviceType}
+                            </span>
+                          </div>
+                        )}
+                        {brand && (
+                          <div className="flex justify-between">
+                            <span
+                              className="text-sm font-semibold"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63',
+                                textTransform: 'uppercase'
+                              }}
+                            >
+                              Brand:
+                            </span>
+                            <span
+                              className="text-base capitalize"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63'
+                              }}
+                            >
+                              {brand}
+                            </span>
+                          </div>
+                        )}
+                        {model && (
+                          <div className="flex justify-between">
+                            <span
+                              className="text-sm font-semibold"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63',
+                                textTransform: 'uppercase'
+                              }}
+                            >
+                              Model:
+                            </span>
+                            <span
+                              className="text-base"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63'
+                              }}
+                            >
+                              {model}
+                            </span>
+                          </div>
+                        )}
+                        {color && (
+                          <div className="flex justify-between">
+                            <span
+                              className="text-sm font-semibold"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63',
+                                textTransform: 'uppercase'
+                              }}
+                            >
+                              Color:
+                            </span>
+                            <span
+                              className="text-base capitalize"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63'
+                              }}
+                            >
+                              {color}
+                            </span>
+                          </div>
+                        )}
+                        {storage && (
+                          <div className="flex justify-between">
+                            <span
+                              className="text-sm font-semibold"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63',
+                                textTransform: 'uppercase'
+                              }}
+                            >
+                              Storage:
+                            </span>
+                            <span
+                              className="text-base uppercase"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63'
+                              }}
+                            >
+                              {storage}
+                            </span>
+                          </div>
+                        )}
+                        {selectedIssue && (
+                          <div className="flex justify-between">
+                            <span
+                              className="text-sm font-semibold"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63',
+                                textTransform: 'uppercase'
+                              }}
+                            >
+                              Issue:
+                            </span>
+                            <span
+                              className="text-base capitalize"
+                              style={{
+                                fontFamily: "'Lato', sans-serif",
+                                color: '#233d63'
+                              }}
+                            >
+                              {selectedIssue}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
