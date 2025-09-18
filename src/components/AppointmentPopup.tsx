@@ -11,6 +11,8 @@ const AppointmentPopup: React.FC<AppointmentPopupProps> = ({ isOpen, onClose }) 
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedBrand, setSelectedBrand] = useState('')
   const [selectedModel, setSelectedModel] = useState('')
+  const [selectedFault, setSelectedFault] = useState('')
+  const [couponCode, setCouponCode] = useState('')
 
   // Device models data
   const deviceModels = {
@@ -207,11 +209,76 @@ const AppointmentPopup: React.FC<AppointmentPopupProps> = ({ isOpen, onClose }) 
     setSelectedModel(e.target.value)
   }
 
+  // Repair issues data - different for Apple vs other brands
+  const appleRepairIssues = [
+    { id: 1, name: 'Broken Screen', image: '/phone/innerpage/b1.png' },
+    { id: 2, name: 'Water Damage', image: '/phone/innerpage/b2.png' },
+    { id: 3, name: 'Short Battery Life', image: '/phone/innerpage/b3.png' },
+    { id: 4, name: 'Wont Charge', image: '/phone/innerpage/b4.png' },
+    { id: 5, name: 'Unlock / Software', image: '/phone/innerpage/b5.png' },
+    { id: 6, name: 'Camera Problems', image: '/phone/innerpage/b6.png' },
+    { id: 7, name: 'Something Else', image: '/phone/innerpage/b7.png' },
+    { id: 8, name: 'Back Damage', image: '/phone/innerpage/b8.png' }
+  ]
+
+  const defaultRepairIssues = [
+    { id: 1, name: 'HEADPHONES PLUG' },
+    { id: 2, name: 'CHARGING PORT' },
+    { id: 3, name: 'SIDE BUTTON' },
+    { id: 4, name: 'ISIGHT CAMERA' },
+    { id: 5, name: 'POWER BUTTON' },
+    { id: 6, name: 'SCREEN' },
+    { id: 7, name: 'BATTERY' }
+  ]
+
+  // Choose repair issues based on selected brand and category
+  const repairIssues = (selectedCategory === 'phone' && selectedBrand === 'apple') 
+    ? appleRepairIssues 
+    : defaultRepairIssues
+
+  // Handle fault selection
+  const handleFaultSelect = (fault: string) => {
+    setSelectedFault(fault)
+  }
+
+  // Handle coupon code change
+  const handleCouponChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCouponCode(e.target.value)
+  }
+
+  // Handle coupon apply
+  const handleCouponApply = () => {
+    console.log('Coupon applied:', couponCode)
+    // Add coupon validation logic here
+  }
+
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Appointment form submitted:', { selectedCategory, selectedBrand, selectedModel })
-    // Add your form submission logic here
+    
+    // Validate required fields
+    if (!selectedCategory || !selectedBrand || !selectedModel) {
+      alert('Please select category, brand, and model before proceeding.')
+      return
+    }
+    
+    // Create query parameters
+    const queryParams = new URLSearchParams({
+      deviceType: selectedCategory,
+      brand: selectedBrand,
+      model: selectedModel
+    })
+    
+    // Add optional parameters if they exist
+    if (selectedFault) {
+      queryParams.set('issue', selectedFault)
+    }
+    if (couponCode) {
+      queryParams.set('coupon', couponCode)
+    }
+    
+    // Navigate to appointment page with selected data
+    window.location.href = `/repair/appointment?${queryParams.toString()}`
   }
 
   if (!isOpen) return null
@@ -325,23 +392,121 @@ const AppointmentPopup: React.FC<AppointmentPopupProps> = ({ isOpen, onClose }) 
               </select>
             </div>
 
+            {/* Please Choose Fault Section - Only show when all required fields are selected */}
+            {selectedCategory && selectedBrand && selectedModel && (
+              <div>
+                <h3
+                  className="text-lg font-bold mb-4 text-center"
+                  style={{
+                    fontFamily: "'Raleway', sans-serif",
+                    color: '#233D63',
+                    textTransform: 'uppercase'
+                  }}
+                >
+                  {selectedCategory === 'phone' && selectedBrand === 'apple' ? 'What is wrong with your device?' : 'please choose fault'}
+                </h3>
+                
+                {/* Selected Fault Display */}
+                {selectedFault && (
+                  <div className="mb-4 p-3 bg-gray-100 rounded-lg">
+                    <h4
+                      className="text-sm font-semibold mb-1"
+                      style={{
+                        fontFamily: "'Raleway', sans-serif",
+                        color: '#233D63',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      Selected Fault:
+                    </h4>
+                    <p
+                      className="text-base"
+                      style={{
+                        fontFamily: "'Lato', sans-serif",
+                        color: '#233D63'
+                      }}
+                    >
+                      {selectedFault}
+                    </p>
+                  </div>
+                )}
+
+                {/* Fault Selection Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                  {repairIssues.map((issue) => (
+                    <button
+                      key={issue.id}
+                      type="button"
+                      onClick={() => handleFaultSelect(issue.name)}
+                      className={`p-3 text-center border rounded-lg transition-all duration-200 ${
+                        selectedFault === issue.name
+                          ? 'bg-gray-800 text-white border-gray-800'
+                          : 'bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200'
+                      }`}
+                      style={{
+                        fontFamily: "'Lato', sans-serif",
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      {/* Show image for Apple phones */}
+                      {selectedCategory === 'phone' && selectedBrand === 'apple' && issue.image && (
+                        <div className="mb-2">
+                          <div className="w-8 h-8 mx-auto flex items-center justify-center">
+                            <img
+                              src={issue.image}
+                              alt={issue.name}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                      )}
+                      {issue.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Coupon Code Section */}
+            <div>
+              <div className="flex gap-3">
+                <input
+                  type="text"
+                  placeholder="Coupon Code"
+                  value={couponCode}
+                  onChange={handleCouponChange}
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  style={{ fontFamily: "'Lato', sans-serif" }}
+                />
+                <button
+                  type="button"
+                  onClick={handleCouponApply}
+                  className="px-4 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-700 transition-colors duration-200"
+                  style={{
+                    fontFamily: "'Lato', sans-serif",
+                    textTransform: 'uppercase',
+                    fontSize: '12px'
+                  }}
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+
             {/* Submit Button */}
             <div className="flex justify-end pt-4">
               <button
                 type="submit"
-                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-200"
+                className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-700 transition-colors duration-200"
                 style={{
                   fontFamily: "'Lato', sans-serif",
-                  backgroundColor: '#6d6e71'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#0056b3'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#6d6e71'
+                  textTransform: 'uppercase',
+                  fontSize: '14px'
                 }}
               >
-                Book Appointment
+                Next
               </button>
             </div>
           </form>

@@ -854,7 +854,7 @@ export default function RepairPage({ params }: RepairPageProps) {
                      textTransform: 'uppercase'
                    }}
                  >
-                   please choose fault
+                   {isApplePhone ? 'What is wrong with your device?' : 'please choose fault'}
                  </h2>
 
               {/* Selected Issue Display */}
