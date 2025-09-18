@@ -45,12 +45,20 @@ const RepairSection: React.FC<RepairSectionProps> = ({ heading = "What are you n
   ]
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section 
+      className="py-12 md:py-16 lg:py-20"
+      style={{ 
+        backgroundImage: 'url(/inner_pages_bg_image.png)', 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Title */}
         <div className={`text-center ${showSearchBar ? 'mb-4' : 'mb-12 md:mb-16'}`}>
           <h2 
-            className="font-raleway font-bold uppercase"
+            className="font-raleway font-bold uppercase mobile-repair-heading-line-height"
             style={{ 
               fontSize: '26px', 
               color: '#3333D3',

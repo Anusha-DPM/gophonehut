@@ -1,10 +1,22 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 const ReviewsSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
   
   const reviews = [
     {
@@ -41,7 +53,7 @@ const ReviewsSection: React.FC = () => {
         {/* Section Title */}
         <div className="text-center mb-12 md:mb-16">
           <h2 
-            className="font-raleway font-bold uppercase"
+            className="font-raleway font-bold uppercase mobile-reviews-heading-line-height"
             style={{ 
               fontSize: '26px', 
               color: '#233D63',
@@ -60,15 +72,17 @@ const ReviewsSection: React.FC = () => {
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}
+              style={{ 
+                transform: `translateX(-${currentSlide * (isMobile ? 100 : 33.333)}%)` 
+              }}
             >
               {reviews.map((review) => (
-                <div key={review.id} className="w-1/3 flex-shrink-0 px-4">
-                  <div className="bg-white rounded-lg shadow-lg p-6 h-full">
-                    <div className="flex gap-4 h-full">
+                <div key={review.id} className="w-full md:w-1/3 flex-shrink-0 px-2 md:px-4">
+                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 h-full">
+                    <div className="flex flex-col md:flex-row gap-4 h-full">
                       {/* First Column - Image */}
-                      <div className="flex-shrink-0">
-                        <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                      <div className="flex-shrink-0 flex justify-center md:justify-start">
+                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
                           <Image
                             src="/placeholder_avatar.jpg"
                             alt="User Avatar"
@@ -80,12 +94,12 @@ const ReviewsSection: React.FC = () => {
                       </div>
 
                       {/* Second Column - Content */}
-                      <div className="flex-1 flex flex-col justify-start">
+                      <div className="flex-1 flex flex-col justify-start text-center md:text-left">
                         {/* Review Description */}
                          <p 
-                           className="mb-4"
+                           className="mb-4 text-sm md:text-base"
                            style={{
-                             fontSize: '16px',
+                             fontSize: '14px',
                              fontWeight: 'bold',
                              fontFamily: '&quot;Crete Round&quot;, serif',
                              fontStyle: 'normal',
@@ -99,9 +113,9 @@ const ReviewsSection: React.FC = () => {
 
                         {/* User Name */}
                         <h3 
-                          className="mb-0"
+                          className="mb-0 text-sm md:text-base"
                           style={{
-                            fontSize: '16px',
+                            fontSize: '14px',
                             fontWeight: 'bold',
                             textTransform: 'uppercase',
                             fontFamily: 'lato',
@@ -113,9 +127,9 @@ const ReviewsSection: React.FC = () => {
 
                         {/* City */}
                         <p 
-                          className="mb-0"
+                          className="mb-0 text-sm md:text-base"
                           style={{
-                            fontSize: '16px',
+                            fontSize: '14px',
                             fontWeight: 'bold',
                             fontFamily: 'lato',
                             color: 'black'
@@ -125,14 +139,14 @@ const ReviewsSection: React.FC = () => {
                         </p>
 
                         {/* Stars */}
-                        <div className="flex">
+                        <div className="flex justify-center md:justify-start">
                           <div className="flex space-x-1">
                             {[...Array(5)].map((_, index) => (
                               <span
                                 key={index}
-                                className="text-yellow-400"
+                                className="text-yellow-400 text-lg md:text-xl"
                                 style={{
-                                  fontSize: '20px',
+                                  fontSize: '16px',
                                   color: '#f3d32c'
                                 }}
                               >
@@ -162,9 +176,9 @@ const ReviewsSection: React.FC = () => {
           </button>
           
           <button
-            onClick={() => setCurrentSlide(currentSlide === reviews.length - 1 ? reviews.length - 1 : currentSlide + 1)}
+            onClick={() => setCurrentSlide(currentSlide === (isMobile ? reviews.length - 1 : reviews.length - 3) ? (isMobile ? reviews.length - 1 : reviews.length - 3) : currentSlide + 1)}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={currentSlide === reviews.length - 1}
+            disabled={currentSlide === (isMobile ? reviews.length - 1 : reviews.length - 3)}
             aria-label="Next review"
           >
             <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

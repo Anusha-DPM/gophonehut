@@ -88,6 +88,15 @@ body {
   .mobile-faq-heading-20px {
     font-size: 20px !important;
   }
+  .mobile-signup-heading-26px {
+    font-size: 26px !important;
+  }
+  .mobile-repair-heading-line-height {
+    line-height: 1.2 !important;
+  }
+  .mobile-reviews-heading-line-height {
+    line-height: 1.2 !important;
+  }
 }
 
 /* Desktop-specific font sizes */
