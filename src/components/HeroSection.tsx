@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import SearchPopup from './SearchPopup'
 
@@ -8,6 +8,49 @@ const HeroSection: React.FC = () => {
   const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileRepairsOpen, setIsMobileRepairsOpen] = useState(false)
+  const [isDesktopRepairsOpen, setIsDesktopRepairsOpen] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
+
+  // Mouse tracking effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    const handleMouseEnter = () => setIsHovering(true)
+    const handleMouseLeave = () => setIsHovering(false)
+
+    // Add event listeners
+    window.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseenter', handleMouseEnter)
+    document.addEventListener('mouseleave', handleMouseLeave)
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseenter', handleMouseEnter)
+      document.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [])
+
+  // Calculate phone image transform based on mouse position
+  const getPhoneTransform = () => {
+    if (!isHovering) return 'translate(0, 0)'
+    
+    const centerX = window.innerWidth / 2
+    const centerY = window.innerHeight / 2
+    
+    const deltaX = (mousePosition.x - centerX) / 50 // Reduce sensitivity
+    const deltaY = (mousePosition.y - centerY) / 50
+    
+    // Limit movement range
+    const maxMove = 20
+    const limitedX = Math.max(-maxMove, Math.min(maxMove, deltaX))
+    const limitedY = Math.max(-maxMove, Math.min(maxMove, deltaY))
+    
+    return `translate(${limitedX}px, ${limitedY}px)`
+  }
 
   return (
     <>
@@ -293,11 +336,15 @@ const HeroSection: React.FC = () => {
               {/* Right side - Navigation */}
               <div className="flex items-center gap-8">
                 <nav className="hidden md:flex items-center gap-8">
-                  <div className="relative group">
+                  <div 
+                    className="relative"
+                    onMouseEnter={() => setIsDesktopRepairsOpen(true)}
+                    onMouseLeave={() => setIsDesktopRepairsOpen(false)}
+                  >
                     <a href="/repairs" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
                       Repairs
                     </a>
-                    <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200" style={{ marginTop: '4px' }}>
+                    <div className={`absolute top-full left-0 w-48 bg-white shadow-lg rounded-md transition-all duration-200 z-50 border border-gray-200 ${isDesktopRepairsOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} style={{ marginTop: '0px' }}>
                       <div className="py-1">
                         <a
                           href="/product-category/phone"
@@ -456,7 +503,12 @@ const HeroSection: React.FC = () => {
 
             {/* Right Column - Phone Image at Bottom */}
             <div className="flex-1 flex justify-center lg:justify-end items-end mt-8 lg:mt-0">
-              <div className="relative">
+              <div 
+                className="relative transition-transform duration-300 ease-out"
+                style={{
+                  transform: getPhoneTransform(),
+                }}
+              >
                  <Image
                    src="/hero-phone.png"
                    alt="Broken Phone"
