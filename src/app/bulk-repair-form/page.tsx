@@ -174,7 +174,7 @@ export default function BulkRepairFormPage() {
 
       {/* Content Section */}
       <section className="py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="w-full px-4 md:px-6 lg:px-8">
           <p
             className="text-center mb-12"
             style={{
@@ -189,7 +189,7 @@ export default function BulkRepairFormPage() {
           </p>
 
           {/* Bulk Repair Form */}
-          <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+          <div className="bg-white rounded-lg p-8 md:p-12">
             {/* GHL Bulk Repair Form Embed */}
             <div className="w-full">
               <iframe
