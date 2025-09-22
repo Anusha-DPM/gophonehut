@@ -1,35 +1,28 @@
 ﻿'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  })
-
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
+  // Load GHL form script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://link.digitalpresencematters.com/js/form_embed.js'
+    script.async = true
+    document.head.appendChild(script)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-  }
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.digitalpresencematters.com/js/form_embed.js"]')
+      if (existingScript) {
+        document.head.removeChild(existingScript)
+      }
+    }
+  }, [])
 
   return (
     <main className="min-h-screen bg-white">
@@ -230,7 +223,7 @@ export default function ContactUs() {
 
       {/* Contact Us Section */}
       <section 
-        className="py-16 md:py-20"
+        className="py-16 md:py-20 w-full"
         style={{ 
           backgroundImage: 'url(/inner_pages_bg_image.png)', 
           backgroundSize: 'cover', 
@@ -238,151 +231,37 @@ export default function ContactUs() {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1
-              className="font-raleway font-bold uppercase mb-4 mobile-contact-heading-26px"
-              style={{
-                fontFamily: "&apos;Raleway&apos;, sans-serif",
-                fontSize: '36px',
-                color: '#233d63',
-                letterSpacing: '1px',
-                fontWeight: '700'
-              }}
-            >
-              Contact Us
-            </h1>
-            <p
-              className="text-lg text-gray-600 max-w-2xl mx-auto"
-              style={{
-                fontFamily: "&apos;Lato&apos;, sans-serif"
-              }}
-            >
-              If you are interested in getting a quote for any of our services, then you can use the below form and we will get back to you as soon as possible.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="w-full px-4 md:px-6 lg:px-8">
+          <div className="w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-10 gap-12">
               {/* Contact Form */}
-              <div className="bg-gray-50 rounded-lg p-8">
-                <h2
-                  className="text-2xl font-bold mb-6 text-center"
-                  style={{
-                    fontFamily: "&apos;Raleway&apos;, sans-serif",
-                    color: '#233d63'
-                  }}
-                >
-                  Send us a Message
-                </h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
+              <div className="bg-gray-50 rounded-lg p-8 lg:col-span-7">
+                {/* GHL Contact Form Embed */}
+                <div className="w-full">
+                  <iframe
+                    src="https://link.digitalpresencematters.com/widget/form/KhVakF7HwPHsBl0s6Wfp"
+                    style={{width:'100%',height:'100%',border:'none',borderRadius:'3px'}}
+                    id="inline-KhVakF7HwPHsBl0s6Wfp" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Contact us"
+                    data-height="702"
+                    data-layout-iframe-id="inline-KhVakF7HwPHsBl0s6Wfp"
+                    data-form-id="KhVakF7HwPHsBl0s6Wfp"
+                    title="Contact us"
+                    className="w-full h-[702px] rounded-lg"
+                  >
+                  </iframe>
                 </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold uppercase transition-colors duration-200 hover:bg-blue-700"
-                  style={{
-                    fontFamily: "&apos;Lato&apos;, sans-serif",
-                    letterSpacing: '1px'
-                  }}
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
+              </div>
 
               {/* Contact Information */}
-              <div className="bg-gray-50 rounded-lg p-8">
+              <div className="bg-gray-50 rounded-lg p-8 lg:col-span-3">
                 <h2
                   className="text-2xl font-bold mb-6 text-center"
                   style={{

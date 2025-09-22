@@ -1,18 +1,25 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function OrderTrackPage() {
-  const [email, setEmail] = useState('')
-  const [orderNumber, setOrderNumber] = useState('')
+  // Load GHL form script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://link.digitalpresencematters.com/js/form_embed.js'
+    script.async = true
+    document.head.appendChild(script)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission logic here
-    console.log('Tracking order:', { email, orderNumber })
-  }
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.digitalpresencematters.com/js/form_embed.js"]')
+      if (existingScript) {
+        document.head.removeChild(existingScript)
+      }
+    }
+  }, [])
 
   return (
     <main className="min-h-screen">
@@ -232,115 +239,31 @@ export default function OrderTrackPage() {
       {/* Order Track Section */}
       <section className="py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
-              style={{
-                fontFamily: "'Raleway', sans-serif",
-                fontSize: '36px',
-                color: 'black',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                fontWeight: '700'
-              }}
-            >
-              Check Your Repair Status:
-            </h1>
-            <p 
-              className="text-base md:text-lg max-w-3xl mx-auto"
-              style={{
-                fontSize: '16px',
-                lineHeight: '1.5',
-                color: 'black',
-                fontFamily: "'Lato', sans-serif",
-                fontWeight: '600'
-              }}
-            >
-              To check the status of your order simply enter the email address used on booking and the order number you received in the booking confirmation email.
-            </p>
-          </div>
 
           {/* Order Track Form */}
-          <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Email Input */}
-                <div>
-                  <label 
-                    htmlFor="email" 
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    placeholder="Enter your email address"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                  />
-                </div>
-
-                {/* Order Number Input */}
-                <div>
-                  <label 
-                    htmlFor="orderNumber" 
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Order Number
-                  </label>
-                  <input
-                    type="text"
-                    id="orderNumber"
-                    value={orderNumber}
-                    onChange={(e) => setOrderNumber(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    placeholder="Enter your order number"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <div className="text-center pt-4">
-                <button
-                  type="submit"
-                  className="px-8 py-4 rounded-full text-white font-bold transition-colors duration-200 hover:bg-blue-700"
-                  style={{
-                    backgroundColor: '#6d6e71',
-                    fontFamily: "'Lato', sans-serif",
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    borderRadius: '50px'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0056b3'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#6d6e71'}
-                >
-                  Track Your Order
-                </button>
-              </div>
-            </form>
+          <div className="bg-white rounded-lg p-8 md:p-12">
+            {/* GHL Track Order Form Embed */}
+            <div className="w-full">
+              <iframe
+                src="https://link.digitalpresencematters.com/widget/form/Jf7UUy9TsG8zWti2EOGi"
+                style={{width:'100%',height:'100%',border:'none',borderRadius:'3px'}}
+                id="inline-Jf7UUy9TsG8zWti2EOGi" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Track Order"
+                data-height="601"
+                data-layout-iframe-id="inline-Jf7UUy9TsG8zWti2EOGi"
+                data-form-id="Jf7UUy9TsG8zWti2EOGi"
+                title="Track Order"
+                className="w-full h-[601px] rounded-lg"
+              >
+              </iframe>
+            </div>
           </div>
         </div>
       </section>

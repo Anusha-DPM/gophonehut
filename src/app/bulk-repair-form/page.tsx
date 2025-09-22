@@ -1,38 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function BulkRepairFormPage() {
-  const [formData, setFormData] = useState({
-    companyName: '',
-    contactPerson: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    deviceType: '',
-    quantity: '',
-    repairType: '',
-    additionalInfo: ''
-  })
+  // Load GHL form script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://link.digitalpresencematters.com/js/form_embed.js'
+    script.async = true
+    document.head.appendChild(script)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-  }
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.digitalpresencematters.com/js/form_embed.js"]')
+      if (existingScript) {
+        document.head.removeChild(existingScript)
+      }
+    }
+  }, [])
 
   return (
     <main className="min-h-screen">
@@ -203,410 +190,28 @@ export default function BulkRepairFormPage() {
 
           {/* Bulk Repair Form */}
           <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
-            <h3
-              className="font-raleway font-bold text-2xl sm:text-3xl md:text-4xl mb-8 text-center mobile-heading-26px"
-              style={{
-                fontFamily: "'Raleway', sans-serif",
-                color: 'black',
-                textTransform: 'capitalize',
-                letterSpacing: '1px',
-                fontWeight: '700'
-              }}
-            >
-              Bulk Repair Form
-            </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Company Information */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="companyName"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Company Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter your company name"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="contactPerson"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Contact Person *
-                  </label>
-                  <input
-                    type="text"
-                    id="contactPerson"
-                    name="contactPerson"
-                    value={formData.contactPerson}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter contact person name"
-                  />
-                </div>
-              </div>
-
-              {/* Contact Information */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-              </div>
-
-              {/* Address Information */}
-              <div>
-                <label
-                  htmlFor="address"
-                  className="block text-sm font-medium mb-2"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    color: '#333',
-                    fontWeight: '600'
-                  }}
-                >
-                  Street Address *
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    fontSize: '16px'
-                  }}
-                  placeholder="Enter your street address"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <label
-                    htmlFor="city"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    City *
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter city"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="state"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    State *
-                  </label>
-                  <input
-                    type="text"
-                    id="state"
-                    name="state"
-                    value={formData.state}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter state"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="zipCode"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    ZIP Code *
-                  </label>
-                  <input
-                    type="text"
-                    id="zipCode"
-                    name="zipCode"
-                    value={formData.zipCode}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter ZIP code"
-                  />
-                </div>
-              </div>
-
-              {/* Repair Information */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <label
-                    htmlFor="deviceType"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Device Type *
-                  </label>
-                  <select
-                    id="deviceType"
-                    name="deviceType"
-                    value={formData.deviceType}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                  >
-                    <option value="">Select device type</option>
-                    <option value="iphone">iPhone</option>
-                    <option value="samsung">Samsung</option>
-                    <option value="google">Google Pixel</option>
-                    <option value="ipad">iPad</option>
-                    <option value="samsung-tablet">Samsung Tablet</option>
-                    <option value="apple-watch">Apple Watch</option>
-                    <option value="samsung-watch">Samsung Watch</option>
-                    <option value="macbook">MacBook</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="quantity"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Quantity *
-                  </label>
-                  <input
-                    type="number"
-                    id="quantity"
-                    name="quantity"
-                    value={formData.quantity}
-                    onChange={handleInputChange}
-                    required
-                    min="1"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                    placeholder="Enter quantity"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="repairType"
-                    className="block text-sm font-medium mb-2"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: '#333',
-                      fontWeight: '600'
-                    }}
-                  >
-                    Repair Type *
-                  </label>
-                  <select
-                    id="repairType"
-                    name="repairType"
-                    value={formData.repairType}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontSize: '16px'
-                    }}
-                  >
-                    <option value="">Select repair type</option>
-                    <option value="screen-repair">Screen Repair</option>
-                    <option value="battery-replacement">Battery Replacement</option>
-                    <option value="camera-repair">Camera Repair</option>
-                    <option value="software-issue">Software Issue</option>
-                    <option value="water-damage">Water Damage</option>
-                    <option value="charging-port">Charging Port</option>
-                    <option value="multiple-issues">Multiple Issues</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Additional Information */}
-              <div>
-                <label
-                  htmlFor="additionalInfo"
-                  className="block text-sm font-medium mb-2"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    color: '#333',
-                    fontWeight: '600'
-                  }}
-                >
-                  Additional Information
-                </label>
-                <textarea
-                  id="additionalInfo"
-                  name="additionalInfo"
-                  value={formData.additionalInfo}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-vertical"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    fontSize: '16px'
-                  }}
-                  placeholder="Please provide any additional details about your bulk repair requirements..."
-                />
-              </div>
-
-              {/* Submit Button */}
-              <div className="text-center">
-                <button
-                  type="submit"
-                  className="px-8 py-4 rounded-full text-white font-bold uppercase transition-colors duration-200 hover:opacity-90"
-                  style={{
-                    backgroundColor: '#6d6e71',
-                    fontFamily: "'Lato', sans-serif",
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    borderRadius: '50px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#0056b3'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#6d6e71'
-                  }}
-                >
-                  Submit Bulk Repair Request
-                </button>
-              </div>
-            </form>
+            {/* GHL Bulk Repair Form Embed */}
+            <div className="w-full">
+              <iframe
+                src="https://link.digitalpresencematters.com/widget/form/TwrLUTb0a5hGust3JUPn"
+                style={{width:'100%',height:'100%',border:'none',borderRadius:'3px'}}
+                id="inline-TwrLUTb0a5hGust3JUPn" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Bulk Repair"
+                data-height="1025"
+                data-layout-iframe-id="inline-TwrLUTb0a5hGust3JUPn"
+                data-form-id="TwrLUTb0a5hGust3JUPn"
+                title="Bulk Repair"
+                className="w-full h-[1025px] rounded-lg"
+              >
+              </iframe>
+            </div>
           </div>
         </div>
       </section>

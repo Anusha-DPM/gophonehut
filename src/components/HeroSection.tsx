@@ -8,7 +8,6 @@ const HeroSection: React.FC = () => {
   const [isSearchPopupOpen, setIsSearchPopupOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileRepairsOpen, setIsMobileRepairsOpen] = useState(false)
-  const [isDesktopRepairsOpen, setIsDesktopRepairsOpen] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
 
@@ -336,19 +335,15 @@ const HeroSection: React.FC = () => {
               {/* Right side - Navigation */}
               <div className="flex items-center gap-8">
                 <nav className="hidden md:flex items-center gap-8">
-                  <div 
-                    className="relative"
-                    onMouseEnter={() => setIsDesktopRepairsOpen(true)}
-                    onMouseLeave={() => setIsDesktopRepairsOpen(false)}
-                  >
+                  <div className="relative group">
                     <a href="/repairs" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
                       Repairs
                     </a>
-                    <div className={`absolute top-full left-0 w-48 bg-white shadow-lg rounded-md transition-all duration-200 z-50 border border-gray-200 ${isDesktopRepairsOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} style={{ marginTop: '0px' }}>
+                    <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md transition-all duration-200 z-50 border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible" style={{ marginTop: '0px' }}>
                       <div className="py-1">
                         <a
                           href="/product-category/phone"
-                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',
@@ -363,7 +358,7 @@ const HeroSection: React.FC = () => {
                         </a>
                         <a
                           href="/product-category/c-tablet"
-                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',
@@ -378,7 +373,7 @@ const HeroSection: React.FC = () => {
                         </a>
                         <a
                           href="/product-category/smartwatch"
-                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',
@@ -393,7 +388,7 @@ const HeroSection: React.FC = () => {
                         </a>
                         <a
                           href="/product-category/computer"
-                          className="block px-4 py-1 hover:bg-gray-100 transition-colors duration-200"
+                          className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
                           style={{
                             color: '#0e72d2',
                             fontWeight: 'bold',

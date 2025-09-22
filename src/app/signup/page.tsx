@@ -1,46 +1,25 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function SignupPage() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  })
-  
-  const router = useRouter()
-  const searchParams = useSearchParams()
-
+  // Load GHL form script
   useEffect(() => {
-    const emailParam = searchParams.get('email')
-    if (emailParam) {
-      setFormData(prev => ({
-        ...prev,
-        email: decodeURIComponent(emailParam)
-      }))
+    const script = document.createElement('script')
+    script.src = 'https://link.digitalpresencematters.com/js/form_embed.js'
+    script.async = true
+    document.head.appendChild(script)
+
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.digitalpresencematters.com/js/form_embed.js"]')
+      if (existingScript) {
+        document.head.removeChild(existingScript)
+      }
     }
-  }, [searchParams])
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission logic here
-    console.log('Signup form submitted:', formData)
-  }
+  }, [])
 
   return (
     <main className="min-h-screen">
@@ -238,273 +217,31 @@ export default function SignupPage() {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        <div className="relative max-w-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
-          <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 md:p-8 lg:p-10">
-            {/* Form Header */}
-            <div className="text-center mb-8">
-              <h1
-                className="font-raleway font-bold text-2xl sm:text-3xl md:text-4xl mb-4 mobile-signup-heading-26px"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: '#233D63',
-                  textTransform: 'capitalize',
-                  letterSpacing: '1px',
-                  fontWeight: '700'
-                }}
+        <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-8">
+          <div className="bg-white rounded-lg p-4 sm:p-6 md:p-8 lg:p-10">
+
+            {/* GHL Sign Up Form Embed */}
+            <div className="w-full">
+              <iframe
+                src="https://link.digitalpresencematters.com/widget/form/zFkUELxqWigPPemk3Y2R"
+                style={{width:'100%',height:'100%',border:'none',borderRadius:'3px'}}
+                id="inline-zFkUELxqWigPPemk3Y2R" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Sign Up"
+                data-height="991"
+                data-layout-iframe-id="inline-zFkUELxqWigPPemk3Y2R"
+                data-form-id="zFkUELxqWigPPemk3Y2R"
+                title="Sign Up"
+                className="w-full h-[991px] rounded-lg"
               >
-                Sign Up
-              </h1>
-              <p
-                className="text-lg md:text-xl"
-                style={{
-                  fontSize: '16px',
-                  lineHeight: '1.5',
-                  color: 'black',
-                  fontFamily: "'Lato', sans-serif",
-                  fontWeight: '500'
-                }}
-              >
-                Register for an Account
-              </p>
+              </iframe>
             </div>
-
-            {/* Signup Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                {/* First Name */}
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block mb-2"
-                    style={{
-                      fontSize: '16px',
-                      lineHeight: '1.5',
-                      color: 'black',
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: '500'
-                    }}
-                  >
-                    First Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: "'Lato', sans-serif"
-                    }}
-                  />
-                </div>
-
-                {/* Last Name */}
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block mb-2"
-                    style={{
-                      fontSize: '16px',
-                      lineHeight: '1.5',
-                      color: 'black',
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: '500'
-                    }}
-                  >
-                    Last Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: "'Lato', sans-serif"
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                {/* Phone */}
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block mb-2"
-                    style={{
-                      fontSize: '16px',
-                      lineHeight: '1.5',
-                      color: 'black',
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: '500'
-                    }}
-                  >
-                    Phone:
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: "'Lato', sans-serif"
-                    }}
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block mb-2"
-                    style={{
-                      fontSize: '16px',
-                      lineHeight: '1.5',
-                      color: 'black',
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: '500'
-                    }}
-                  >
-                    Email:
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: "'Lato', sans-serif"
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                {/* Password */}
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-2"
-                    style={{
-                      fontSize: '16px',
-                      lineHeight: '1.5',
-                      color: 'black',
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: '500'
-                    }}
-                  >
-                    Password:
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: "'Lato', sans-serif"
-                    }}
-                  />
-                </div>
-
-                {/* Confirm Password */}
-                <div>
-                  <label
-                    htmlFor="confirmPassword"
-                    className="block mb-2"
-                    style={{
-                      fontSize: '16px',
-                      lineHeight: '1.5',
-                      color: 'black',
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: '500'
-                    }}
-                  >
-                    Confirm Password:
-                  </label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: "'Lato', sans-serif"
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Signup Button */}
-              <div className="text-center pt-4">
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-colors duration-200"
-                  style={{
-                    backgroundColor: '#6d6e71',
-                    color: 'white',
-                    fontFamily: "'Lato', sans-serif",
-                    fontWeight: '600',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#0056b3'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#6d6e71'
-                  }}
-                >
-                  Signup
-                </button>
-              </div>
-
-              {/* Login Link */}
-              <div className="text-center pt-4">
-                <p
-                  style={{
-                    fontSize: '16px',
-                    lineHeight: '1.5',
-                    color: 'black',
-                    fontFamily: "'Lato', sans-serif",
-                    fontWeight: '500'
-                  }}
-                >
-                  Are you already Member?{' '}
-                  <a
-                    href="/login"
-                    className="text-blue-600 hover:text-blue-800 underline transition-colors duration-200"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      fontWeight: '500'
-                    }}
-                  >
-                    click here to login
-                  </a>
-                </p>
-              </div>
-            </form>
           </div>
         </div>
       </section>

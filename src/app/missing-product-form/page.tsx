@@ -1,34 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function MissingProductFormPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    deviceModel: '',
-    deviceType: '',
-    issueDescription: '',
-    urgency: '',
-    additionalInfo: ''
-  })
+  // Load GHL form script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://link.digitalpresencematters.com/js/form_embed.js'
+    script.async = true
+    document.head.appendChild(script)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-  }
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.digitalpresencematters.com/js/form_embed.js"]')
+      if (existingScript) {
+        document.head.removeChild(existingScript)
+      }
+    }
+  }, [])
 
   return (
     <main className="min-h-screen">
@@ -184,318 +175,49 @@ export default function MissingProductFormPage() {
       {/* Content Section */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-10 gap-12">
             {/* Left Side - Content and Form */}
-            <div>
-              <p
-                className="mb-8"
-                style={{
-                  fontSize: '16px',
-                  lineHeight: '1.5',
-                  color: 'black',
-                  fontFamily: "'Lato', sans-serif",
-                  fontWeight: '500'
-                }}
-              >
-                If you do not see your device please fill out the form below and we will get back to you ASAP. Please add the model number to your device if you can locate it to make it easier for us to reserve the proper parts for your repair. Please also feel free to give us a call during business hours and we will be happy to help.
-              </p>
+            <div className="lg:col-span-7">
 
               {/* Custom Quote Form */}
               <div className="bg-white rounded-lg shadow-lg p-8">
-                <h3
-                  className="font-raleway font-bold text-2xl sm:text-3xl md:text-4xl mb-8 text-center mobile-heading-26px"
-                  style={{
-                    fontFamily: "'Raleway', sans-serif",
-                    color: 'black',
-                    textTransform: 'capitalize',
-                    letterSpacing: '1px',
-                    fontWeight: '700'
-                  }}
-                >
-                  Custom Quote Form
-                </h3>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Personal Information */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium mb-2"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          color: '#333',
-                          fontWeight: '600'
-                        }}
-                      >
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          fontSize: '16px'
-                        }}
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium mb-2"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          color: '#333',
-                          fontWeight: '600'
-                        }}
-                      >
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          fontSize: '16px'
-                        }}
-                        placeholder="Enter your email address"
-                      />
-                    </div>
+                {/* GHL Custom Quote Form Embed */}
+                <div className="w-full">
+                  <iframe
+                    src="https://link.digitalpresencematters.com/widget/form/iGV2yVE6JLXsQ2O0BDTq"
+                    style={{width:'100%',height:'100%',border:'none',borderRadius:'3px'}}
+                    id="inline-iGV2yVE6JLXsQ2O0BDTq" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Custom Quote"
+                    data-height="675"
+                    data-layout-iframe-id="inline-iGV2yVE6JLXsQ2O0BDTq"
+                    data-form-id="iGV2yVE6JLXsQ2O0BDTq"
+                    title="Custom Quote"
+                    className="w-full h-[675px] rounded-lg"
+                  >
+                  </iframe>
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium mb-2"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          color: '#333',
-                          fontWeight: '600'
-                        }}
-                      >
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          fontSize: '16px'
-                        }}
-                        placeholder="Enter your phone number"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="deviceModel"
-                        className="block text-sm font-medium mb-2"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          color: '#333',
-                          fontWeight: '600'
-                        }}
-                      >
-                        Device Model *
-                      </label>
-                      <input
-                        type="text"
-                        id="deviceModel"
-                        name="deviceModel"
-                        value={formData.deviceModel}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          fontSize: '16px'
-                        }}
-                        placeholder="Enter device model number"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="deviceType"
-                        className="block text-sm font-medium mb-2"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          color: '#333',
-                          fontWeight: '600'
-                        }}
-                      >
-                        Device Type *
-                      </label>
-                      <select
-                        id="deviceType"
-                        name="deviceType"
-                        value={formData.deviceType}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          fontSize: '16px'
-                        }}
-                      >
-                        <option value="">Select device type</option>
-                        <option value="iphone">iPhone</option>
-                        <option value="samsung">Samsung</option>
-                        <option value="google">Google Pixel</option>
-                        <option value="ipad">iPad</option>
-                        <option value="samsung-tablet">Samsung Tablet</option>
-                        <option value="apple-watch">Apple Watch</option>
-                        <option value="samsung-watch">Samsung Watch</option>
-                        <option value="macbook">MacBook</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="urgency"
-                        className="block text-sm font-medium mb-2"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          color: '#333',
-                          fontWeight: '600'
-                        }}
-                      >
-                        Urgency Level
-                      </label>
-                      <select
-                        id="urgency"
-                        name="urgency"
-                        value={formData.urgency}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                        style={{
-                          fontFamily: "'Lato', sans-serif",
-                          fontSize: '16px'
-                        }}
-                      >
-                        <option value="">Select urgency level</option>
-                        <option value="low">Low - Can wait a few days</option>
-                        <option value="medium">Medium - Within a week</option>
-                        <option value="high">High - ASAP</option>
-                        <option value="urgent">Urgent - Same day</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="issueDescription"
-                      className="block text-sm font-medium mb-2"
-                      style={{
-                        fontFamily: "'Lato', sans-serif",
-                        color: '#333',
-                        fontWeight: '600'
-                      }}
-                    >
-                      Issue Description *
-                    </label>
-                    <textarea
-                      id="issueDescription"
-                      name="issueDescription"
-                      value={formData.issueDescription}
-                      onChange={handleInputChange}
-                      required
-                      rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-vertical"
-                      style={{
-                        fontFamily: "'Lato', sans-serif",
-                        fontSize: '16px'
-                      }}
-                      placeholder="Describe the issue with your device..."
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="additionalInfo"
-                      className="block text-sm font-medium mb-2"
-                      style={{
-                        fontFamily: "'Lato', sans-serif",
-                        color: '#333',
-                        fontWeight: '600'
-                      }}
-                    >
-                      Additional Information
-                    </label>
-                    <textarea
-                      id="additionalInfo"
-                      name="additionalInfo"
-                      value={formData.additionalInfo}
-                      onChange={handleInputChange}
-                      rows={3}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-vertical"
-                      style={{
-                        fontFamily: "'Lato', sans-serif",
-                        fontSize: '16px'
-                      }}
-                      placeholder="Any additional information about your device or repair needs..."
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="text-center">
-                    <button
-                      type="submit"
-                      className="px-8 py-4 rounded-full text-white font-bold uppercase transition-colors duration-200 hover:opacity-90"
-                      style={{
-                        backgroundColor: '#6d6e71',
-                        fontFamily: "'Lato', sans-serif",
-                        fontWeight: '700',
-                        textTransform: 'uppercase',
-                        letterSpacing: '1px',
-                        borderRadius: '50px'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#0056b3'
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#6d6e71'
-                      }}
-                    >
-                      Request Custom Quote
-                    </button>
-                  </div>
-                </form>
               </div>
             </div>
 
             {/* Right Side - Contact Information */}
-            <div className="lg:pl-8">
+            <div className="lg:col-span-3 lg:pl-8">
               <div className="bg-gray-50 rounded-lg p-8 h-fit">
                 <h3
-                  className="font-raleway font-bold text-2xl sm:text-3xl md:text-4xl mb-6 mobile-heading-26px"
+                  className="font-raleway font-bold mb-6 mobile-heading-26px"
                   style={{
                     fontFamily: "'Raleway', sans-serif",
                     color: 'black',
                     textTransform: 'capitalize',
                     letterSpacing: '1px',
-                    fontWeight: '700'
+                    fontWeight: '700',
+                    fontSize: '30px'
                   }}
                 >
                   Contact Information

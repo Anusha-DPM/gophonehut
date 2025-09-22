@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import TopHeader from '@/components/TopHeader'
@@ -17,45 +17,22 @@ export default function AppointmentPage() {
   const color = searchParams.get('color')
   const storage = searchParams.get('storage')
   const deviceImage = searchParams.get('image')
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    repairType: '',
-    pickupAddress1: '',
-    pickupAddress2: '',
-    pickupState: '',
-    pickupCity: '',
-    pickupZipCode: '',
-    pickupInstructions: '',
-    shippingAddress1: '',
-    shippingAddress2: '',
-    shippingState: '',
-    shippingCity: '',
-    shippingZipCode: '',
-    location: '',
-    appointmentDate: '',
-    appointmentTime: '',
-    extraRemarks: '',
-    cardNumber: '',
-    expirationDate: '',
-    cvv: '',
-    postalCode: ''
-  })
+  // Load GHL form script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://link.digitalpresencematters.com/js/form_embed.js'
+    script.async = true
+    document.head.appendChild(script)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.digitalpresencematters.com/js/form_embed.js"]')
+      if (existingScript) {
+        document.head.removeChild(existingScript)
+      }
+    }
+  }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-  }
   return (
     <main className="min-h-screen">
       {/* Top Header Section */}
@@ -244,479 +221,34 @@ export default function AppointmentPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
               {/* Left Side - Form */}
               <div className="lg:col-span-2">
-                <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Social Login */}
-              <div className="text-center mb-8">
-                <div className="flex justify-center space-x-4">
-                  <button
-                    type="button"
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                    style={{ fontFamily: "'Lato', sans-serif" }}
+                {/* GHL Make an appointment Form Embed */}
+                <div className="w-full">
+                  <iframe
+                    src="https://link.digitalpresencematters.com/widget/form/xUhqclQnSjIHoMPwBxpG"
+                    style={{width:'100%',height:'100%',border:'none',borderRadius:'3px'}}
+                    id="inline-xUhqclQnSjIHoMPwBxpG" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Make an appointment "
+                    data-height="726"
+                    data-layout-iframe-id="inline-xUhqclQnSjIHoMPwBxpG"
+                    data-form-id="xUhqclQnSjIHoMPwBxpG"
+                    title="Make an appointment "
+                    className="w-full h-[726px] rounded-lg"
                   >
-                    Facebook
-                  </button>
-                  <button
-                    type="button"
-                    className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-                    style={{ fontFamily: "'Lato', sans-serif" }}
-                  >
-                    Google
-                  </button>
+                  </iframe>
                 </div>
               </div>
 
-              {/* Personal Information */}
-              <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2
-                  className="text-xl font-bold mb-6"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    color: 'black',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  Personal Information
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Name:
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Phone:
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Email:
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
 
-              {/* Repair Options */}
-              <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2
-                  className="text-xl font-bold mb-6"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    color: 'black',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  Choose From The Options Below
-                </h2>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <input
-                      type="radio"
-                      id="bringToShop"
-                      name="repairType"
-                      value="bringToShop"
-                      checked={formData.repairType === 'bringToShop'}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600"
-                    />
-                    <label htmlFor="bringToShop" className="text-lg font-semibold" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      BRING TO SHOP
-                    </label>
-                  </div>
-                  <p className="text-sm text-gray-600 ml-8" style={{ fontFamily: "'Lato', sans-serif" }}>
-                    Normally repaired in just 15 - 60 minutes.
-                  </p>
-                  
-                  <div className="flex items-center space-x-4">
-                    <input
-                      type="radio"
-                      id="pickup"
-                      name="repairType"
-                      value="pickup"
-                      checked={formData.repairType === 'pickup'}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600"
-                    />
-                    <label htmlFor="pickup" className="text-lg font-semibold" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      PICKUP
-                    </label>
-                  </div>
-                  <p className="text-sm text-gray-600 ml-8" style={{ fontFamily: "'Lato', sans-serif" }}>
-                    This repair is completed inside of one of our repair vehicles outside your home or workplace, if this is not possible we collect, repair and deliver - normally on the same working day.
-                  </p>
-                  
-                  <div className="flex items-center space-x-4">
-                    <input
-                      type="radio"
-                      id="shipping"
-                      name="repairType"
-                      value="shipping"
-                      checked={formData.repairType === 'shipping'}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600"
-                    />
-                    <label htmlFor="shipping" className="text-lg font-semibold" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      SHIPPING
-                    </label>
-                  </div>
-                  <p className="text-sm text-gray-600 ml-8" style={{ fontFamily: "'Lato', sans-serif" }}>
-                    In most cases, we repair and dispatch the device back to you on the same day as we receive.
-                  </p>
-                </div>
-              </div>
 
-              {/* Pickup Address */}
-              {formData.repairType === 'pickup' && (
-                <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                  <h2
-                    className="text-xl font-bold mb-6"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: 'black',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    Pickup Address
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        Address 1:
-                      </label>
-                      <input
-                        type="text"
-                        name="pickupAddress1"
-                        value={formData.pickupAddress1}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        Address 2:
-                      </label>
-                      <input
-                        type="text"
-                        name="pickupAddress2"
-                        value={formData.pickupAddress2}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        State:
-                      </label>
-                      <input
-                        type="text"
-                        name="pickupState"
-                        value={formData.pickupState}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        City:
-                      </label>
-                      <input
-                        type="text"
-                        name="pickupCity"
-                        value={formData.pickupCity}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        Zip Code:
-                      </label>
-                      <input
-                        type="text"
-                        name="pickupZipCode"
-                        value={formData.pickupZipCode}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        Add instructions (optional):
-                      </label>
-                      <textarea
-                        name="pickupInstructions"
-                        value={formData.pickupInstructions}
-                        onChange={handleInputChange}
-                        rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
 
-              {/* Shipping Address */}
-              {formData.repairType === 'shipping' && (
-                <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                  <h2
-                    className="text-xl font-bold mb-6"
-                    style={{
-                      fontFamily: "'Lato', sans-serif",
-                      color: 'black',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    Shipping Address
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        Address 1:
-                      </label>
-                      <input
-                        type="text"
-                        name="shippingAddress1"
-                        value={formData.shippingAddress1}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        Address 2:
-                      </label>
-                      <input
-                        type="text"
-                        name="shippingAddress2"
-                        value={formData.shippingAddress2}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        State:
-                      </label>
-                      <input
-                        type="text"
-                        name="shippingState"
-                        value={formData.shippingState}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        City:
-                      </label>
-                      <input
-                        type="text"
-                        name="shippingCity"
-                        value={formData.shippingCity}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                        Zip Code:
-                      </label>
-                      <input
-                        type="text"
-                        name="shippingZipCode"
-                        value={formData.shippingZipCode}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
 
-              {/* Appointment Details */}
-              <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2
-                  className="text-xl font-bold mb-6"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    color: 'black',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  Appointment Detail
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Location:
-                    </label>
-                    <select
-                      name="location"
-                      value={formData.location}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="">- Select -</option>
-                      <option value="sanjose">San Jose - Phone Hut Cell Phone Repair</option>
-                      <option value="fremont">Fremont - Phone Hut Cell Phone Repair</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Appointment Date:
-                    </label>
-                    <input
-                      type="date"
-                      name="appointmentDate"
-                      value={formData.appointmentDate}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Appointment Time:
-                    </label>
-                    <select
-                      name="appointmentTime"
-                      value={formData.appointmentTime}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="">- Select -</option>
-                      <option value="10:00">10:00</option>
-                      <option value="11:00">11:00</option>
-                      <option value="12:00">12:00</option>
-                      <option value="13:00">13:00</option>
-                      <option value="14:00">14:00</option>
-                      <option value="15:00">15:00</option>
-                      <option value="16:00">16:00</option>
-                      <option value="17:00">17:00</option>
-                      <option value="18:00">18:00</option>
-                      <option value="19:00">19:00</option>
-                    </select>
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Extra remarks:
-                    </label>
-                    <textarea
-                      name="extraRemarks"
-                      value={formData.extraRemarks}
-                      onChange={handleInputChange}
-                      rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Payment Information */}
-              <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2
-                  className="text-xl font-bold mb-6"
-                  style={{
-                    fontFamily: "'Lato', sans-serif",
-                    color: 'black',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  Payment Information
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Card Number:
-                    </label>
-                    <input
-                      type="text"
-                      name="cardNumber"
-                      value={formData.cardNumber}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="1234 5678 9012 3456"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Expiration Date:
-                    </label>
-                    <input
-                      type="text"
-                      name="expirationDate"
-                      value={formData.expirationDate}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="MM/YY"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      CVV:
-                    </label>
-                    <input
-                      type="text"
-                      name="cvv"
-                      value={formData.cvv}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="123"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
-                      Postal Code:
-                    </label>
-                    <input
-                      type="text"
-                      name="postalCode"
-                      value={formData.postalCode}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-                </div>
-              </div>
-
-                  {/* Submit Button */}
-                  <div className="text-center">
-                    <button
-                      type="submit"
-                      className="px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors uppercase"
-                      style={{
-                        fontFamily: "'Lato', sans-serif",
-                        letterSpacing: '1px'
-                      }}
-                    >
-                      Pay Submit Repair Request
-                    </button>
-                  </div>
-                </form>
-              </div>
 
               {/* Right Side - Addresses */}
               <div className="lg:col-span-1">
