@@ -447,13 +447,16 @@ export default function AppointmentPage() {
                   <p>311 N Capitol Ave M</p>
                   <p>San Jose, CA 95133</p>
                   <p className="mt-4">
-                    <span className="font-semibold">Phone:</span> 408-899-9521
+                    <span className="font-semibold">Phone:</span> 408-224-2869
                   </p>
                   <p>
-                    <span className="font-semibold">Email:</span> capitol@gophonehut.com
+                    <span className="font-semibold">Email:</span> oakridge@gophonehut.com
                   </p>
                   <div className="mt-4">
-                    <button
+                    <a
+                      href="https://maps.app.goo.gl/KhQ9tGZS14YhVapS7"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 underline font-medium"
                       style={{
                         fontFamily: "'Lato', sans-serif",
@@ -463,7 +466,7 @@ export default function AppointmentPage() {
                       }}
                     >
                       Get Directions
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -495,13 +498,16 @@ export default function AppointmentPage() {
                       <p>39475 Fremont Blvd</p>
                       <p>Fremont, CA 94538</p>
                       <p className="mt-4">
-                        <span className="font-semibold">Phone:</span> 510-573-4482
+                        <span className="font-semibold">Phone:</span> 408-224-2869
                       </p>
                       <p>
-                        <span className="font-semibold">Email:</span> fremont@gophonehut.com
+                        <span className="font-semibold">Email:</span> oakridge@gophonehut.com
                       </p>
                       <div className="mt-4">
-                        <button
+                        <a
+                          href="https://maps.app.goo.gl/KNaULuRQ62yit4fz6"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-blue-600 hover:text-blue-800 underline font-medium"
                           style={{
                             fontFamily: "'Lato', sans-serif",
@@ -511,7 +517,7 @@ export default function AppointmentPage() {
                           }}
                         >
                           Get Directions
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>

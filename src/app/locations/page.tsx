@@ -17,7 +17,7 @@ export default function LocationsPage() {
       city: 'San Jose CA USA',
       zip: '95133',
       coordinates: '37.3382,-121.8863',
-      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4!2d-121.8863!3d37.3382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcb8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sPhone%20Hut%20Cell%20Phone%20Repair!5e0!3m2!1sen!2sus!4v1234567890',
+      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4!2d-121.8863!3d37.3382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcb8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sPhone%20Hut%20Cell%20Phone%20Repair!5e0!3m2!1sen!2sus!4v1234567890&markers=icon:https://maps.google.com/mapfiles/ms/icons/red-pushpin.png%7C37.3382,-121.8863',
       hours: {
         mon: '11:00 am - 08:00 pm',
         tue: '11:00 am - 08:00 pm',
@@ -34,7 +34,7 @@ export default function LocationsPage() {
       city: 'Fremont CA USA',
       zip: '94538',
       coordinates: '37.5483,-121.9886',
-      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4!2d-121.9886!3d37.5483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcb8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sPhone%20Hut%20Cell%20Phone%20Repair!5e0!3m2!1sen!2sus!4v1234567890',
+      mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4!2d-121.9886!3d37.5483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcb8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sPhone%20Hut%20Cell%20Phone%20Repair!5e0!3m2!1sen!2sus!4v1234567890&markers=icon:https://maps.google.com/mapfiles/ms/icons/red-pushpin.png%7C37.5483,-121.9886',
       hours: {
         mon: '10:00 am - 08:00 pm',
         tue: '10:00 am - 08:00 pm',
@@ -100,6 +100,12 @@ export default function LocationsPage() {
                 className="capitalize hover:text-custom-green transition-colors duration-200"
               >
                 Quick Repair
+              </a>
+              <a 
+                href="/locations" 
+                className="capitalize hover:text-custom-green transition-colors duration-200"
+              >
+                Locations
               </a>
               <a 
                 href="/order-track" 
@@ -294,7 +300,7 @@ export default function LocationsPage() {
       </section>
 
       {/* Welcome Section */}
-      <section className="pt-16 md:pt-20 pb-0">
+      <section className="pt-16 md:pt-20 pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 

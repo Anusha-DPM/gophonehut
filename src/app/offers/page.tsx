@@ -173,7 +173,7 @@ export default function OffersPage() {
                 fontWeight: '500'
               }}
             >
-              Check out the latest promotions and offers on our repair services. We add new promotions and discount codes weekly, lots of offers are exclusive to our social media followers so be sure to head over and follow us on Facebook, Instagram and twitter!
+              Check out the latest promotions and offers on our repair services. We add new promotions and discount codes weekly, lots of offers are exclusive to our social media followers so be sure to head over and follow us on Facebook, Instagram and X!
             </p>
           </div>
 

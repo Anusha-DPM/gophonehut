@@ -262,17 +262,6 @@ export default function WhyPage() {
               Why use us?
             </h1>
             
-            <p
-              className="text-sm md:text-base lg:text-lg xl:text-xl"
-              style={{
-                fontSize: '20px',
-                lineHeight: '1.5',
-                color: 'white',
-                fontFamily: "'Lato', sans-serif"
-              }}
-            >
-              Image Text...
-            </p>
           </div>
         </div>
       </section>
@@ -380,26 +369,6 @@ export default function WhyPage() {
             ))}
           </div>
 
-          {/* Action Button */}
-          <div className="text-center">
-            <button
-              className="px-6 py-3 md:px-8 md:py-4 rounded-full text-white font-bold uppercase transition-colors duration-300 text-sm md:text-base"
-              style={{
-                backgroundColor: '#6d6e71',
-                fontFamily: "'Lato', sans-serif",
-                fontWeight: '700',
-                letterSpacing: '1px'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#0056b3'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#6d6e71'
-              }}
-            >
-              Action Button
-            </button>
-          </div>
         </div>
       </section>
 

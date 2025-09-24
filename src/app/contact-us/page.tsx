@@ -90,13 +90,15 @@ export default function ContactUs() {
           <div className="flex flex-row justify-between items-center gap-4">
             {/* Left side - Logo */}
             <div className="flex items-center gap-2">
-              <Image
-                src="/website-logo.png"
-                alt="PhoneHut Logo"
-                width={120}
-                height={48}
-                className="h-8 md:h-10 lg:h-12 w-auto"
-              />
+              <a href="/" className="block">
+                <Image
+                  src="/website-logo.png"
+                  alt="PhoneHut Logo"
+                  width={120}
+                  height={48}
+                  className="h-8 md:h-10 lg:h-12 w-auto"
+                />
+              </a>
             </div>
 
             {/* Right side - Navigation */}

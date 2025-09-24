@@ -157,18 +157,6 @@ export default function WriteAReviewPage() {
           >
             Write A Review
           </h1>
-          <h2
-            className="font-raleway font-medium text-lg sm:text-xl md:text-2xl"
-            style={{
-              fontFamily: "'Raleway', sans-serif",
-              color: 'white',
-              textTransform: 'capitalize',
-              letterSpacing: '1px',
-              fontWeight: '500'
-            }}
-          >
-            Image Text...
-          </h2>
         </div>
       </section>
 

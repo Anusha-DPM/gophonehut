@@ -74,6 +74,12 @@ export default function OrderTrackPage() {
                 Quick Repair
               </a>
               <a 
+                href="/locations" 
+                className="capitalize hover:text-custom-green transition-colors duration-200"
+              >
+                Locations
+              </a>
+              <a 
                 href="/order-track" 
                 className="capitalize hover:text-custom-green transition-colors duration-200"
               >
