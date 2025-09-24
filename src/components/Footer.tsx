@@ -749,7 +749,7 @@ const Footer: React.FC = () => {
                 color: '#333'
               }}
             >
-              ©2021 Phone Hut. All rights reserved.
+              ©2025 Phone Hut. All rights reserved.
             </div>
 
             {/* Legal Links & Scroll-to-Top Button */}

@@ -40,11 +40,11 @@ const HeroSection: React.FC = () => {
     const centerX = window.innerWidth / 2
     const centerY = window.innerHeight / 2
     
-    const deltaX = (mousePosition.x - centerX) / 50 // Reduce sensitivity
-    const deltaY = (mousePosition.y - centerY) / 50
+    const deltaX = (mousePosition.x - centerX) / 30 // Increase sensitivity
+    const deltaY = (mousePosition.y - centerY) / 30
     
-    // Limit movement range
-    const maxMove = 20
+    // Increase movement range for more noticeable effect
+    const maxMove = 25
     const limitedX = Math.max(-maxMove, Math.min(maxMove, deltaX))
     const limitedY = Math.max(-maxMove, Math.min(maxMove, deltaY))
     
