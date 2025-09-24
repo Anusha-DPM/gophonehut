@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
             <div className="flex items-center">
               <button 
                 onClick={() => setIsSearchPopupOpen(true)}
-                style={{ color: isMobileMenuOpen ? '#0e72d2' : '#0e72d2' }}
+                style={{ color: 'white' }}
                 className="hover:opacity-80 transition-opacity duration-200"
               >
                 <svg 
@@ -336,7 +336,7 @@ const HeroSection: React.FC = () => {
               <div className="flex items-center gap-8">
                 <nav className="hidden md:flex items-center gap-8">
                   <div className="relative group">
-                    <a href="/repairs" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                    <a href="/repairs" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: 'white' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}>
                       Repairs
                     </a>
                     <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md transition-all duration-200 z-50 border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible" style={{ marginTop: '0px' }}>
@@ -404,16 +404,16 @@ const HeroSection: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <a href="/services" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                  <a href="/services" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: 'white' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}>
                     Services
                   </a>
-                  <a href="/how-it-works" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                  <a href="/how-it-works" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: 'white' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}>
                     How It Works
                   </a>
-                  <a href="/why" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                  <a href="/why" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: 'white' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}>
                     Why Us
                   </a>
-                  <a href="/contact-us" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: '#0e72d2' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#6d6e71'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#0e72d2'}>
+                  <a href="/contact-us" className="font-raleway font-bold uppercase transition-colors duration-200" style={{ fontSize: '15px', letterSpacing: '1px', color: 'white' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}>
                     Contact
                   </a>
                 </nav>
@@ -423,7 +423,7 @@ const HeroSection: React.FC = () => {
                   <button
                     onClick={() => setIsSearchPopupOpen(true)}
                     className="hover:text-gray-300 transition-colors duration-200 cursor-pointer"
-                    style={{ color: '#0e72d2' }}
+                    style={{ color: 'white' }}
                   >
                     <svg 
                       width="20" 
