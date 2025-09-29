@@ -454,7 +454,7 @@ export default function AppointmentPage() {
                   </p>
                   <div className="mt-4">
                     <a
-                      href="https://maps.app.goo.gl/KhQ9tGZS14YhVapS7"
+                      href="https://maps.app.goo.gl/dca1G1WrjxgmWt1y9"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 underline font-medium"
@@ -505,7 +505,7 @@ export default function AppointmentPage() {
                       </p>
                       <div className="mt-4">
                         <a
-                          href="https://maps.app.goo.gl/KNaULuRQ62yit4fz6"
+                          href="https://maps.app.goo.gl/CKG8gYeNvUjuSdL39"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:text-blue-800 underline font-medium"
