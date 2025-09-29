@@ -436,7 +436,7 @@ export default function LocationsPage() {
                   Book Appointment
                 </button>
                 <a 
-                  href="https://maps.app.goo.gl/mPPSjSEQL2KfrKWU7"
+                  href="https://maps.app.goo.gl/dca1G1WrjxgmWt1y9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 px-6 bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-200 text-center"
@@ -539,7 +539,7 @@ export default function LocationsPage() {
                   Book Appointment
                 </button>
                 <a 
-                  href="https://maps.app.goo.gl/PBJHTkCBsDTcLYFYA"
+                  href="https://maps.app.goo.gl/CKG8gYeNvUjuSdL39"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 px-6 bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-200 text-center"

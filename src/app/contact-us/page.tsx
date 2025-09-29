@@ -292,7 +292,7 @@ export default function ContactUs() {
                         className="text-lg font-semibold mb-1"
                         style={{
                           fontFamily: "&apos;Lato&apos;, sans-serif",
-                          fontSize: '24px',
+                          fontSize: '18px',
                           color: 'black',
                           textTransform: 'capitalize',
                           letterSpacing: '1px',
@@ -312,7 +312,27 @@ export default function ContactUs() {
                         }}
                       >
                         Phone Hut<br />
-                        San Jose, CA
+                        <a 
+                          href="https://maps.app.goo.gl/dca1G1WrjxgmWt1y9" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-blue-600 transition-colors duration-200"
+                          style={{ color: 'black' }}
+                        >
+                          311 N Capitol Ave<br />
+                          San Jose, CA USA
+                        </a>
+                        <br /><br />
+                        <a 
+                          href="https://maps.app.goo.gl/CKG8gYeNvUjuSdL39" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-blue-600 transition-colors duration-200"
+                          style={{ color: 'black' }}
+                        >
+                          39475 Fremont Blvd<br />
+                          Fremont, CA USA
+                        </a>
                       </p>
                     </div>
                   </div>
