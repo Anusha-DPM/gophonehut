@@ -301,7 +301,7 @@ export default function ContactUs() {
                       >
                         Address:
                       </h3>
-                      <p
+                      <div
                         className="text-gray-600"
                         style={{
                           fontFamily: "&apos;Lato&apos;, sans-serif",
@@ -311,85 +311,41 @@ export default function ContactUs() {
                           letterSpacing: '1px'
                         }}
                       >
-                        Phone Hut<br />
-                        <a 
-                          href="https://maps.app.goo.gl/dca1G1WrjxgmWt1y9" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="hover:text-blue-600 transition-colors duration-200"
-                          style={{ color: 'black' }}
-                        >
-                          311 N Capitol Ave<br />
-                          San Jose, CA USA
-                        </a>
-                        <br /><br />
-                        <a 
-                          href="https://maps.app.goo.gl/CKG8gYeNvUjuSdL39" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="hover:text-blue-600 transition-colors duration-200"
-                          style={{ color: 'black' }}
-                        >
-                          39475 Fremont Blvd<br />
-                          Fremont, CA USA
-                        </a>
-                      </p>
+                        <div className="mb-6">
+                          <p className="font-semibold mb-2">San Jose - Phone Hut Cell Phone Repair</p>
+                          <a 
+                            href="https://maps.app.goo.gl/dca1G1WrjxgmWt1y9" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-600 transition-colors duration-200 block mb-1"
+                            style={{ color: 'black' }}
+                          >
+                            311 N Capitol Ave M
+                          </a>
+                          <p className="mb-2">San Jose, CA 95133</p>
+                          <p className="mb-1">Phone: 408-224-2869</p>
+                          <p>Email: oakridge@gophonehut.com</p>
+                        </div>
+                        
+                        <div>
+                          <p className="font-semibold mb-2">Fremont - Phone Hut Cell Phone Repair</p>
+                          <a 
+                            href="https://maps.app.goo.gl/CKG8gYeNvUjuSdL39" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-600 transition-colors duration-200 block mb-1"
+                            style={{ color: 'black' }}
+                          >
+                            39475 Fremont Blvd
+                          </a>
+                          <p className="mb-2">Fremont, CA 94538</p>
+                          <p className="mb-1">Phone: 408-224-2869</p>
+                          <p>Email: oakridge@gophonehut.com</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col items-center space-y-2">
-                    <div 
-                      className="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-200 cursor-pointer"
-                      style={{ backgroundColor: hoveredIcon === 'phone' ? '#0056b3' : '#6d6e71' }}
-                      onMouseEnter={() => setHoveredIcon('phone')}
-                      onMouseLeave={() => setHoveredIcon(null)}
-                    >
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p
-                        className="text-gray-600"
-                        style={{
-                          fontFamily: "&apos;Lato&apos;, sans-serif",
-                          fontSize: '14px',
-                          color: 'black',
-                          textTransform: 'capitalize',
-                          letterSpacing: '1px'
-                        }}
-                      >
-                        <span style={{ fontWeight: 'bold' }}>Phone:</span> 408-224-2869
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-center space-y-2">
-                    <div 
-                      className="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-200 cursor-pointer"
-                      style={{ backgroundColor: hoveredIcon === 'email' ? '#0056b3' : '#6d6e71' }}
-                      onMouseEnter={() => setHoveredIcon('email')}
-                      onMouseLeave={() => setHoveredIcon(null)}
-                    >
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p
-                        className="text-gray-600"
-                        style={{
-                          fontFamily: "&apos;Lato&apos;, sans-serif",
-                          fontSize: '14px',
-                          color: 'black',
-                          textTransform: 'capitalize',
-                          letterSpacing: '1px'
-                        }}
-                      >
-                        <span style={{ fontWeight: 'bold' }}>Email:</span> oakridge@gophonehut.com
-                      </p>
-                    </div>
-                  </div>
 
                   {/* Social Media Icons */}
                   <div className="mt-6">
