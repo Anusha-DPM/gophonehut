@@ -498,10 +498,10 @@ export default function AppointmentPage() {
                       <p>39475 Fremont Blvd</p>
                       <p>Fremont, CA 94538</p>
                       <p className="mt-4">
-                        <span className="font-semibold">Phone:</span> 408-224-2869
+                        <span className="font-semibold">Phone:</span> 510-320-7590
                       </p>
                       <p>
-                        <span className="font-semibold">Email:</span> oakridge@gophonehut.com
+                        <span className="font-semibold">Email:</span> freemont@gophonehut.com
                       </p>
                       <div className="mt-4">
                         <a

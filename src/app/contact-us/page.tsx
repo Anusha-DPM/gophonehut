@@ -339,8 +339,8 @@ export default function ContactUs() {
                             39475 Fremont Blvd
                           </a>
                           <p className="mb-2">Fremont, CA 94538</p>
-                          <p className="mb-1">Phone: 408-224-2869</p>
-                          <p>Email: oakridge@gophonehut.com</p>
+                          <p className="mb-1">Phone: 510-320-7590</p>
+                          <p>Email: freemont@gophonehut.com</p>
                         </div>
                       </div>
                     </div>
